@@ -9,11 +9,13 @@
   <link rel="icon" href="Docs/beagle.ico" type="image/x-icon">
   <link rel="shortcut icon" href="Docs/beagle.ico" type="image/x-icon">
   <style type="text/css" media="screen">@import "Docs/common.css";</style>
+  <script src="Docs/jquery.js"></script>
   <script src="Docs/bonescript.js"></script>
   <script>
-setTargetAddress('192.168.7.2', foundBonescript);
-function foundBonescript() {
- window.location = 'http://192.168.7.2';
+setTargetAddress('192.168.7.2', function () {
+ if(typeof _bonescript != 'undefined') {
+  $('#board-address').html('<a href="http://192.168.7.2">Click me now!</a>');
+ }
 }
   </script>
  </head>
@@ -45,6 +47,8 @@ function foundBonescript() {
   alt="beaglebone in hand" align="right" height="200px" />
 
  <h1>BeagleBone Quick-Start Guide</h1>
+
+ <div id='board-address'></div>
 
  <h2>Step-by-Step Quick-Start</h2>
  <p><em>Do not use Internet Explorer. Also, virtual machines are not recommended (they will work via a network but not always for direct USB connection).</em></p>
