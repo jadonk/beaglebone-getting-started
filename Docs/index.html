@@ -9,7 +9,7 @@
    now able to go anywhere you'd like it to sense and control your world." />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-  <style type="text/css" media="screen">@import "common.css";</style>
+  <link rel="stylesheet" type="text/css" href="common.css" />
   <script src="bonescript.js"></script>
   <script>
 var demoRun = function(id) {
@@ -55,7 +55,7 @@ var demoRun = function(id) {
    Socket.IO</a>.</p>
   <p>Turn LEDs on: <button onclick="demoRun('led1')">run</button></p>
   <pre id="led1">
-b=require('bonescript');
+var b=require('bonescript');
 b.pinMode('USR0', 'out');
 b.pinMode('USR1', 'out');
 b.pinMode('USR2', 'out');
@@ -66,7 +66,7 @@ b.digitalWrite('USR2', 1);
 b.digitalWrite('USR3', 1);</pre>
   <p>Turn LEDs off: <button onclick="demoRun('led2')">run</button></p>
   <pre id="led2">
-b=require('bonescript');
+var b=require('bonescript');
 b.pinMode('USR0', 'out');
 b.pinMode('USR1', 'out');
 b.pinMode('USR2', 'out');
@@ -85,15 +85,23 @@ b.digitalWrite('USR3', 0);</pre>
   names P8_1, P8_2, ... P8_46 where P8 is the name of the header on the slikscreen on the board and the
   number that follows is the pin number on the header.</p>
   <p>Both the LEDs and the GPIOs on the headers accessible via 'digitalWrite'.</p>
-  <p>Make LEDs blink for 30 seconds: <button onclick="demoRun('blink1')">run</button></p>
+  <p>Make LEDs blink for 10 seconds: <button onclick="demoRun('blink1')">run</button></p>
   <pre id="blink1">
-b=require('bonescript');
+var b=require('bonescript');
 b.pinMode('USR0', 'out');
 var state = 0;
 function toggleUSR0() {
  state = state ? 0 : 1;
- b.digitalWrite
+ b.digitalWrite('USR0', state);
 }
+var tick = setInterval(toggleUSR0, 100);
+setTimeout(stopTick, 10000);
+function stopTick() {
+ clearInterval(tick);
+}</pre>
+  <p>To introduce timing, use the built-in setInterval and setTimeout JavaScript functions.</p>
+  <p>Note how JavaScript can pass functions as arguments. This is handy for adding hardware handlers.</p>
+    <h2><a href="demo_blinkled.html">How about blinking an external LED?</a><h2>
     </div>
    </div>
    <!-- Content Area - END -->
