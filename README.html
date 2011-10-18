@@ -56,20 +56,56 @@
    </ul>
   </li>
   <li>Linux:
-   <ul>
-    <li>sudo modprobe ftdi_sio vendor=0x0403 product=0xa6d0</li>
-    <li>screen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ print $NF }'` 115200</li>
-   </ul>
+   <pre>
+sudo modprobe ftdi_sio vendor=0x0403 product=0xa6d0
+screen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ print $NF }'` 115200
+   </pre>
   </li>
  </ul>
 
  <h2>Step #2: Install the USB-to-Ethernet device driver</h2>
- <p>
+ <p>The Linux distribution running on your BeagleBone supports emulating a USB-to-Ethernet
+  device such that you can access your BeagleBone with networking protocols, such as web
+  browsing.
  </p>
+ <ol>
+  <li>Eject the BEAGLE_BONE USB drive.</li>
+  <li>Login using 'root' over your serial interface to the BeagleBone.</li>
+  <li>Issue the following commands to your BeagleBone at the <b>root@beaglebone:~#</b>
+   prompt:
+   <pre>
+rmmod g_mass_storage
+modprobe g_ether
+ifconfig usb0 10.0.0.2 netmask 255.255.255.0
+   </pre>
+  </li>
+  <li>Windows:
+   <ul>
+    <li>Point your Windows machine to the <a href="Drivers/Windows/RNDIS">
+     "\Drivers\Windows\RNDIS"</a> folder for the driver.  If you closed the window, 
+     double-click the linux.inf file to manually install the driver.</li>
+    <li>Find the new Ethernet adapter and give it an IP address of 10.0.0.1 and a
+     netmask of 255.255.255.0.</li>
+   </ul>
+  </li>
+  <li>Linux:
+   <pre>
+ifconfig usb0 10.0.0.1 netmask 255.255.255.0
+   </pre>
+  </li>
+ </ol>
 
  <h2>Step #3: Navigate to your BeagleBone's web interface</h2>
- <p>Your BeagleBone comes with a USB-to-serial interface adapter.  To 
+ <p>The Linux distribution running on your BeagleBone is configured to start a handful
+  of web servers upon boot.  This is the easiest way to get explore and program your
+  BeagleBone if you are not already experienced with Linux.
  </p>
+ <ul>
+  <li>For Matrix, visit <a href="http://10.0.0.1:8080/index.html">
+   http://10.0.0.1:8080/index.html</a>.</li>
+  <li>For Cloud9 IDE, visit <a href="http://10.0.0.1:3000/index.html">
+   http://10.0.0.1:3000</a>.</li>
+ </ul>
 
  <p>Document version: 0.1</p>
 </body>
