@@ -79,19 +79,30 @@ modprobe g_ether
 ifconfig usb0 10.0.0.2 netmask 255.255.255.0
    </pre>
   </li>
-  <li>Windows:
+  <li>Do the driver installation
    <ul>
-    <li>Point your Windows machine to the <a href="Drivers/Windows/RNDIS">
-     "\Drivers\Windows\RNDIS"</a> folder for the driver.  If you closed the window, 
-     double-click the linux.inf file to manually install the driver.</li>
-    <li>Find the new Ethernet adapter and give it an IP address of 10.0.0.1 and a
-     netmask of 255.255.255.0.</li>
-   </ul>
-  </li>
-  <li>Linux:
-   <pre>
+    <li>Windows:
+     <ul>
+      <li>Point your Windows machine to the <a href="Drivers/Windows/RNDIS">
+       "\Drivers\Windows\RNDIS"</a> folder for the driver.  If you closed the window, 
+       double-click the linux.inf file to manually install the driver.</li>
+      <li>Find the new Ethernet adapter and give it an IP address of 10.0.0.1 and a
+       netmask of 255.255.255.0.</li>
+     </ul>
+    </li>
+    <li>Mac OS X:
+     <ul>
+      <li>Open the <a href="Drivers/MacOSX/USBCDC-G_ether">"/Drivers/MacOSX/USBCDC-G_ether"</a>
+       folder and double-click the .zip file, double-click the appropriate .pkg file
+       and follow the instructions.
+       <a href="http://bugcommunity.com/wiki/index.php/Start_Guide_Mac_OS_X_10.5">*</a></li>
+     </ul>
+    <li>Linux:
+     <pre>
 ifconfig usb0 10.0.0.1 netmask 255.255.255.0
-   </pre>
+     </pre>
+    </li>
+   </ul>
   </li>
  </ol>
 
@@ -107,6 +118,18 @@ ifconfig usb0 10.0.0.1 netmask 255.255.255.0
    http://10.0.0.1:3000</a>.</li>
  </ul>
 
+ <h2>To-do items for next release</h2>
+ <ul>
+  <li>Verify licensing and redistribution rights</li>
+  <li>Add g_ether service (with fixed MAC addresses) on g_mass_storage ejection</li>
+  <li>Add DHCP server to avoid network configuration when using g_ether</li>
+  <li>Provide list of supported browsers and versions</li>
+  <li>Fix-up Mac drivers to install cleanly without manual hacking</li>
+  <li>Test and improve Windows driver installation experience based on feedback</li>
+  <li>Add graphics and/or videos where appropriate</li>
+ </ul>
+
+ <br/>
  <p>Document version: 0.1</p>
 </body>
 </html>
