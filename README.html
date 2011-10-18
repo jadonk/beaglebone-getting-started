@@ -74,6 +74,7 @@ screen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ pr
   <li>Issue the following commands to your BeagleBone at the <b>root@beaglebone:~#</b>
    prompt:
    <pre>
+systemctl stop storage-gadget-init.service
 rmmod g_mass_storage
 modprobe g_ether
 ifconfig usb0 10.0.0.2 netmask 255.255.255.0
