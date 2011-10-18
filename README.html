@@ -15,29 +15,63 @@
   alt="beaglebone in hand" align="right" height="200px" />
 
  <h1>Getting started with your new BeagleBone</h1>
- <p>This is the quick-start guide.  For more detailed background, see the full
-  presentation available at: <a href="http://beagleboard.org/beagleboard101">
-   http://beagleboard.org/beagleboard101
-  </a>
+ <p>This is the quick-start guide.  For a more detailed background and to get
+  the latest demonstration image, see the full presentation available at:
+  <a href="http://beagleboard.org/beagleboard101">
+  http://beagleboard.org/beagleboard101</a>. Until the files are copied to an
+  external server, you can find some code and documents on the
+  <a href="http://ap-fpdsp-swapps.dal.design.ti.com/index.php/BeagleBone">
+  TI Internal BeagleBone wiki page</a>.
  </p>
 
  <h2>Step #1: Install the USB-to-serial device driver</h2>
  <p>Your BeagleBone comes with a built-in USB-to-serial interface adapter.  To
   enable it, you'll need to install the Windows, Mac OSX or Linux driver.</p>
  <ul>
-  <li>Windows: If you've installed Code Composer Studio, you've already
-   installed the driver and you can skip this step.  Otherwise, open the
-   "\Drivers\Windows\FTDI_Driver" or "\Drivers\Windows\FTDI_64bit_Driver"
-   folder </li>
-  <li>Mac OSX: Open the "/Drivers/MacOSX/FTDI_Driver" folder </li>
+  <li>Windows:
+   <ul>
+    <li>If you've installed Code Composer Studio v5, you've already
+     installed the driver and you can skip this step.  Code Composer Studio v5
+     can be used with the BeagleBone for free.  See <a
+      href="http://processors.wiki.ti.com/index.php/Category:Code_Composer_Studio_v5"
+     >the Code Composer Studio v5 wiki page</a> for download and installation
+     information.</li>
+    <li>Otherwise, point your Windows machine to the <a href="Drivers/Windows/FTDI_Driver">
+     "\Drivers\Windows\FTDI_Driver"</a> folder for the drivers.  If you closed the window, 
+     double-click each of the .inf files to manually install the drivers.</li>
+    <li>Start Hyperterminal and point it to the newest COM port.</li>
+   </ul>
+  </li>
+  <li>Mac OS X:
+   <ul>
+    <li>Open the <a href="Drivers/MacOSX/FTDI_Driver">"/Drivers/MacOSX/FTDI_Driver"</a>
+     folder and double-click the .dmg file, double-click the appropriate .mpkg file
+     and follow the instructions.</li>
+    <li>Add the BeagleBone to the
+     /System/Library/Extensions/FTDIUSBSerialDriver.kext/Contents/Info.plist file with
+     the idVendor of 1027 and idProduct of 42704.<a href=
+     "http://www.ftdichip.com/Support/Documents/TechnicalNotes/TN_105%20Adding%20Support%20for%20New%20FTDI%20Devices%20to%20Mac%20Driver.pdf"
+     >*</a></li>
+    <li>screen /dev/tty.usb* 115200</li>
+   </ul>
+  </li>
+  <li>Linux:
+   <ul>
+    <li>sudo modprobe ftdi_sio vendor=0x0403 product=0xa6d0</li>
+    <li>screen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ print $NF }'` 115200</li>
+   </ul>
+  </li>
  </ul>
 
  <h2>Step #2: Install the USB-to-Ethernet device driver</h2>
  <p>
+ </p>
 
  <h2>Step #3: Navigate to your BeagleBone's web interface</h2>
  <p>Your BeagleBone comes with a USB-to-serial interface adapter.  To 
+ </p>
 
+ <p>Document version: 0.1</p>
 </body>
 </html>
 
