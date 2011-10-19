@@ -77,7 +77,7 @@ screen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ pr
 systemctl stop storage-gadget-init.service
 rmmod g_mass_storage
 modprobe g_ether
-ifconfig usb0 10.0.0.2 netmask 255.255.255.0
+ifconfig usb0 10.0.0.1 netmask 255.255.255.252
    </pre>
   </li>
   <li>Do the driver installation
@@ -99,7 +99,7 @@ ifconfig usb0 10.0.0.2 netmask 255.255.255.0
      </ul>
     <li>Linux:
      <pre>
-ifconfig usb0 10.0.0.1 netmask 255.255.255.0
+ifconfig usb0 10.0.0.2 netmask 255.255.255.252
      </pre>
     </li>
    </ul>
