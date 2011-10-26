@@ -87,8 +87,7 @@ ifconfig usb0 10.0.0.1 netmask 255.255.255.252
       <li>Point your Windows machine to the <a href="Drivers/Windows/RNDIS">
        "\Drivers\Windows\RNDIS"</a> folder for the driver.  If you closed the window, 
        double-click the linux.inf file to manually install the driver.</li>
-      <li>Find the new Ethernet adapter and give it an IP address of 10.0.0.2 and a
-       netmask of 255.255.255.252.</li>
+      <li>Configure the adapter for DHCP.</li>
      </ul>
     </li>
     <li>Mac OS X:
@@ -96,11 +95,10 @@ ifconfig usb0 10.0.0.1 netmask 255.255.255.252
       <li>Open the <a href="Drivers/MacOSX/USBCDC-G_ether">"/Drivers/MacOSX/USBCDC-G_ether"</a>
        folder, double-click the .pkg file and follow the instructions.
        <a href="http://bugcommunity.com/wiki/index.php/Start_Guide_Mac_OS_X_10.5">*</a></li>
+      <li>Configure the adapter for DHCP.</li>
      </ul>
     <li>Linux:
-     <pre>
-ifconfig usb0 10.0.0.2 netmask 255.255.255.252
-     </pre>
+     <p>No driver installation should be required, simply configure the adapter for DHCP.</p>
     </li>
    </ul>
   </li>
@@ -112,10 +110,12 @@ ifconfig usb0 10.0.0.2 netmask 255.255.255.252
   BeagleBone if you are not already experienced with Linux.
  </p>
  <ul>
-  <li>For Matrix, visit <a href="http://10.0.0.1:8080/index.html">
-   http://10.0.0.1:8080/index.html</a>.</li>
-  <li>For Cloud9 IDE, visit <a href="http://10.0.0.1:3000/index.html">
-   http://10.0.0.1:3000</a>.</li>
+  <li>For an alpha board overview status app, visit <a href="http://10.0.7.1">
+   http://10.0.7.1</a>.</li>
+  <li>For Matrix, visit <a href="http://10.0.7.1:8080/index.html">
+   http://10.0.7.1:8080/index.html</a>.</li>
+  <li>For Cloud9 IDE, visit <a href="http://10.0.7.1:3000/index.html">
+   http://10.0.7.1:3000</a>.</li>
  </ul>
 
  <h2>To-do items for next release</h2>
@@ -136,7 +136,7 @@ ifconfig usb0 10.0.0.2 netmask 255.255.255.252
  </ul>
 
  <hr/>
- <p>Document version: 0.2</p>
+ <p>Document version: 0.3</p>
 </body>
 </html>
 
