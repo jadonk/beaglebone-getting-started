@@ -69,39 +69,30 @@ screen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ pr
   browsing.
  </p>
  <ol>
-  <li>Eject the BEAGLE_BONE USB drive.</li>
-  <li>Login using 'root' over your serial interface to the BeagleBone.</li>
-  <li>Issue the following commands to your BeagleBone at the <b>root@beaglebone:~#</b>
-   prompt:
-   <pre>
-systemctl stop storage-gadget-init.service
-rmmod g_mass_storage
-modprobe g_ether
-ifconfig usb0 10.0.0.1 netmask 255.255.255.252
-   </pre>
-  </li>
   <li>Do the driver installation
    <ul>
     <li>Windows:
      <ul>
-      <li>Point your Windows machine to the <a href="Drivers/Windows/RNDIS">
-       "\Drivers\Windows\RNDIS"</a> folder for the driver.  If you closed the window, 
-       double-click the linux.inf file to manually install the driver.</li>
-      <li>Configure the adapter for DHCP.</li>
+      <li>Copy linux.inf from the <a href="Drivers/Windows/RNDIS">
+       "\Drivers\Windows\RNDIS"</a> folder to your PC for use to tell Windows where to
+       find the driver.</li>
      </ul>
     </li>
     <li>Mac OS X:
      <ul>
-      <li>Open the <a href="Drivers/MacOSX/USBCDC-G_ether">"/Drivers/MacOSX/USBCDC-G_ether"</a>
-       folder, double-click the .pkg file and follow the instructions.
-       <a href="http://bugcommunity.com/wiki/index.php/Start_Guide_Mac_OS_X_10.5">*</a></li>
-      <li>Configure the adapter for DHCP.</li>
+      <li>The folks over at Bug Labs have provided a driver you can use:
+       <a href="http://bugcommunity.com/wiki/index.php/Start_Guide_Mac_OS_X_10.5">
+        http://bugcommunity.com/wiki/index.php/Starte_Guide_Mac_OS_X_10.5
+       </a>
+      </li>
      </ul>
     <li>Linux:
-     <p>No driver installation should be required, simply configure the adapter for DHCP.</p>
+     <ul><li>No driver installation should be required, simply configure the adapter for DHCP.</li></ul>
     </li>
    </ul>
   </li>
+  <li>Eject the BEAGLE_BONE USB drive.  The USB Ethernet gadget will automatically start.</li>
+  <li>Configure the adapter that appears for DHCP.</li>
  </ol>
 
  <h2>Step #3: Navigate to your BeagleBone's web interface</h2>
