@@ -29,9 +29,9 @@ uenv.txt:
 This file is released into the public domain
 ==============================================================================
 README.htm and Docs/*: 
-This work is licensed under the Creative Commons Attribution-ShareAlike 2.5
-Generic License. To view a copy of this license, visit
-http://creativecommons.org/licenses/by-sa/2.5/ or send a letter to Creative
+This work is licensed under the Creative Commons Attribution-ShareAlike 3.0
+Unported License. To view a copy of this license, visit
+http://creativecommons.org/licenses/by-sa/3.0/ or send a letter to Creative
 Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
 
 These design materials are *NOT SUPPORTED* and DO NOT constitute a reference
