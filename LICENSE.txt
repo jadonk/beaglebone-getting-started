@@ -1,4 +1,6 @@
-Below are the license agreements for the materials on this disk partition.
+Below are the license agreements for the materials on this disk partition:
+
+==============================================================================
 MLO and u-boot.img (source at http://github.com/beagleboard/u-boot):
 #
 # (C) Copyright 2000 - 2011
@@ -22,16 +24,34 @@ MLO and u-boot.img (source at http://github.com/beagleboard/u-boot):
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston,
 # MA 02111-1307 USA
 #
-
+==============================================================================
 uenv.txt:
 This file is released into the public domain
-
+==============================================================================
 README.htm and Docs/*: 
 This work is licensed under the Creative Commons Attribution-ShareAlike 2.5
 Generic License. To view a copy of this license, visit
 http://creativecommons.org/licenses/by-sa/2.5/ or send a letter to Creative
 Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
 
+These design materials are *NOT SUPPORTED* and DO NOT constitute a reference
+design. Only “community” support is allowed via resources at
+BeagleBoard.org/discuss.
+
+THERE IS NO WARRANTY FOR THE DESIGN MATERIALS, TO THE EXTENT PERMITTED BY
+APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS
+AND/OR OTHER PARTIES PROVIDE THE DESIGN MATERIALS “AS IS” WITHOUT WARRANTY OF
+ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE DESIGN MATERIALS IS
+WITH YOU. SHOULD THE DESIGN MATERIALS PROVE DEFECTIVE, YOU ASSUME THE COST OF
+ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+
+We mean it, these design materials may be totally unsuitable for any purposes.
+
+It would be greatly appreciated if you did not use the BeagleBoard.org logo on
+your products, but feel free to reference BeagleBoard.org.
+==============================================================================
 Drivers/MacOSX/FTDI/FTDI_Ser.dmg:
 This software is provided by Future Technology Devices International Limited
 ``as is'' and any express or implied warranties, including, but not limited
@@ -51,7 +71,7 @@ not modified.
 If a custom vendor ID and/or product ID or description string are used, it is
 the responsibility of the product manufacturer to maintain any changes and
 subsequent WHQL re-certification as a result of making these changes.
-
+==============================================================================
 Drivers/Windows/FTDI/*: 
 ; Copyright © 2000-2011 Future Technology Devices International Limited
 ; 
@@ -76,7 +96,7 @@ Drivers/Windows/FTDI/*:
 ; THE PRODUCT MANUFACTURER TO MAINTAIN ANY CHANGES AND SUBSEQUENT WHQL RE-CERTIFICATION AS A RESULT OF
 ; MAKING THESE CHANGES.
 ;
-
+==============================================================================
 Drivers/Windows/RNDIS/linux.inf:
 ; Based on template INF file found at
 ;    <http://msdn.microsoft.com/en-us/library/ff570620.aspx>
