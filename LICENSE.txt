@@ -1,0 +1,88 @@
+Below are the license agreements for the materials on this disk partition.
+MLO and u-boot.img (source at http://github.com/beagleboard/u-boot):
+#
+# (C) Copyright 2000 - 2011
+# Wolfgang Denk, DENX Software Engineering, wd@denx.de.
+#
+# See file CREDITS for list of people who contributed to this
+# project.
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of
+# the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston,
+# MA 02111-1307 USA
+#
+
+uenv.txt:
+This file is released into the public domain
+
+README.htm and Docs/*: 
+This work is licensed under the Creative Commons Attribution-ShareAlike 2.5
+Generic License. To view a copy of this license, visit
+http://creativecommons.org/licenses/by-sa/2.5/ or send a letter to Creative
+Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
+
+Drivers/MacOSX/FTDI/FTDI_Ser.dmg:
+This software is provided by Future Technology Devices International Limited
+``as is'' and any express or implied warranties, including, but not limited
+to, the implied warranties of merchantability and fitness for a particular
+purpose are disclaimed. In no event shall future technology devices
+international limited be liable for any direct, indirect, incidental, special,
+exemplary, or consequential damages (including, but not limited to,
+procurement of substitute goods or services; loss of use, data, or profits; or
+business interruption) however caused and on any theory of liability, whether
+in contract, strict liability, or tort (including negligence or otherwise)
+arising in any way out of the use of this software, even if advised of the
+possibility of such damage. 
+FTDI drivers may be used only in conjunction with products based on FTDI
+parts.
+FTDI drivers may be distributed in any form as long as license information is
+not modified.
+If a custom vendor ID and/or product ID or description string are used, it is
+the responsibility of the product manufacturer to maintain any changes and
+subsequent WHQL re-certification as a result of making these changes.
+
+Drivers/Windows/FTDI/*: 
+; Copyright © 2000-2011 Future Technology Devices International Limited
+; 
+; USB serial converter driver installation file for Windows 2000, XP, Server 2003, Vista, Server 2008,
+; Windows 7 and Server 2008 R2 (x86 and x64).
+; 
+; 
+; THIS SOFTWARE IS PROVIDED BY FUTURE TECHNOLOGY DEVICES INTERNATIONAL LIMITED ``AS IS'' AND ANY EXPRESS 
+; OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+; FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL FUTURE TECHNOLOGY DEVICES INTERNATIONAL LIMITED
+; BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, 
+; BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+; INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+; (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
+; THE POSSIBILITY OF SUCH DAMAGE. 
+ 
+; FTDI DRIVERS MAY BE USED ONLY IN CONJUNCTION WITH PRODUCTS BASED ON FTDI PARTS.
+ 
+; FTDI DRIVERS MAY BE DISTRIBUTED IN ANY FORM AS LONG AS LICENSE INFORMATION IS NOT MODIFIED.
+
+; IF A CUSTOM VENDOR ID AND/OR PRODUCT ID OR DESCRIPTION STRING ARE USED, IT IS THE RESPONSIBILITY OF
+; THE PRODUCT MANUFACTURER TO MAINTAIN ANY CHANGES AND SUBSEQUENT WHQL RE-CERTIFICATION AS A RESULT OF
+; MAKING THESE CHANGES.
+;
+
+Drivers/Windows/RNDIS/linux.inf:
+; Based on template INF file found at
+;    <http://msdn.microsoft.com/en-us/library/ff570620.aspx>
+; which was:
+;    Copyright (c) Microsoft Corporation
+; and released under the MLPL as found at:
+;    <http://msdn.microsoft.com/en-us/cc300389.aspx#MLPL>.
+; For use only on Windows operating systems.
+
