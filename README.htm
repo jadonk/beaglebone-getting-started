@@ -15,10 +15,12 @@
   alt="beaglebone in hand" align="right" height="200px" />
 
  <h1>Getting started with your new BeagleBone</h1>
- <p>This is the quick-start guide.  For a more detailed background and to get
-  the latest demonstration image, see the full presentation available at:
+ <p>This is the quick-start guide.  For a more detailed background,
+  see the full presentation available at:
   <a href="http://beagleboard.org/beagleboard101">
-  http://beagleboard.org/beagleboard101</a>.
+  http://beagleboard.org/beagleboard101</a>.  It is also highly recommended
+  for you to read the <a href="http://beagleboard.org/support/faq">Frequently
+  Asked Questions guide</a>.
  </p>
 
  <h2>Step #0: Update to the newest demo image</h2>
@@ -26,8 +28,24 @@
   <a href="http://www.angstrom-distribution.org/demo/beaglebone">the Angstrom
   Distribution BeagleBone demo page</a>.  Please visit there now to download
   the latest version.  The above presentation will walk you through the process
-  of writing the demo image to a microSD card if you don't have another Linux
-  machine.
+  of writing the demo image to a microSD card if you aren't already a Linux
+  user.
+ </p>
+ <p>If you are using a different microSD card image, please look for support
+  from the supplier of that image.
+ </p>
+
+ <h2>Decision time: Ethernet or single-cable USB based development?</h2>
+ <p>The most recommended path from here for somone experienced in managing their
+  local network and performing remote logins via ssh is to go get a
+  <a href="http://beagleboard.org/peripheral#5V">recommended 5V power adapter</a>
+  and connect your BeagleBone via an Ethernet to your LAN.  Your BeagleBone will
+  automatically start web services to which you can connect, so you can avoid
+  installing USB drivers until you want to perform some lower-level debug.  Use
+  Bonjour or your router's DHCP log to discover the IP address of your board and
+  browse to it.
+ </p>
+ <p>If you don't understand what I just said, please continue...
  </p>
 
  <h2>Step #1: Install the USB-to-serial device driver</h2>
