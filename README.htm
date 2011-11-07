@@ -91,6 +91,24 @@ sudo modprobe ftdi_sio vendor=0x0403 product=0xa6d0
 screen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ print $NF }'` 115200
      </pre>
     </li>
+    <li>To make the BeagleBone show up upon every reboot, add a udev rule.  Here is an example
+     /etc/udev/rules.d/73-beaglebone.rules:
+     <pre>
+ACTION=="add", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_interface", \
+        ATTRS{idVendor}=="0403", ATTRS{idProduct}=="a6d0", \
+        DRIVER=="", RUN+="/sbin/modprobe -b ftdi_sio"
+
+ACTION=="add", SUBSYSTEM=="drivers", \
+        ENV{DEVPATH}=="/bus/usb-serial/drivers/ftdi_sio", \
+        ATTR{new_id}="0403 a6d0"
+
+ACTION=="add", KERNEL=="ttyUSB*", \ ATTRS{interface}=="BeagleBone", \
+        ATTRS{bInterfaceNumber}=="00", \ SYMLINK+="beaglebone-jtag"
+
+ACTION=="add", KERNEL=="ttyUSB*", \ ATTRS{interface}=="BeagleBone", \
+        ATTRS{bInterfaceNumber}=="01", \ SYMLINK+="beaglebone-serial"
+     </pre>
+    </li>
    </ul>
   </li>
  </ul>
