@@ -15,16 +15,17 @@
   alt="beaglebone in hand" align="right" height="200px" />
 
  <h1>Getting started with your new BeagleBone</h1>
- <p>This is the quick-start guide.  For a more detailed background,
-  see the full presentation available at:
-  <a href="http://beagleboard.org/beagleboard101">
-  http://beagleboard.org/beagleboard101</a>.  It is also highly recommended
+ <p>This is the quick-start guide.  Please read the
+  <a href="Docs/Hardware/BONE_SRM.pdf">BeagleBone System Reference Manual</a>
+  and view the
+  <a href="http://beagleboard.org/beagleboard101">BeagleBoard101 presentation</a>
+  before looking for any additional help.  It is also highly recommended
   for you to read the <a href="http://beagleboard.org/support/faq">Frequently
   Asked Questions guide</a>.
  </p>
 
  <h2>Step #0: Update to the newest demo image</h2>
- <p>The latest version of this Angstrom Cloud9IDE demo image is available from
+ <p>The latest version of this Angstrom Cloud9 IDE demo image is available from
   <a href="http://www.angstrom-distribution.org/demo/beaglebone">the Angstrom
   Distribution BeagleBone demo page</a>.  Please visit there now to download
   the latest version.  The above presentation will walk you through the process
@@ -73,9 +74,10 @@
   </li>
   <li>Mac OS X:
    <ul>
-    <li>Open the <a href="Drivers/MacOSX/FTDI">/Drivers/MacOSX/FTDI</a>
-     folder, double-click "FTDI_Ser.dmg", double-click "FTDI_Serial.pkg" and follow
-     the instructions.  For additional information, visit
+    <li>Open
+     <a href="Drivers/MacOSX/FTDI/FTDI_Ser.dmg">/Drivers/MacOSX/FTDI/FTDI_Ser.dmg</a>,
+     double-click "FTDI_Serial.pkg" and follow the instructions.  For additional
+     information, visit
      <a href="http://www.ftdichip.com/Drivers/VCP.htm">ftdichip.com</a>.
     </li>
     <li>To open the serial terminal from within Terminal.app, use the following command:
@@ -119,7 +121,7 @@ ACTION=="add", KERNEL=="ttyUSB*", \ ATTRS{interface}=="BeagleBone", \
   browsing.
  </p>
  <ol>
-  <li>Do the driver installation
+  <li>Prepare for the driver installation.
    <ul>
     <li>Windows:
      <ul>
@@ -130,9 +132,9 @@ ACTION=="add", KERNEL=="ttyUSB*", \ ATTRS{interface}=="BeagleBone", \
     </li>
     <li>Mac OS X:
      <ul>
-      <li>The folks over at Bug Labs have provided a driver you can use:
+      <li>The folks over at Bug Labs have produced a driver you might use:
        <a href="http://bugcommunity.com/wiki/index.php/Start_Guide_Mac_OS_X_10.5">
-        http://bugcommunity.com/wiki/index.php/Starte_Guide_Mac_OS_X_10.5
+        http://bugcommunity.com/wiki/index.php/Start_Guide_Mac_OS_X_10.5
        </a>
       </li>
      </ul>
@@ -151,12 +153,12 @@ ACTION=="add", KERNEL=="ttyUSB*", \ ATTRS{interface}=="BeagleBone", \
   BeagleBone if you are not already experienced with Linux.
  </p>
  <ul>
-  <li>For an alpha board overview status app, visit <a href="http://10.0.7.1">
-   http://10.0.7.1</a>.</li>
-  <li>For Matrix, visit <a href="http://10.0.7.1:8080/index.html">
-   http://10.0.7.1:8080/index.html</a>.</li>
-  <li>For Cloud9 IDE, visit <a href="http://10.0.7.1:3000/index.html">
-   http://10.0.7.1:3000</a>.</li>
+  <li>For an alpha board overview status app, visit <a href="http://192.168.7.2">
+   http://192.168.7.2</a>.</li>
+  <li>For Matrix, visit <a href="http://192.168.7.2:8080/index.html">
+   http://192.168.7.2:8080/index.html</a>.</li>
+  <li>For Cloud9 IDE, visit <a href="http://192.168.7.2:3000/index.html">
+   http://192.168.7.2:3000</a>.</li>
  </ul>
 
  <h2>To-do items for next release</h2>
@@ -164,7 +166,6 @@ ACTION=="add", KERNEL=="ttyUSB*", \ ATTRS{interface}=="BeagleBone", \
   <li>Add g_ether service (with fixed MAC addresses) on g_mass_storage ejection</li>
   <li>Add DHCP server to avoid network configuration when using g_ether</li>
   <li>Provide list of supported browsers and versions</li>
-  <li>Fix-up Mac drivers to install cleanly without manual hacking</li>
   <li>Test and improve Windows driver installation experience based on feedback</li>
   <li>Add graphics and/or videos where appropriate</li>
   <li>Clean up documents folder and give pointers to the content</li>
@@ -173,10 +174,14 @@ ACTION=="add", KERNEL=="ttyUSB*", \ ATTRS{interface}=="BeagleBone", \
   <li>Add Ethernet IP address to a file</li>
   <li>Add Cloud9 node.js and C examples</li>
   <li>Add BeagleBoard101 presentation with dynamic board status to port 80 with new server and start it</li>
+  <li>Set date/time with ntp and do something to prevent clock roll-backs between boots</li>
+  <li>Include all of the right python files for node-waf to work</li>
+  <li>Add nano/pico editors that people know how to use</li>
+  <li>Mount /dev/mmcblk0p1 after it is ejected</li>
  </ul>
 
  <hr/>
- <p>Document version: 0.4</p>
+ <p>Document version: 0.5</p>
 </body>
 </html>
 
