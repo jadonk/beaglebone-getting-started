@@ -24,11 +24,12 @@
   Asked Questions guide</a>.
  </p>
 
- <h2>Step #0: Update to the newest demo image</h2>
+ <h2>Before you begin, update to the newest demo image</h2>
  <p>The latest version of this Angstrom Cloud9 IDE demo image is available from
   <a href="http://www.angstrom-distribution.org/demo/beaglebone">the Angstrom
   Distribution BeagleBone demo page</a>.  Please visit there now to download
-  the latest version.  The above presentation will walk you through the process
+  the latest version.  The <a href="http://beagleboard.org/beagleboard101">
+  BeagleBoard101 presentation</a> will walk you through the process
   of writing the demo image to a microSD card if you aren't already a Linux
   user.
  </p>
@@ -36,8 +37,27 @@
   from the supplier of that image.
  </p>
 
+ <h2>Some software already running on your BeagleBone</h2>
+ <p>The Angstrom Distribution image provided with your BeagleBone includes a
+  large amount of software already running as you are reading this document.
+  It is also possible to install many more pre-built packages from the on-line
+  repository feed using the 'opkg' tool.
+ </p>
+ <p>Some of the running programs include web servers and other Internet servers
+  that give you access to the board, even if you don't have a display, mouse
+  and keyboard connected to it.
+ </p>
+ <p>Here is a list of some of the running servers:
+  <ul>
+   <li>ssh (port 22) - </li>
+   <li>boneserver (port 80) - </li>
+   <li>GateOne (port 443) - </li>
+   <li>Cloud9 IDE (port 3000) - </li>
+  </ul>
+ </p>
+
  <h2>Decision time: Ethernet or single-cable USB based development?</h2>
- <p>The most recommended path from here for somone experienced in managing their
+ <p>The most recommended path from here for someone experienced in managing their
   local network and performing remote logins via ssh is to go get a
   <a href="http://beagleboard.org/peripheral#5V">recommended 5V power adapter</a>
   and connect your BeagleBone via an Ethernet to your LAN.  Your BeagleBone will
@@ -53,8 +73,21 @@
  <p>If you don't understand what I just said, please continue...
  </p>
 
- <h2>Step #1: Install the USB-to-serial device driver</h2>
- <p>Your BeagleBone comes with a built-in USB-to-serial interface adapter.  To
+ <h2>Getting your host machine drivers setup</h2>
+ <p>This BeagleBone demo images exposes five (5) different USB device types to
+  your host machine:
+  <ol>
+   <li>SMSC USB hub</li>
+   <li>Linux mass storage class interface</li>
+   <li>FTDI USB-to-serial interface</li>
+   <li>FTDI USB-to-JTAG interface</li>
+   <li>Linux USB-to-Ethernet interface</li>
+  </ol>
+ </p>
+ <p>Neither of the SMSC USB hub and Linux mass storage class interface will
+  require any driver installation on your host machine as drivers for those
+  are completely standard in all major operating systems.
+  Your BeagleBone comes with a built-in USB-to-serial interface adapter.  To
   enable it, you'll need to install the Windows, Mac OSX or Linux driver.</p>
  <ul>
   <li>Windows:
