@@ -43,6 +43,7 @@
   <li><a href="#serial">Connect to your BeagleBone's serial console</a></li>
   <li><a href="#g_ether">Launch USB-to-Ethernet interface</a></li>
   <li><a href="#navigate">Navigate to your BeagleBone's web interface</a></li>
+  <li><a href="#hardware">Examine the rest of the hardware design</a></li>
   <li><a href="#todo">To-do items for upcoming release</a></li>
  </ul>
 
@@ -249,13 +250,38 @@ screen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ pr
    <a href="http://github.com/jadonk/bonescript">BoneScript project</a>.</li>
  </ul>
 
+ <h2 id="hardware">Examine the rest of the hardware design</h2>
+ <ul>
+  <li>
+   <a href="Docs/Hardware/BONE_SRM.pdf">System Reference Manual</a>
+  </li>
+  <li>
+   <a href="Docs/Hardware/BONE_SCH.pdf">Schematics (PDF)</a>
+  </li>
+  <li>
+   <a href="Docs/Hardware/BONE_SCH.zip">Schematics (Orcad)</a>
+  </li>
+  <li>
+   <a href="Docs/Hardware/BONE_BOM.xls">Bill of materials</a>
+  </li>
+  <li>
+   <a href="Docs/Hardware/BONE_PCB.zip">Allegro files</a>
+  </li>
+  <li>
+   <a href="Docs/Hardware/BONE_GER.zip">Gerber files</a>
+  </li>
+  <li>
+   <a href="Docs/Hardware/BONE_PCB.tgz">Alternative Gerber files</a>
+  </li>
+ </ul>
+
  <h2 id="todo">To-do items for upcoming release and their priority</h2>
  <ul class="arrow">
   <li><del>Fix git repo for bonescript to point to real repo (HIGH)</del></li>
   <li>Solve g_ether issue where it takes 100% CPU load on Mac OS X (MEDIUM/HIGH)</li>
   <li><del>Provide list of supported browsers and versions (MEDIUM)</del></li>
   <li><del>Test and improve Windows driver installation experience based on feedback (HIGH)</del></li>
-  <li>Give pointers to the Docs/Hardware content (MEDIUM)</li>
+  <li><del>Give pointers to the Docs/Hardware content (MEDIUM)</del></li>
   <li>Restore Matrix and add links to Gate One and Cloud9 IDE (LOW)</li>
   <li>Add Ethernet IP address to a file (LOW/MEDIUM)</li>
   <li>Update bonescript with C examples (LOW)</li>
