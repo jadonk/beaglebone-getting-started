@@ -39,8 +39,10 @@
   <li><a href="#before">Before you begin, update to the newest demo image</a></li>
   <li><a href="#software">Some software already running on your BeagleBone</a></li>
   <li><a href="#decision">Decision time: Ethernet or single-cable USB based development?</a></li>
-  <li><a href="#drivers">Getting your host machine drivers setup</a></li>
-  <li><a href="navigate">Navigate to your BeagleBone's web interface</a></li>
+  <li><a href="#drivers">Getting your host machine USB drivers setup</a></li>
+  <li><a href="#serial">Connect to your BeagleBone's serial console</a></li>
+  <li><a href="#g_ether">Launch USB-to-Ethernet interface</a></li>
+  <li><a href="#navigate">Navigate to your BeagleBone's web interface</a></li>
   <li><a href="#todo">To-do items for upcoming release</a></li>
  </ul>
 
@@ -90,60 +92,81 @@
   if the power source is USB or the 5V adapter at initial boot.  It will be
   500MHz if the power source is USB and 720MHz if the power source is an adapter.
  </p>
- <p>If you don't understand what I just said, please continue...
+ <p>If you aren't interested in using the USB interfaces and your network connection
+  is all setup, you can jump ahead to <a href="#navigate">navigating to your
+  BeagleBone's web interface</a>.  Otherwise, please continue...
  </p>
 
- <h2 id="drivers">Getting your host machine drivers setup</h2>
- <p>This BeagleBone demo images exposes five (5) different USB device types to
+ <h2 id="drivers">Getting your host machine USB drivers setup</h2>
+ <p>This BeagleBone demo image exposes five (5) different USB device types to
   your host machine:
-  <ol>
-   <li>SMSC USB hub</li>
-   <li>Linux mass storage class interface</li>
-   <li>FTDI USB-to-serial interface</li>
-   <li>FTDI USB-to-JTAG interface</li>
-   <li>Linux USB-to-Ethernet interface</li>
-  </ol>
+  <ul class="arrow">
+   <li><b>SMSC USB hub</b> - a dedicated 2-port hub on your BeagleBone</li>
+   <li><b>FTDI USB-to-JTAG interface</b> - first port on a dedicated USB interface chip</li>
+   <li><b>FTDI USB-to-serial interface</b> - second port on a dedicated USB interface chip</li>
+   <li><b>Linux mass storage class interface</b> - the Linux distribution running on your
+    BeagleBone supports emulating a mass storage device (flash drive) and will share the
+    first partition on the microSD card</li>
+   <li><b>Linux USB-to-Ethernet interface</b> - 
+    the Linux distribution running on your BeagleBone supports emulating a USB-to-Ethernet
+    device such that you can access your BeagleBone with networking protocols, such as web
+    browsing
+   </li>
+  </ul>
  </p>
- <p>Neither of the SMSC USB hub and Linux mass storage class interface will
+ <p>Neither the SMSC USB hub nor Linux mass storage class interface will
   require any driver installation on your host machine as drivers for those
   are completely standard in all major operating systems.
-  Your BeagleBone comes with a built-in USB-to-serial interface adapter.  To
-  enable it, you'll need to install the Windows, Mac OSX or Linux driver.</p>
+ </p>
+ <p>OpenOCD is an application that provides JTAG-based debugging on all three operating
+  systems, but support for the BeagleBone USB-to-JTAG interface is still a work in
+  progress.  Please visit the <a href="http://openocd.sourceforge.net/">OpenOCD
+  Homepage</a> to learn more about the project, join the mailing list and help us
+  to add support for the BeagleBone.</p>
+ <p>Otherwise, support varies across Windows, Mac OSX or Linux.
+ </p>
  <ul class="arrow">
   <li>Windows:
    <ul class="subitem">
     <li>Save and execute <a href="Drivers/Windows/BONE_DRV.exe">
-     BONE_DRV.exe</a> for the USB-to-serial and USB-to-Ethernet drivers.</li>
+     BONE_DRV.exe</a> for the USB-to-serial and USB-to-Ethernet drivers (or
+     <a href="Drivers/Windows/BONE_D64.exe">BONE_D64.exe</a> for 64-bit Windows).
+     For additional information, visit
+     <a href="http://www.ftdichip.com/Drivers/VCP.htm">FTDI's Virtual COM Port Drivers</a>
+     page and the Ethernet over USB section of the <a href="http://www.linux-usb.org/gadget/">
+     Linux-USB Gadget API Framework</a> page.</li>
     <li>Code Composer Studio v5 (CCSv5) is a TI provided Eclipse-based integrated
      development environment that enables you to debug and develop C/C++ applications
      for your BeagleBone.  CCSv5 provides both a USB-to-serial driver as well as
-     support for the USB-to-JTAG interface.  See
+     support for the USB-to-JTAG interface.  See the
      <a href="http://processors.wiki.ti.com/index.php/Category:Code_Composer_Studio_v5">
-     the CCSv5 wiki page</a> for download and installation information.</li>
+     CCSv5 wiki</a> page for download and installation information.</li>
    </ul>
   </li>
   <li>Mac OS X:
    <ul class="subitem">
-    <li>Open
-     <a href="Drivers/MacOSX/FTDI/FTDI_Ser.dmg">/Drivers/MacOSX/FTDI/FTDI_Ser.dmg</a>,
-     double-click "FTDI_Serial.pkg" and follow the instructions.  For additional
-     information, visit
-     <a href="http://www.ftdichip.com/Drivers/VCP.htm">ftdichip.com</a>.
+    <li>Save and open
+     <a href="Drivers/MacOSX/FTDI/FTDI_Ser.dmg">FTDI_Ser.dmg</a>,
+     double-click "FTDI_Serial.pkg" and to install the USB-to-serial drivers.
+     For additional information, visit
+     <a href="http://www.ftdichip.com/Drivers/VCP.htm">FTDI's Virtual COM Port Drivers</a>
+     page.
     </li>
-    <li>To open the serial terminal from within Terminal.app, use the following command:
-     <pre>screen /dev/tty.usb*B 115200</pre>
+    <li>For the USB-to-Ethernet interface, the folks over at Bug Labs have produced a
+     driver for their excellent modular development platform that you might use:
+     <a href="http://bugcommunity.com/wiki/index.php/Start_Guide_Mac_OS_X_10.5">
+      Start_Guide_Mac_OS_X_10.5
+     </a>
     </li>
    </ul>
   </li>
   <li>Linux:
    <ul class="subitem">
-    <li>For a quick start, simply use the following commands:
+    <li>For a quick start, simply load the USB-to-serial driver with the following command:
      <pre>
 sudo modprobe ftdi_sio vendor=0x0403 product=0xa6d0
-screen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ print $NF }'` 115200
      </pre>
-    </li>
-    <li>To make the BeagleBone show up upon every reboot, add a udev rule.  Here is an example
+     To make the BeagleBone show up upon every reboot, add a udev rule.  Here is an example
      /etc/udev/rules.d/73-beaglebone.rules:
      <pre>
 ACTION=="add", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_interface", \
@@ -161,43 +184,49 @@ ACTION=="add", KERNEL=="ttyUSB*", \ ATTRS{interface}=="BeagleBone", \
         ATTRS{bInterfaceNumber}=="01", \ SYMLINK+="beaglebone-serial"
      </pre>
     </li>
+    <li>Code Composer Studio v5 (CCSv5) is a TI provided Eclipse-based integrated
+     development environment that enables you to debug and develop C/C++ applications
+     for your BeagleBone.  CCSv5 provides debug support in Linux over 
+     the USB-to-JTAG interface.  See the
+     <a href="http://processors.wiki.ti.com/index.php/Category:Code_Composer_Studio_v5">
+     CCSv5 wiki</a> page for download and installation information.</li>
    </ul>
   </li>
  </ul>
 
- <h3>Step #2: Install the USB-to-Ethernet device driver</h3>
- <p>The Linux distribution running on your BeagleBone supports emulating a USB-to-Ethernet
-  device such that you can access your BeagleBone with networking protocols, such as web
-  browsing.
- </p>
- <ol>
-  <li>Prepare for the driver installation.
-   <ul class="arrow">
-    <li>Windows:
-     <ul class="subitem">
-      <li>Copy linux.inf from the <a href="Drivers/Windows/RNDIS">
-       "\Drivers\Windows\RNDIS"</a> folder to your PC for use to tell Windows where to
-       find the driver.</li>
-     </ul>
-    </li>
-    <li>Mac OS X:
-     <ul class="subitem">
-      <li>The folks over at Bug Labs have produced a driver you might use:
-       <a href="http://bugcommunity.com/wiki/index.php/Start_Guide_Mac_OS_X_10.5">
-        http://bugcommunity.com/wiki/index.php/Start_Guide_Mac_OS_X_10.5
-       </a>
-      </li>
-     </ul>
-    <li>Linux:
-     <ul class="subitem">
-      <li>No driver installation should be required, simply configure the adapter for DHCP.</li>
-     </ul>
-    </li>
-   </ul>
-  </li>
+ <h2 id="serial">Connect to your BeagleBone's serial console</h2>
+  <ul class="arrow">
+   <li>Windows
+    <ul class="subitem">
+     <li>Launch HyperTerminal (Start -> All Programs -> Accessories -> Communications
+      -> HyperTerminal)</li>
+     <li>Give the name 'BeagleBone' and press &lt;Enter&gt;</li>
+     <li>Select the last (newest) COM port and press &lt;Enter&gt;</li>
+     <li>Choose '115200' Bits per second, '8' Data bits, 'None' Parity, '1' Stop Bits, 'None' Flow control and press &lt;Enter&gt;</li>
+    </ul>
+   </li>
+   <li>Mac OS X
+    <p>To open the serial terminal from within Terminal.app, use the following command:
+     <pre>
+screen /dev/tty.usb*B 115200
+     </pre>
+    </p>
+   </li>
+   <li>Linux
+    <p>To open the serial terminal from the shell prompt, use the following command:
+     <pre>
+screen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ print $NF }'` 115200
+     </pre>
+    </p>
+   </li>
+  </ul>
+
+ <h2 id="g_ether">Launch USB-to-Ethernet interface</h2>
+ <ul class="arrow">
   <li>Eject the BEAGLE_BONE USB drive.  The USB Ethernet gadget will automatically start.</li>
   <li>Configure the adapter that appears for DHCP.</li>
- </ol>
+  <li>The adapter should be given the IP address 192.168.7.1.<li>
+ </ul>
 
  <h2 id="navigate">Navigate to your BeagleBone's web interface</h2>
  <p>The Linux distribution running on your BeagleBone is configured to start a handful
@@ -210,9 +239,10 @@ ACTION=="add", KERNEL=="ttyUSB*", \ ATTRS{interface}=="BeagleBone", \
  <ul class="arrow">
   <li>For an alpha board overview status app, visit <a href="http://192.168.7.2">
    http://192.168.7.2</a>.</li>
-  <li>For Matrix, visit <a href="http://192.168.7.2:8080/index.html">
    http://192.168.7.2:8080/index.html</a>.</li>
-  <li>For Cloud9 IDE, visit <a href="http://192.168.7.2:3000/index.html">
+  <li>For GateOne, visit <a href="https://192.168.7.2">
+   https://192.168.7.2</a>.</li>
+  <li>For Cloud9 IDE, visit <a href="http://192.168.7.2:3000">
    http://192.168.7.2:3000</a>.</li>
  </ul>
 
@@ -220,8 +250,8 @@ ACTION=="add", KERNEL=="ttyUSB*", \ ATTRS{interface}=="BeagleBone", \
  <ul class="arrow">
   <li><del>Fix git repo for bonescript to point to real repo (HIGH)</del></li>
   <li>Solve g_ether issue where it takes 100% CPU load on Mac OS X (MEDIUM/HIGH)</li>
-  <li>Provide list of supported browsers and versions (MEDIUM)</li>
-  <li>Test and improve Windows driver installation experience based on feedback (HIGH)</li>
+  <li><del>Provide list of supported browsers and versions (MEDIUM)</del></li>
+  <li><del>Test and improve Windows driver installation experience based on feedback (HIGH)</del></li>
   <li>Give pointers to the Docs/Hardware content (MEDIUM)</li>
   <li>Restore Matrix and add links to Gate One and Cloud9 IDE (LOW)</li>
   <li>Add Ethernet IP address to a file (LOW/MEDIUM)</li>
@@ -251,7 +281,7 @@ ACTION=="add", KERNEL=="ttyUSB*", \ ATTRS{interface}=="BeagleBone", \
  <div id="cc"><a href="http://creativecommons.org/about/license/" target="_blank"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" alt="Creative Commons - Conditions - Attribution and Share Alike" border="0" /></a></div>
  <p>
   Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution-Share Alike 3.0 license.<br/>
-  Please see <a href="LICENSE.txt">LICENSE.txt</a> for more information.  Document version: 0.6  
+  Please see <a href="LICENSE.txt">LICENSE.txt</a> for more information.  Document version: 0.7  
  </p>
  </div>
 
