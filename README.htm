@@ -285,17 +285,20 @@ screen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ pr
   <li>Restore Matrix and add links to Gate One and Cloud9 IDE (LOW)</li>
   <li>Add Ethernet IP address to a file (LOW/MEDIUM)</li>
   <li>Update bonescript with C examples (LOW)</li>
-  <li>Update BeagleBoard101 presentation with dynamic board status and start it automatically on port 80 (HIGH)</li>
+  <li><del>Start bone101 automatically on port 80 (HIGH)</del></li>
+  <li>Update BeagleBoard101 presentation (HIGH)</li>
+  <li>Update bonescript with dynamic web content demos (MEDIUM)</li>
   <li><del>Do something to prevent clock roll-backs between boots (MEDIUM)</del></li>
-  <li>Mount /dev/mmcblk0p1 after it is ejected (LOW)</li>
+  <li>Mount /dev/mmcblk0p1 after it is ejected (DEFERRED)</li>
   <li>Examine ConnMan Tethering (MEDIUM)</li>
   <li>Document how to find installed applications, adding more and building applications with OpenCV (LOW)</li>
   <li>Add graphics and/or videos where appropriate (LOW)</li>
   <li>Add IIO framework based ADC driver (MEDIUM)</li>
-  <li>Add CAN driver (LOW)</li>
+  <li><del>Add CAN driver (LOW)</del></li>
+  <li>Fix CAN driver (LOW)</li>
+  <li>Fix USB DMA (LOW)</li>
   <li><del>Fix 'curl http://npmjs.org/install.sh | bash' (MEDIUM)</del></li>
   <li>Examine why 'top' refresh rate is sometimes crazy fast (LOW)</li>
-  <li>Update bonescript with dynamic web content demos (MEDIUM)</li>
   <li>Verify we can switch to g_multi for Mac, Linux and Windows and eliminate the eject-hokey-pokey (MEDIUM)</li>
   <li>Add 'npm' recipe to OE and add the package, configuring it to not disturb /usr/* (LOW)</li>
   <li><del>Add 'nodejs-dev' package (MEDIUM)</del></li>
@@ -303,6 +306,10 @@ screen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ pr
   <li><del>Add pointer to http://nodejs.org</del></li>
   <li><del>Add table of contents</del></li>
   <li><del>Add CSS borders</del></li>
+  <li>Arduino-like autorun</li>
+  <li>Provide release version in document</li>
+  <li>Get a newer version of Node to add fibers</li>
+  <li>Prevent blinkled.js from consuming 100% CPU</li>
  </ul>
 
  </div></div></div>
