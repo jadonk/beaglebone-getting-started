@@ -275,7 +275,14 @@ sreen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ pri
   USB cable.
  </p>
  <ul class="arrow">
-  <li>Eject the BEAGLE_BONE USB drive.  The USB Ethernet gadget will automatically start.</li>
+  <li>Eject the BEAGLE_BONE USB drive.  The USB Ethernet gadget will automatically start.<br />
+   <br /><small><b>Note #1:</b> It has been observed in Windows that it may actually take a
+   couple of minutes for the driver to load on occasion.</small><br />
+   <br /><small><b>Note #2:</b> It has been observed in Windows that you may be prompted
+   to locate the 'linux.inf' file.  If you installed the driver properly, you should be able to
+   find it under c:\windows\system32\drvstore\linux_...</small><br />
+   <br />
+  </li>
   <li>Configure the adapter that appears for DHCP.</li>
   <li>The adapter should be given the IP address 192.168.7.1.<li>
  </ul>
@@ -352,47 +359,51 @@ sreen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ pri
   </li>
  </ul>
 
- <h2 id="todo">To-do items for upcoming release and their priority</h2>
+ <h2 id="todo">Known issues</h2>
  <ul class="arrow">
-  <li><del>Fix git repo for bonescript to point to real repo (HIGH)</del></li>
-  <li><del>Provide list of supported browsers and versions (MEDIUM)</del></li>
-  <li><del>Test and improve Windows driver installation experience based on feedback (HIGH)</del></li>
-  <li><del>Give pointers to the Docs/Hardware content (MEDIUM)</del></li>
-  <li><del>Start bone101 automatically on port 80 (HIGH)</del></li>
-  <li><del>Do something to prevent clock roll-backs between boots (MEDIUM)</del></li>
-  <li><del>Add CAN driver (LOW)</del></li>
-  <li><del>Fix 'curl http://npmjs.org/install.sh | bash' (MEDIUM)</del></li>
-  <li><del>Add 'nodejs-dev' package (MEDIUM)</del></li>
-  <li><del>Add pointer to http://nodejs.org</del></li>
-  <li><del>Add table of contents</del></li>
-  <li><del>Add CSS borders</del></li>
-  <li><del>Provide release version in document (HIGH)</del></li>
-  <li><del>Add Ethernet IP address to a file (LOW/MEDIUM)</del></li>
-  <li>Upload clean/branched/labeled kernel and bootloader to http://github.com/beagleboard (HIGH)</li>
-  <li>Update BeagleBoard101 presentation (HIGH)</li>
-  <li>Add image name into a file (HIGH)</li>
-  <li>Fix broken SRM (HIGH)</li>
-  <li>Fix GateOne performance by reducing size (DEFERRED)</li>
-  <li>Move from 0xa6d0 PID to 0x6010 PID and upload XML file to Docs/Hardware (DEFERRED)</li>
-  <li>Arduino-like autorun (DEFERRED)</li>
-  <li>Get a newer version of Node to add fibers (DEFERRED)</li>
-  <li>Prevent blinkled.js from consuming 100% CPU (DEFERRED)</li>
-  <li>Solve g_ether issue where it takes 100% CPU load on Mac OS X (DEFERRED)</li>
-  <li>Verify we can switch to g_multi for Mac, Linux and Windows and eliminate the eject-hokey-pokey (DEFERRED)</li>
-  <li>Update bonescript with dynamic web content demos (DEFERRED)</li>
-  <li>Add IIO framework based ADC driver (DEFERRED)</li>
-  <li>Examine ConnMan Tethering (DEFERRED)</li>
-  <li>Document how to find installed applications, adding more and building applications with OpenCV (DEFERRED)</li>
-  <li>Update bonescript with C examples (DEFERRED)</li>
-  <li>Add 'npm' recipe to OE and add the package, configuring it to not disturb /usr/* (DEFERRED)</li>
-  <li>Fix CAN driver (DEFERRED)</li>
-  <li>Fix USB DMA (DEFERRED)</li>
-  <li>Examine why 'top' refresh rate is sometimes crazy fast (DEFERRED)</li>
-  <li>Add graphics and/or videos where appropriate (DEFERRED)</li>
-  <li>Restore Matrix and add links to Gate One and Cloud9 IDE (DEFERRED)</li>
-  <li>Mount /dev/mmcblk0p1 after it is ejected (DEFERRED)</li>
-  <li>Mount time for RNDIS may take a couple of minutes</li>
-  <li>Might have to dance to find linux.inf: c:\windows\system32\drvstore\linux_...</li>
+  <li>System
+   <ul class="subitem">
+    <li>Move FTDI PID from 0xa6d0 to 0x6010 PID</li>
+    <li>Mount time for USB-to-Ethernet may take a couple of minutes under Windows</li>
+   </ul>
+  </li>
+  <li>Kernel
+   <ul class="subitem">
+    <li>Need completed ADC support with IIO framework</li>
+    <li>Need completed CAN drivers</li>
+    <li>Need improved PWM support</li>
+    <li>Need device tree support and run-time configuration with daughterboards</li>
+    <li>Need improved USB and USB DMA support</li>
+    <li>Need improved SD performance</li>
+   </ul>
+  </li>
+  <li>SD card image
+   <ul class="subitem">
+    <li>Need simplified IP discovery</li>
+    <li>Need improved GateOne performance</li>
+    <li>Need to consider ConnMan tethering for USB-based IP</li>
+    <li>'top' refresh rate can sometimes be crazy fast</li>
+    <li>Restore automounting of hotplugged media</li>
+    <li>Restore Matrix and add application entries for GateOne and Cloud9 IDE</li>
+   </ul>
+  </li>
+  <li>Documentation
+   <ul class="subitem">
+    <li>Need daughterboard building guide</li>
+    <li>Add graphics and/or videos where appropriate</li>
+   </ul>
+  </li>
+  <li>Cloud9 IDE and BoneScript
+   <ul class="subitem">
+    <li>Inclusion of node-fibers such that delays don't hog the CPU</li>
+    <li>Arduino-like automatic execution of installed apps</li>
+    <li>Dynamic web conent example with board status and streaming data</li>
+    <li>Optimal utilization of the PRU and performance improvements</li>
+    <li>Extensive improvements to the BoneScript API</li>
+    <li>Need examples on programming in C through the Cloud9 IDE interface</li>
+    <li>Include npm and several node modules</li>
+   </ul>
+  </li>
  </ul>
 
  </div></div></div>
