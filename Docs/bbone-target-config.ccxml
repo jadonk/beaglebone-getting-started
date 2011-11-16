@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configurations XML_version="1.2" id="configurations_0">
+<configuration XML_version="1.2" id="Texas Instruments XDS100v2 USB Emulator_0">
+        <instance XML_version="1.2" desc="Texas Instruments XDS100v2 USB Emulator_0" href="connections/TIXDS100v2_Connection.xml" id="Texas Instruments XDS100v2 USB Emulator_0" xml="TIXDS100v2_Connection.xml" xmlpath="connections"/>
+        <connection XML_version="1.2" id="Texas Instruments XDS100v2 USB Emulator_0">
+            <instance XML_version="1.2" href="drivers/tixds100v2icepick_d.xml" id="drivers" xml="tixds100v2icepick_d.xml" xmlpath="drivers"/>
+            <instance XML_version="1.2" href="drivers/tixds100v2cs_dap.xml" id="drivers" xml="tixds100v2cs_dap.xml" xmlpath="drivers"/>
+            <instance XML_version="1.2" href="drivers/tixds100v2cortexM.xml" id="drivers" xml="tixds100v2cortexM.xml" xmlpath="drivers"/>
+            <instance XML_version="1.2" href="drivers/tixds100v2cs_child.xml" id="drivers" xml="tixds100v2cs_child.xml" xmlpath="drivers"/>
+            <instance XML_version="1.2" href="drivers/tixds100v2cortexA.xml" id="drivers" xml="tixds100v2cortexA.xml" xmlpath="drivers"/>
+            <instance XML_version="1.2" href="drivers/tixds100v2csstm.xml" id="drivers" xml="tixds100v2csstm.xml" xmlpath="drivers"/>
+            <instance XML_version="1.2" href="drivers/tixds100v2etbcs.xml" id="drivers" xml="tixds100v2etbcs.xml" xmlpath="drivers"/>
+            <instance XML_version="1.2" href="drivers/tixds100v2pru.xml" id="drivers" xml="tixds100v2pru.xml" xmlpath="drivers"/>
+            <platform XML_version="1.2" id="platform_0">
+                <instance XML_version="1.2" desc="AM335x_0" href="devices/AM335x.xml" id="AM335x_0" xml="AM335x.xml" xmlpath="devices"/>
+                <device HW_revision="1" XML_version="1.2" description="AM335x" id="AM335x_0" partnum="AM335x">
+                    <router HW_revision="1.0" XML_version="1.2" description="ICEPick_D Router" id="IcePick_D_0" isa="ICEPICK_D">
+                        <subpath id="subpath_11">
+                            <router HW_revision="1.0" XML_version="1.2" description="CS_DAP Router" id="CS_DAP_M3" isa="CS_DAP">
+                                <subpath desc="M3_wakeupSS_0" id="M3_wakeupSS">
+                                    <cpu HW_revision="1.0" XML_version="1.2" desc="M3_wakeupSS_1" description="Cortex_M3 CPU" id="M3_wakeupSS" isa="Cortex_M3"/>
+                                </subpath>
+                            </router>
+                        </subpath>
+                        <subpath id="subpath_12">
+                            <property Type="numericfield" Value="0xc" desc="Port Number_0" id="Port Number"/>
+                        </subpath>
+                    </router>
+                </device>
+            </platform>
+        </connection>
+    </configuration>
+</configurations>
