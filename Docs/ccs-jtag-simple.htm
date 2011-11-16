@@ -4,9 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en"> 
 <head> 
  <title>BeagleBone Getting Started Guide</title> 
- <style type="text/css" media="screen">@import "Docs/common.css";</style>
- <link rel="icon" href="Docs/beagle.ico" type="image/x-icon" />
- <link rel="shortcut icon" href="Docs/beagle.ico" type="image/x-icon" />
+ <style type="text/css" media="screen">@import "common.css";</style>
+ <link rel="icon" href="beagle.ico" type="image/x-icon" />
+ <link rel="shortcut icon" href="beagle.ico" type="image/x-icon" />
 </head>
 <body>
  <div id="wrapper">
@@ -15,10 +15,12 @@
  <div id="contentbuffer">
  <div id="page">
 
- <img id="head-logo" title="beagleboard logo" alt="beagleboard logo"
-  src="Docs/beagle.png" height="80px" />
- <img id="head-icon" src="Docs/url.png" alt="beagleboard url" />
- <img id="in-hand" src="Docs/in-hand.png"
+ <a href="http://beagleboard.org">
+  <img id="head-logo" title="beagleboard logo" alt="beagleboard logo"
+   src="beagle.png" height="80px" />
+  <img id="head-icon" src="url.png" alt="beagleboard url" />
+ </a>
+ <img id="in-hand" src="in-hand.png"
   alt="beaglebone in hand" align="right" height="200px" />
 
  <h1>Getting started with JTAG and CCS</h1>
@@ -26,23 +28,23 @@
 
 These are simple instructions to get <a href="http://processors.wiki.ti.com/index.php/Category:Code_Composer_Studio_v5">Code Composer Studio v5.1</a> up and running with your beaglebone.</p>
  <ul>
-  <li> Once you have downloaded and installed CCS, copy <a href="Docs/bbone-target-config.ccxml">bbone-target-config.ccxml</a> to the "Target Configurations" folder of your CCS install.<br><br>
-	<img src="Docs/images/ccs-jtag/screen1-copy.jpg" width="100%"><hr>
+  <li> Once you have downloaded and installed CCS, copy <a href="bbone-target-config.ccxml">bbone-target-config.ccxml</a> to the "Target Configurations" folder of your CCS install.<br><br>
+	<img src="images/ccs-jtag/screen1-copy.jpg" width="100%"><hr>
   </li>
   <li> Open the Target Configurations window in CCS.<br><br>
-	<img src="Docs/images/ccs-jtag/screen2-viewtargetconf.jpg" width="100%"><hr>
+	<img src="images/ccs-jtag/screen2-viewtargetconf.jpg" width="100%"><hr>
   </li>
   <li> Click on the Refresh button on the top right of the Target Configuration window.<br><br>
-	<img src="Docs/images/ccs-jtag/screen3-refresh-topright.jpg" width="100%"><hr>
+	<img src="images/ccs-jtag/screen3-refresh-topright.jpg" width="100%"><hr>
   </li>
   <li> Right click on the bbone-target-config.ccxml file and click on "Launch Selected Configuration"<br><br>
-	<img src="Docs/images/ccs-jtag/screen4-launch.jpg" width="100%"><hr>
+	<img src="images/ccs-jtag/screen4-launch.jpg" width="100%"><hr>
   </li>
   <li> Now that you're in the debug view, connect to the CortexA8 core<br><br>
-	<img src="Docs/images/ccs-jtag/screen5-connect.jpg" width="100%"><hr>
+	<img src="images/ccs-jtag/screen5-connect.jpg" width="100%"><hr>
   </li>
   <li> You should see CCS halt the processor, and the result should look like this.<br><br>
-	<img src="Docs/images/ccs-jtag/screen6-startaddr.jpg" width="100%"><hr>
+	<img src="images/ccs-jtag/screen6-startaddr.jpg" width="100%"><hr>
   </li>
 <br>
 For more information, please read the <a href="http://processors.wiki.ti.com/index.php/Category:Code_Composer_Studio_v5"> Code Composer Studio wiki</a>. Happy Debugging!
