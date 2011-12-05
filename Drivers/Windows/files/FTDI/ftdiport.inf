@@ -60,17 +60,9 @@ ExcludeFromSelect=*
 %FTDI%=FtdiHw,NTamd64
 
 [FtdiHw]
-%VID_0403&PID_6001.DeviceDesc%=FtdiPort.NT,FTDIBUS\COMPORT&VID_0403&PID_6001
-%VID_0403&PID_6010.DeviceDesc%=FtdiPort.NT,FTDIBUS\COMPORT&VID_0403&PID_6010
-%VID_0403&PID_6011.DeviceDesc%=FtdiPort.NT,FTDIBUS\COMPORT&VID_0403&PID_6011
-%VID_0403&PID_6014.DeviceDesc%=FtdiPort.NT,FTDIBUS\COMPORT&VID_0403&PID_6014
 %VID_0403&PID_A6D0.DeviceDesc%=FtdiPort.NT,FTDIBUS\COMPORT&VID_0403&PID_A6D0
 
 [FtdiHw.NTamd64]
-%VID_0403&PID_6001.DeviceDesc%=FtdiPort.NTamd64,FTDIBUS\COMPORT&VID_0403&PID_6001
-%VID_0403&PID_6010.DeviceDesc%=FtdiPort.NTamd64,FTDIBUS\COMPORT&VID_0403&PID_6010
-%VID_0403&PID_6011.DeviceDesc%=FtdiPort.NTamd64,FTDIBUS\COMPORT&VID_0403&PID_6011
-%VID_0403&PID_6014.DeviceDesc%=FtdiPort.NTamd64,FTDIBUS\COMPORT&VID_0403&PID_6014
 %VID_0403&PID_A6D0.DeviceDesc%=FtdiPort.NTamd64,FTDIBUS\COMPORT&VID_0403&PID_A6D0
 
 [FtdiPort.NT.AddService]
@@ -152,15 +144,11 @@ HKR,,CoInstallers32,0x00010000,"ftcserco.Dll,FTCSERCoInstaller"
 ;---------------------------------------------------------------;
 
 [Strings]
-FTDI="FTDI"
+FTDI="BeagleBone"
 DESC="CDM Driver Package - VCP Driver"
 DriversDisk="FTDI USB Drivers Disk"
 PortsClassName = "Ports (COM & LPT)"
-VID_0403&PID_6001.DeviceDesc="USB Serial Port"
-VID_0403&PID_6010.DeviceDesc="USB Serial Port"
-VID_0403&PID_6011.DeviceDesc="USB Serial Port"
-VID_0403&PID_6014.DeviceDesc="USB Serial Port"
-VID_0403&PID_A6D0.DeviceDesc="USB Serial Port"
+VID_0403&PID_A6D0.DeviceDesc="BeagleBone USB Serial Port"
 SvcDesc="USB Serial Port Driver"
 SerEnum.SvcDesc="Serenum Filter Driver"
 
