@@ -1,0 +1,4 @@
+;!@Install@!UTF-8!
+Title="BeagleBone Drivers Installer"
+RunProgram="dpinst.exe"
+;!@InstallEnd@!
