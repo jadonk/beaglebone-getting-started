@@ -256,14 +256,14 @@ ACTION=="add", KERNEL=="ttyUSB*", \ ATTRS{interface}=="BeagleBone", \
   <li>Mac OS X
    <p>To open the serial terminal from within Terminal.app, use the following command:
     <pre>
-sreen /dev/tty.usb*B 115200
+screen /dev/tty.usb*B 115200
     </pre>
    </p>
   </li>
   <li>Linux
    <p>To open the serial terminal from the shell prompt, use the following command:
     <pre>
-sreen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ print $NF }'` 115200
+screen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ print $NF }'` 115200
     </pre>
    </p>
   </li>
@@ -276,7 +276,7 @@ sreen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ pri
   USB cable.
  </p>
  <ul class="arrow">
-  <li>Eject the BEAGLE_BONE USB drive.  The USB Ethernet gadget will automatically start.<br />
+  <li>From your PC, eject the BEAGLE_BONE USB drive.  The USB Ethernet gadget will automatically start.<br />
    <br /><small><b>Note #1:</b> It has been observed in Windows that it may actually take a
    couple of minutes for the driver to load on occasion.</small><br />
    <br /><small><b>Note #2:</b> It has been observed in Windows that you may be prompted
