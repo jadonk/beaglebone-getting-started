@@ -367,7 +367,7 @@ screen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ pr
  <ul class="arrow">
   <li>System
    <ul class="subitem">
-    <li>Move FTDI PID from 0xa6d0 to 0x6010 PID</li>
+    <li>Move FTDI PID from 0xa6d0 to 0x6010 PID (to happen on Rev A4 boards)</li>
     <li>Mount time for USB-to-Ethernet may take a couple of minutes under Windows</li>
    </ul>
   </li>
@@ -383,6 +383,7 @@ screen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ pr
   </li>
   <li>SD card image
    <ul class="subitem">
+    <li>Add Java</li>
     <li>Need simplified IP discovery</li>
     <li>Need improved GateOne performance</li>
     <li>Need to consider ConnMan tethering for USB-based IP</li>
@@ -397,6 +398,7 @@ screen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ pr
     <li>Add graphics and/or videos where appropriate</li>
     <li>Need full description of /sys entries</li>
     <li>Basic information on apps for each major interface type, ie. I2C, SPI, etc.</li>
+    <li>Need to highlight daughterboard ("cape") EEPROM spec</li>
    </ul>
   </li>
   <li>Cloud9 IDE and BoneScript
@@ -417,7 +419,7 @@ screen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ pr
  <div id="cc"><a href="http://creativecommons.org/about/license/" target="_blank"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" alt="Creative Commons - Conditions - Attribution and Share Alike" border="0" /></a></div>
  <p>
   Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution-Share Alike 3.0 license.<br/>
-  Please see <a href="LICENSE.txt">LICENSE.txt</a> for more information.  Document version: 1.1
+  Please see <a href="LICENSE.txt">LICENSE.txt</a> for more information.  Document version: 1.2
  </p>
  </div>
 
