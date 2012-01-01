@@ -271,8 +271,9 @@ screen /dev/tty.usb*B 115200
   <li>Linux
    <p>To open the serial terminal from the shell prompt, use the following command:
     <pre>
-screen /dev/`dmesg  | grep FTDI | grep "now attached to" | tail -n 1 | awk '{ print $NF }'` 115200
+screen /dev/beaglebone-serial 115200
     </pre>
+     Type CTRL-A \ to exit screen.
    </p>
   </li>
  </ul>
