@@ -220,11 +220,19 @@ ACTION=="add", SUBSYSTEM=="drivers", \
         ENV{DEVPATH}=="/bus/usb-serial/drivers/ftdi_sio", \
         ATTR{new_id}="0403 a6d0"
 
-ACTION=="add", KERNEL=="ttyUSB*", \ ATTRS{interface}=="BeagleBone", \
-        ATTRS{bInterfaceNumber}=="00", \ SYMLINK+="beaglebone-jtag"
+ACTION=="add", KERNEL=="ttyUSB*", \
+	ATTRS{interface}=="BeagleBone", \
+        ATTRS{bInterfaceNumber}=="00", \
+	SYMLINK+="beaglebone-jtag"
 
-ACTION=="add", KERNEL=="ttyUSB*", \ ATTRS{interface}=="BeagleBone", \
-        ATTRS{bInterfaceNumber}=="01", \ SYMLINK+="beaglebone-serial"
+ACTION=="add", KERNEL=="ttyUSB*", \
+	ATTRS{interface}=="BeagleBone", \
+        ATTRS{bInterfaceNumber}=="01", \
+	SYMLINK+="beaglebone-serial"
+     </pre>
+     Run the following to load the new udev rules:
+     <pre>
+sudo udevadm control --reload-rules
      </pre>
     </li>
     <li>Code Composer Studio v5 (CCSv5) is a TI provided Eclipse-based integrated
