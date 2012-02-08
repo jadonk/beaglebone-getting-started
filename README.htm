@@ -283,7 +283,7 @@ sudo udevadm control --reload-rules
  <h4>Mac OS X or Linux</h4>
  <p>To open the serial terminal from a shell prompt, use the following command:
   <pre>
-screen /dev/{tty.usb*B|beaglebone-serial} 115200
+screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
   </pre>
   Type CTRL-A \ to exit screen.
  </p>
