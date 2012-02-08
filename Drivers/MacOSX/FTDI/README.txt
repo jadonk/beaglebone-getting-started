@@ -1,3 +1,6 @@
+This file is maintained at:
+https://github.com/jadonk/beaglebone-getting-started/tree/master/Drivers/MacOSX/FTDI
+
 The FTDI_Ser.dmg file was created from the file:
 http://www.ftdichip.com/Drivers/VCP/MacOSX/FTDIUSBSerialDriver_v2_2_16.dmg
 
