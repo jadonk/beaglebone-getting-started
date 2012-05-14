@@ -23,269 +23,167 @@
  <img id="in-hand" src="Docs/in-hand.png"
   alt="beaglebone in hand" align="right" height="200px" />
 
- <h1>Getting started with your new BeagleBone</h1>
- <p>This is the quick-start guide.  Before looking for any additional help, 
-  please read (at least skim) <b>each</b> of:
- </p>
- <ul>
-  <li>
-   <a
-   href="http://beagleboard.org/static/beaglebone/latest/Docs/Hardware/BONE_SRM.pdf">BeagleBone
-   System Reference Manual</a></li>
-  <li>
-   <a href="http://beagleboard.org/beagleboard101">BeagleBoard101
-   Presentation</a></li>
-  <li>
-   <a href="http://beagleboard.org/support/faq">Frequently Asked Questions
-   Guide</a></ul>
+ <h1>BeagleBone README Quick-Start Guide</h1>
  <p>
-  This document is supplied with the revision A5 BeagleBone, but the software
-  is compatible with all previous revisions. It is highly recommended to view
-  the on-line version of this document with updates available at <a
-  href="http://beagleboard.org/static/beaglebone/latest/README.htm">
-  beagleboard.org/static/beaglebone/latest/README.htm</a> and download the
-  latest software if there is a newer version.
+  <b><a href="http://beagleboard.org/static/beaglebone/latest/Docs/Hardware/BONE_SRM.pdf">
+   BeagleBone System Reference Manual</a></b>
+  &lt-- please read before asking for help
+  <br/>
+  <b><a href="http://beagleboard.org/static/beaglebone/latest/README.htm">
+  BeagleBone README Quick-Start Guide</a></b>
+  &lt-- latest version of this document
+ </p>
+ <p>
+  This document was last updated for BeagleBone revision <b>A6</b>.
  </p>
 
- <h2 id="before"><u>Before you begin, consider updating to a newer demo image</u></h2>
- <p>The latest pre-built version of this Angstrom Cloud9 IDE demo image is available from:
+ <h2 id="before"><u>Available software updates</u></h2>
+ <p>
+  <a href="http://beagleboard.org/angstrom">Angstrom Mirrors</a>
+  &lt-- latest pre-built microSD card images
+  <br/>
+  <a href="http://www.angstrom-distribution.org/building-angstrom">
+   Building Angstrom</a>
+  &lt-- instructions to rebuild the image
  </p>
+ <h3>Other currently available starting images</h3>
  <ul class="arrow">
-  <li>
-   <a href="http://www.angstrom-distribution.org/demo/beaglebone">Angstrom
-    Distribution BeagleBone demo page</a></li>
-  <li>
-   <a href="http://beagleboard.org/angstrom">BeagleBoard.org Angstrom
-    mirror</a></li>
- </ul>
- <p>Please visit there now to download
-  the latest version.  The <a href="http://beagleboard.org/beagleboard101">
-  BeagleBoard101 presentation</a> will provide you with some guidance on
-  writing the demo image to a microSD card if you aren't already a Linux
-  user.  You can also find help on the <a href="http://beagleboard.org/chat">
-  IRC live chat</a>.
- </p>
- <p>Some version and debug information is stored in a dynamically produced file
-  on this partition called <a href="info.txt">info.txt</a>, which if you are familiar
-  with <a href="http://www.angstrom-distribution.org/building-angstrom">building 
-  Angstrom</a>, will let you know when this image was built and with what source.
- </p>
-
- <p>If you are planning on using a different microSD card image, please look
-  for support from the supplier of that image.  Some distributions available at the
-  time of this release include (not supported by BeagleBoard.org):
- </p>
- <ul class="arrow">
-  <li>Texas Instruments releases<ul class="subitem">
-   <li><a href="http://processors.wiki.ti.com/index.php/BeagleBone-Android-DevKit_Guide">
-    Android Dev Kit (TI supported Android)</a></li>
-   <li><a href="http://software-dl.ti.com/dsps/dsps_public_sw/am_bu/sdk/AM335xSDK/latest/index_FDS.html">
-    Sitara SDK 5.03 (TI supported Linux)</a></li>
-   <li><a href="http://processors.wiki.ti.com/index.php/StarterWare">
-    AM335x StarterWare (No operating system or your own RTOS)</a></li>
-  </ul></li>
-  <li>Linux<ul class="subitem">
-   <li><a href="http://elinux.org/BeagleBoardUbuntu">Ubuntu</a></li>
-   <li><a href="http://wiki.debian.org/InstallingDebianOn/TI/BeagleBone">Debian</a></li>
-   <li><a href="http://archlinuxarm.org/platforms/armv7/beaglebone">ArchLinux</a></li>
-   <li><a href="http://dev.gentoo.org/~armin76/arm/beaglebone/install.xml">Gentoo</a></li>
-   <li><a href="http://wiki.sabayon.org/index.php?title=Hitchhikers_Guide_to_the_BeagleBone_(and_ARMv7a)">
-    Sabayon</a></li>
-   <li><a href="http://www.zoobab.com/beaglebone">Buildroot</a></li>
-   <li><a href="http://nerves-project.org/">Erlang/OTP using Buildroot</a></li>
-  </ul></li>
-  <li><a href="http://community.qnx.com/sf/wiki/do/viewPage/projects.bsp/wiki/TiAm335Beaglebone">QNX</a></li>
- </ul>
-
- <h2><u>Table of contents</u></h2>
- <ul class="arrow">
-  <li><a href="#software">Software introduction</a>
-   <ul class="subitem">
-    <li><a href="#decision">Network connectivity</a></li>
-    <li><a href="#drivers">Host USB drivers setup</a></li>
-    <li><a href="#serial">Serial console</a></li>
-    <li><a href="#g_ether">USB-to-Ethernet interface</a></li>
-    <li><a href="#navigate">Navigating to web applications</a></li>
-   </ul>
+  <li>Texas Instruments releases: 
+   <a href="http://processors.wiki.ti.com/index.php/BeagleBone-Android-DevKit_Guide">
+    Android</a>,
+   <a href="http://software-dl.ti.com/dsps/dsps_public_sw/am_bu/sdk/AM335xSDK/latest/index_FDS.html">
+    Linux</a>,
+   <a href="http://processors.wiki.ti.com/index.php/StarterWare">
+    StarterWare (no OS)</a>
   </li>
-  <li><a href="#hardware">Hardware design</a>
-   <ul class="subitem"><li><a href="#revisions">Hardware revisions</a></li></ul>
+  <li>Linux: 
+   <a href="http://elinux.org/BeagleBoardUbuntu">Ubuntu</a>,
+   <a href="http://wiki.debian.org/InstallingDebianOn/TI/BeagleBone">Debian</a>,
+   <a href="http://archlinuxarm.org/platforms/armv7/beaglebone">ArchLinux</a>,
+   <a href="http://dev.gentoo.org/~armin76/arm/beaglebone/install.xml">Gentoo</a>,
+   <a href="http://wiki.sabayon.org/index.php?title=Hitchhikers_Guide_to_the_BeagleBone_(and_ARMv7a)">
+    Sabayon</a>,
+   <a href="http://www.zoobab.com/beaglebone">Buildroot</a>,
+   <a href="http://nerves-project.org/">Erlang</a>,
+   <a href="http://elinux.org/BeagleBoardFedora">Fedora</a>
   </li>
-  <li><a href="#updates">Software history</a>
-   <ul class="subitem">
-    <li><a href="#todo">Known issues and future updates</a></li>
-    <li><a href="#acknowledgments">Acknowledgements</a></li>
-   </ul>
+  <li>Other:
+   <a href="http://community.qnx.com/sf/wiki/do/viewPage/projects.bsp/wiki/TiAm335Beaglebone">QNX</a>,
+   <a href="http://people.freebsd.org/~dmarion/beaglebone/creating_bootable_sd_card/">FreeBSD</a>
   </li>
  </ul>
 
- <h2 id="software"><u>Software introduction</u></h2>
- <p>The Angstrom Distribution image provided with your BeagleBone includes a
-  large amount of software already running as you are reading this document.
-  It is also possible to install many more pre-built packages from the on-line
-  repository feed using the 'opkg' tool.
+ <h2 id="software"><u>Super-quick-start</u></h2>
+ <p>Connect Ethernet and browse to <a href="http://beaglebone.local">
+  <b>beaglebone.local</b></a>.  You can also 'ssh&nbsp;root@beaglebone.local'.
  </p>
- <p>Some of the running programs include web servers and other Internet servers
-  that give you access to the board, even if you don't have a display, mouse
-  and keyboard connected to it.
+ <p>Your browser will introduce you to the board features and
+  Cloud9 IDE with Bonescript.
  </p>
 
- <h3 id="decision"><u>Network connectivity</u></h3>
- <p>For many people, connecting your BeagleBone to your LAN and powering it via
-  a <a href="http://beagleboard.org/peripheral#5V">recommended 5V power
-  adapter</a> is sufficient to get started using the BeagleBone.  The BeagleBone
-  will fetch an IP address using DHCP and will broadcast it services using <a
-  href="http://en.wikipedia.org/wiki/Avahi_(software)">Avahi</a>, so it is
-  likely you'll simply see <a
-  href="http://beaglebone.local">beaglebone.local</a> on your network.  If the
-  DHCP address was provided ahead of you connecting up your USB cable, you
-  might also find the IP address in <a href="info.txt">info.txt</a>.  Another
-  option is to use your router's DHCP log to discover the IP address of your
-  board.
+ <h3>beaglebone.local</h3>
+ <p>To provide this network name, the BeagleBone is running 
+  <a href="http://en.wikipedia.org/wiki/Avahi_(software)">Avahi</a> and a
+  <a href="http://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol">
+  DHCP client</a>.  This is supported by most network configurations and Mac,
+  Windows and Linux computers.
  </p>
- <p><small><b>Note:</b> The clock speed of the BeagleBone is determined by if
-  the power source is USB or the 5V adapter at initial boot.  It will be 500MHz
-  if the power source is USB and 720MHz if the power source is an
-  adapter.</small>
+ <p>
+  You can also connect to your BeagleBone using
+  built-in USB-to-serial or USB-to-Ethernet.
  </p>
 
- <h3 id="drivers"><u>Getting your host machine USB drivers setup</u></h3>
- <p>This BeagleBone demo image exposes multiple USB device types to
-  your host machine:
-  <ul class="arrow">
-   <li>FTDI USB-to-JTAG interface</li>
-   <li>FTDI USB-to-serial interface</li>
-   <li>Linux mass storage class interface <b>(<i>on startup</i>)</b><br/></li>
-   <li>Linux USB-to-Ethernet interface <b>(<i>following &ltEJECT&gt</i>)</b></li>
-  </ul>
- </p>
- <p><small><b>Note:</b> On revision A3/A4 boards, the VID/PID were chosen to
-  match the TI XDS100v2 (0x0403/0xA6D0).  On A5 and newer revisions when we've
-  given the authors of CCS the chance to update their software, the generic
-  FTDI VID/PID (0x0403/0x6010) will be used to simplify installation of drivers
-  for systems already having those drivers.</small>
- </p>
- <p><small><b>Note:</b> OpenOCD is an application that provides JTAG-based
-  debugging on all three operating systems, but support for the BeagleBone
-  USB-to-JTAG interface is still a work in progress.  Please visit the <a
-  href="http://openocd.sourceforge.net/">OpenOCD Homepage</a> to learn more
-  about the project, join the mailing list and help us to add support for the
-  BeagleBone.</small>
- </p>
- <p>Otherwise, support varies across Windows, Mac OSX or Linux.
+ <h3 id="decision">Powering options</h3>
+ <p>
+  You may power via a USB cable (provided) or purchase a
+  <a href="http://beagleboard.org/peripheral#5V">recommended 5V power
+  adapter</a>.
+ <p>
+  <small><b>Note:</b> Some software images limit the clock speed of the BeagleBone
+  by determining if the power source is USB or the 5V adapter to avoid excess use
+  of current.</small>
  </p>
 
- <h4>Windows</h4>
- <ul class="arrow">
-  <li>Code Composer Studio v5 (CCSv5) is a TI provided Eclipse-based integrated
-   development environment that enables you to debug and develop C/C++ applications
-   for your BeagleBone.  CCSv5 provides both a USB-to-serial driver as well as
-   support for the USB-to-JTAG interface.  See the
-   <a href="http://processors.wiki.ti.com/index.php/Category:Code_Composer_Studio_v5">
-   CCSv5 wiki</a> page for download and installation information and
-   <a href="Docs/ccs-jtag-simple.htm">instructions on getting started</a>.
-  </li>
-  <li>Save and execute <a href="Drivers/Windows/BONE_DRV.exe">
-   BONE_DRV.exe</a> for the USB-to-serial and USB-to-Ethernet drivers (or
-   <a href="Drivers/Windows/BONE_D64.exe">BONE_D64.exe</a> for 64-bit Windows).
-   For additional information, visit
-   <a href="http://www.ftdichip.com/Drivers/VCP.htm">FTDI's Virtual COM Port Drivers</a>
-   page and the Ethernet over USB section of the <a href="http://www.linux-usb.org/gadget/">
-   Linux-USB Gadget API Framework</a> page.
-  </li>
- </ul>
-
- <h4>Mac OS X</h4>
- <ul class="arrow">
-  <li>Save and open
-   <a href="Drivers/MacOSX/FTDI/FTDI_Ser.dmg">FTDI_Ser.dmg</a>,
-   choose the correct .mpkg file and install the USB-to-serial drivers.
-   For additional information, visit
-   <a href="http://www.ftdichip.com/Drivers/VCP.htm">FTDI's Virtual COM Port Drivers</a>
-   page.
-  </li>
- </ul>
- <p><small><b>Note:</b> For the USB-to-Ethernet interface, the drivers are
-  likely <i>already built into your system</i>, so no additional work is
-  required.  For older OS X systems, you can look at the driver the folks over
-  at Bug Labs have produced for their excellent modular development platform
-  that you might use: <a
-  href="http://bugcommunity.com/wiki/index.php/Start_Guide_Mac_OS_X_10.5">
-  Start_Guide_Mac_OS_X_10.5 </a> </small>
+ <h2 id="drivers"><u>Using USB-to-serial/JTAG/Ethernet on your computer</u></h2>
+ <h3>Drivers</h3>
+ <p>
+  Depending on the platform and board revision, you may need to manualy install or
+  load drivers for access to these interfaces.
  </p>
- <p>If you are on-line, here is a user's video showing the whole process:</p>
- <object width="560" height="315"><param name="movie"
-  value="http://www.youtube.com/v/1LN9r1WkovU?version=3&amp;hl=en_US"></param><param
-  name="allowFullScreen" value="true"></param><param name="allowscriptaccess"
-  value="always"></param><embed
-  src="http://www.youtube.com/v/1LN9r1WkovU?version=3&amp;hl=en_US"
-  type="application/x-shockwave-flash" width="560" height="315"
-  allowscriptaccess="always" allowfullscreen="true"></embed></object>
- <p><small><b>Note:</b> The above uses an older software revision, but the
-  differences are minimal.</small>
+ <table border="1">
+  <tr>
+   <th>Operating System</th>
+   <th>USB-to-serial
+    (<a href="http://www.ftdichip.com/Drivers/VCP.htm">FTDI</a>)
+   </th>
+   <th>Ethernet over USB
+    (<a href="http://www.linux-usb.org/gadget/">Gadget</a>)
+   </th>
+  </tr>
+  <tr>
+   <td>Windows (32-bit)</td>
+   <td>
+    <a href="Drivers/Windows/BONE_DRV.exe">BONE_DRV.exe</a>
+   </td>
+   <td>
+    <a href="Drivers/Windows/BONE_DRV.exe">BONE_DRV.exe</a>
+   </td>
+  </tr>
+  <tr>
+   <td>Windows (64-bit)</td>
+   <td>
+    <a href="Drivers/Windows/BONE_D64.exe">BONE_D64.exe</a>
+   </td>
+   <td>
+    <a href="Drivers/Windows/BONE_D64.exe">BONE_D64.exe</a>
+  </tr>
+  <tr>
+   <td>Mac OS X</td>
+   <td>
+    Rev&nbsp;A3-A4:&nbsp;<a href="Drivers/MacOSX/FTDI/FTDI_Ser.dmg">FTDI_Ser.dmg</a><br/>
+    Rev&nbsp;A5+:&nbsp;Not&nbsp;required
+   </td>
+   <td>
+    Not required
+   </td>
+  </tr>
+  <tr>
+   <td>Linux</td>
+   <td>
+    Rev&nbsp;A3-A4:&nbsp<a href="Drivers/Linux/FTDI/mkudevrule.sh">mkudevrule.sh</a><br/>
+    Rev&nbsp;A5+:&nbsp;Not&nbsp;required
+   </td>
+   <td>
+    Not required
+   </td>
+  </tr>
+ </table>
+ <p><small><b>Note:</b><br/>
+  On revision A3/A4 boards, the VID/PID matches
+  the TI XDS100v2: 0x0403/0xA6D0<br/>
+  On revision A5+ boards, the generic FTDI VID/PID is used: 0x0403/0x6010</small>
  </p>
 
- <h4>Linux</h4>
- <p>For A5 boards, no drivers should need to be installed.  For older boards,
-  you'll need invoke the driver by specifying the vendor and product ID:
- </p>
- <pre>
-sudo modprobe ftdi_sio vendor=0x0403 product=0xa6d0
- </pre>
- <p>To make a pre-A5 BeagleBone show up upon every reboot, add a udev rule.
-  Here is an example /etc/udev/rules.d/73-beaglebone.rules:
-  <pre>
-ACTION=="add", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_interface", \
-        ATTRS{idVendor}=="0403", ATTRS{idProduct}=="a6d0", \
-        DRIVER=="", RUN+="/sbin/modprobe -b ftdi_sio"
-
-ACTION=="add", SUBSYSTEM=="drivers", \
-        ENV{DEVPATH}=="/bus/usb-serial/drivers/ftdi_sio", \
-        ATTR{new_id}="0403 a6d0"
-
-ACTION=="add", KERNEL=="ttyUSB*", \
-	ATTRS{interface}=="BeagleBone", \
-        ATTRS{bInterfaceNumber}=="00", \
-	SYMLINK+="beaglebone-jtag"
-
-ACTION=="add", KERNEL=="ttyUSB*", \
-	ATTRS{interface}=="BeagleBone", \
-        ATTRS{bInterfaceNumber}=="01", \
-	SYMLINK+="beaglebone-serial"
-  </pre>
-  Run the following to load the new udev rules:
-  <pre>
-sudo udevadm control --reload-rules
-  </pre>
- </p>
- <p><small><b>Note:</b> Code Composer Studio v5 (CCSv5) is a TI provided
-  Eclipse-based integrated development environment that enables you to debug
-  and develop C/C++ applications for your BeagleBone.  CCSv5 provides debug
-  support in Linux over the USB-to-JTAG interface.  See the <a
-  href="http://processors.wiki.ti.com/index.php/Category:Code_Composer_Studio_v5">
-  CCSv5 wiki</a> page for download and installation information.</small>
- </p>
+ <h3>JTAG debug</h3>
+ <p><b><a href="http://processors.wiki.ti.com/index.php/Category:Code_Composer_Studio_v5">
+  Code Composer Studio v5 (CCSv5)</a></b> is available for free for BealgeBone users and
+  is a TI-provided Eclipse-based integrated development environment that enables you to
+  debug and develop C/C++ applications.  Please visit the
+  <a href="http://processors.wiki.ti.com/index.php/FAQ_-_CCSv5">CCSv5 Frequently Asked
+  Questions page</a>.</p>
+ <p><b><a href="http://openocd.sourceforge.net">OpenOCD</a></b> is an application
+  that provides JTAG-based debugging on all three operating systems, but currently only
+  Linux is verified.  Please visit
+  <a href="http://www.mattlmassey.com/2012/04/26/using-openocd-with-the-beaglebone/">
+  Matt Massey's blog post describing installation in Ubuntu</a>.</p>
 
  <h3 id="serial"><u>Connect to your BeagleBone's serial console</u></h3>
- <p>Connecing to the serial port will give you access to the bootloader shell,
-  kernel boot logs, a login prompt and the Linux shell.  The username is 'root'
-  and the password is not set.  If the board is already booted, a quick press
-  of &lt;Enter&gt; should bring up a new login prompt.
- </p>
+ <p>Under Windows, it is recommended to follow the
+  <a href="http://ladyada.net/products/beaglebone/ethernet.html">
+  Adafruit tutorial</a>.
+ <p>
 
- <h4>Windows</h4>
- <ul class="arrow">
-  <li>Launch HyperTerminal (Start -> All Programs -> Accessories -> Communications
-   -> HyperTerminal)</li>
-  <li>Give the name 'BeagleBone' and press &lt;Enter&gt;</li>
-  <li>Select the last (newest) COM port and press &lt;Enter&gt;</li>
-  <li>Choose '115200' Bits per second, '8' Data bits, 'None' Parity, '1' Stop
-   Bits, 'None' Flow control and press &lt;Enter&gt;
-  </li>
- </ul>
-
- <h4>Mac OS X or Linux</h4>
- <p>To open the serial terminal from a shell prompt, use the following command:
+ <p>For Mac or Linux, it is recommended simply to invoke 'screen':
   <pre>
 screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
   </pre>
@@ -293,7 +191,7 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
  </p>
 
  <h3 id="g_ether"><u>Launch USB-to-Ethernet interface</u></h3>
- <p><b>Eject the "BEAGLE_BONE" drive to enable the USB-to-Ethernet interface.</b></p>
+ <p><b><u>Eject</u> the "BEAGLE_BONE" drive to enable the USB-to-Ethernet interface.</b></p>
  <p>At boot-up, the processor on your BeagleBone is running a USB storage "gadget" driver
   that served you up this file.  For this software build, you need to swap the storage gadget
   for a USB-to-Ethernet gadget when you are ready to establish an IP connection over your
@@ -310,56 +208,12 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
   </li>
   <li>Configure the adapter that appears for DHCP.</li>
   <li>The adapter should be given the IP address 192.168.7.1.<li>
+  <li>The BeagleBone should have IP address 192.168.7.2.<li>
+  <li>It is recommended to use Chrome or Firefox.</li>
  </ul>
 
- <h3 id="navigate"><u>Navigate to your BeagleBone's web interface</u></h3>
- <p>At this point, you should have an IP connection either over Ethernet or over your
-  USB cable.  The links below assume you are using your USB cable, which should be
-  providing fixed IP addresses.</p>
- <p>The Linux distribution running on your BeagleBone is configured to start a handful
-  of web servers upon boot.  This is the easiest way to get explore and program your
-  BeagleBone if you are not already experienced with Linux.
- </p>
- <p><small><b>Note:</b> Please note that many of the tools do not support Internet
-  Explorer.  It is recommended you use recent versions of Chrome or Firefox.
- </small></p>
- <p><small><b>Note #2:</b> Some VPNs may interfere with your local network connection to
-    your BeagleBone.  Please consult your VPN guide.</small>
- </p>
- <ul class="arrow">
-  <li><b>BeagleBone 101 presentation</b> - <a href="http://192.168.7.2">
-   http://192.168.7.2</a><br /><br />
-   This application is largely self explanatory.  The source can be edited using
-   the Cloud9 IDE.  The application is 'bone101.js'.<br /><br />
-  </li>
-  <li><b>Cloud9 IDE</b> - <a href="http://192.168.7.2:3000">
-   http://192.168.7.2:3000</a><br /><br />
-   This development environment supports direct execution of
-   JavaScript via Node.JS.  Visit <a href="http://nodejs.org">nodejs.org</a> for information
-   on programming in Node.JS.<br /><br />
-   The IDE is pre-populated with the source and demos of the
-   <a href="http://github.com/jadonk/bonescript">BoneScript project</a>.<br /><br />
-   <small><b>Notes:</b> BoneScript is in an early alpha phase and is expected to be at
-   a point suitable for building applications by Summer 2012.  There is currently no
-   autorun features for the applications loaded into Cloud9 IDE, but that is one feature
-   planned to be enabled.</small>
-   <br /><br />
-  </li>
-  <li><b>GateOne</b> - <a href="https://192.168.7.2">
-   https://192.168.7.2</a><br /><br />
-   For documentation, please visit the on-line
-   <a href="http://liftoff.github.com/GateOne/">GateOne Documentation</a>.<br /><br />
-   <small><b>Note:</b> This installation might be a bit slow, but we are actively working
-   on improving this with the author.</small>
-   <br /><br />
-  </li>
- </ul>
-
- <h2 id="hardware"><u>Hardware design materials</u></h2>
- <p>The latest hardware docs are <a href="http://beagleboard.org/hardware/design">
-  on-line</a>, but a local copy at the time of image creation is provided here for your
-  convenience.
- </p>
+ <h2 id="hardware"><u>Hardware</u></h2>
+ <h3 ><u>Design materials</u></h3>
  <ul>
   <li>
    <a href="Docs/Hardware/BONE_SRM.pdf">System Reference Manual</a>
@@ -378,7 +232,11 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
   </li>
  </ul>
 
- <h3 id="revisions"><u>History of the hardware revisions</u></h3>
+ <h3 id="revisions"><u>Revisions</u></h3>
+ <p> <a href="http://circuitco.com/support/index.php?title=BeagleBone">
+ CircuitCo.com's BeagleBone page</a> documents all of the known hardware issues.
+ </p>
+
  <h4>A3</h4> <p>This is the original version of the board. Main issue was
  issues with the reset switch where the reset line was being pulled low which
  could cause random dropping of the Ethernet port. This issue has not be seen
@@ -409,25 +267,21 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
  A fresh revision A5, will be 00, A4 reworked will be 01, and a recertified A3
  will be 02. There is no functional or operational difference between any of
  these boards. They are all revision A5 and will ship with the same SW.</p>
-      
- <p>For those with Revision A3 and A4, you will be able to download the latest
- shipping image from <a
- href="http://circuitco.com/support/index.php?title=BeagleBone">CircuitCo.com's
- BeagleBone page</a> and have all the features of the Revision A5. For A4
- users, you will need to remove R219 and instructions are provided also at <a
- href="http://circuitco.com/support/index.php?title=BeagleBone">CircuitCo.com's
- BeagleBone page</a>.</p>
 
- <h2 id="updates"><u>Software updates</u></h2>
+ <h4>A6</h4>
+ <p>This version of the board has several updates, but none should impact
+ execution of existing software.</p>
  <ul class="arrow">
-  <li>Kernel
-   <ul class="subitem">
-    <li>Added ADC support (still needs framework updates)</li>
-    <li>Basic support for some LCD and DVI-D capes</li>
-   </ul>
-  </li>
+  <li>Yellow LED to turns on during 100M operation</li>
+  <li>Two additional PRU signals overlaid with existing signals to the
+   expansion header</li>
+  <li>Moved resistors away from the standoff</li>
+  <li>Removed connection to VPP pin from the layout</li>
+  <li>Removed R163 to avoid spurious JTAG reset issues</li>
+  <li>Removed incorrect and ignored configuration resistor for LAN8710</li>
  </ul>
 
+ <h2 id="updates"><u>Software updates</u></h2>
  <h3 id="todo"><u>Known issues and to-do list</u></h3>
  <ul class="arrow">
   <li>System
@@ -478,18 +332,6 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
    </ul>
   </li>
  </ul>
-
- <!--
- <h3 id="acknowledgments"><u>Acknowledgements</u></h3>
- <p>Much thanks is required to the Linux, Angstrom, hardware and many software
-  project contributors, but here are a few contributions of note providing
-  feedback directly on the BeagleBone experience.  Providing these here also
-  serves the purpose of giving some history on some of these updates.
- </p>
- <ul class="arrow">
-  <li><a href="https://groups.google.com/forum/?fromgroups#!topic/beagleboard/gKQtFpdpB6k"></a></li>
- </ul>
- -->
 
  </div></div></div>
  <div id="footer">
