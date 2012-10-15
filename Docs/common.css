@@ -96,7 +96,7 @@ div.clear {clear:both; margin:10px 0;}
 div#promo {clear:both; white-space:nowrap; padding-bottom:10px;}
 
 div#contentarea {margin:0; padding:0 0 30px 0; background-color:#FFF;}
-div#contentarea2 {margin:0; padding:0 0 30px 0; background:#FFF url(images/beagle-subpg-bg.gif) top left repeat-x;}
+div#contentarea2 {margin:0; padding:0 0 30px 0; background:#FFF top left repeat-x;}
 div#contentbuffer {padding:0; margin:20px 20px; zoom: 1;}
 .line {
   float:left;
