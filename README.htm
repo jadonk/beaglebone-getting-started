@@ -1,169 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en"> 
-<head> 
- <title>BeagleBone Getting Started Guide</title> 
- <style type="text/css" media="screen">@import "Docs/common.css";</style>
- <link rel="icon" href="Docs/beagle.ico" type="image/x-icon" />
- <link rel="shortcut icon" href="Docs/beagle.ico" type="image/x-icon" />
-</head>
-<body>
- <div id="wrapper">
-
- <div id="contentarea2" class="line">
- <div id="contentbuffer">
- <div id="page">
-
- <a href="http://beagleboard.org">
-  <img id="head-logo" title="beagleboard logo" alt="beagleboard logo"
-   src="Docs/beagle.png" height="80px" />
-  <img id="head-icon" src="Docs/url.png" alt="beagleboard url" />
- </a>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>BeagleBoard.org - getting-started</title>
+  <meta name="keywords" content="Beagle Board, BeagleBoard, beagleboard.org, BeagleBone, BeagleBoard-xM, bealgeboard, open hardware, open source, Linux, computer" />
+  <link href="http://feeds.feedburner.com/BeagleBoard" rel="alternate" title="Beagle Board news feed" type="application/atom+xml">
+  <link rel="icon" href="Docs/beagle.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="Docs/beagle.ico" type="image/x-icon">
+  <style type="text/css" media="screen">@import "/static/common.css";</style>
+ </head>
+ <body>
+  <a name="top" id="top"></a>
+  <!-- DIV that centers page - START -->
+  <div id="wrapper">
+   <!-- Header/Logo Area - START -->
+   <div id="header">
+    <div id="logo"><a href="/"><img src="Docs/beagle-hd-logo.gif" alt="Beagle Board - beagleboard.org" border="0" width="301" height="53" /></a></div>
+    <!-- Horizontal Navigation - START -->
+    <div id="nav">
+     <ul>
+      <li class="navitem1"><a href="http://beagleboard.org/discuss">Discuss</a></li>
+      <li class="navitem2"><a href="http://beagleboard.org/details">Details</a></li>
+      <li class="navitem3"><a href="http://beagleboard.org/project">Projects</a></li>
+      <li class="navitem4"><a href="http://beagleboard.org/buy">Buy</a></li>
+     </ul>
+    </div>
+    <!-- Horizontal Navigation - END -->
+   </div>
+   <!-- Header/Logo Area - END -->
+   <!-- Content Area - START -->
+   <div id="contentarea2" class="line">
+    <div id="contentbuffer">
+     <div id="page">
  <img id="in-hand" src="Docs/in-hand.png"
   alt="beaglebone in hand" align="right" height="200px" />
-
  <h1>BeagleBone README Quick-Start Guide</h1>
- <p>
-  <b><a href="http://beagleboard.org/static/beaglebone/latest/Docs/Hardware/BONE_SRM.pdf">
-   BeagleBone System Reference Manual</a></b>
-  &lt-- please read before asking for help
-  <br/>
-  <b><a href="http://beagleboard.org/static/beaglebone/latest/README.htm">
-  BeagleBone README Quick-Start Guide</a></b>
-  &lt-- latest version of this document
- </p>
- <p>
-  This document was last updated for BeagleBone revision <b>A6</b>.
- </p>
-
- <h2 id="before"><u>Available software updates</u></h2>
- <p>
-  <a href="http://beagleboard.org/angstrom">Angstrom Mirrors</a>
-  &lt-- latest pre-built microSD card images
-  <br/>
-  <a href="http://www.angstrom-distribution.org/building-angstrom">
-   Building Angstrom</a>
-  &lt-- instructions to rebuild the image
- </p>
- <h3>Other currently available starting images</h3>
- <ul class="arrow">
-  <li>Texas Instruments releases: 
-   <a href="http://processors.wiki.ti.com/index.php/BeagleBone-Android-DevKit_Guide">
-    Android</a>,
-   <a href="http://software-dl.ti.com/dsps/dsps_public_sw/am_bu/sdk/AM335xSDK/latest/index_FDS.html">
-    Linux</a>,
-   <a href="http://processors.wiki.ti.com/index.php/StarterWare">
-    StarterWare (no OS)</a>
-  </li>
-  <li>Linux: 
-   <a href="http://elinux.org/BeagleBoardUbuntu">Ubuntu</a>,
-   <a href="http://wiki.debian.org/InstallingDebianOn/TI/BeagleBone">Debian</a>,
-   <a href="http://archlinuxarm.org/platforms/armv7/beaglebone">ArchLinux</a>,
-   <a href="http://dev.gentoo.org/~armin76/arm/beaglebone/install.xml">Gentoo</a>,
-   <a href="http://wiki.sabayon.org/index.php?title=Hitchhikers_Guide_to_the_BeagleBone_(and_ARMv7a)">
-    Sabayon</a>,
-   <a href="http://www.zoobab.com/beaglebone">Buildroot</a>,
-   <a href="http://nerves-project.org/">Erlang</a>,
-   <a href="http://elinux.org/BeagleBoardFedora">Fedora</a>
-  </li>
-  <li>Other:
-   <a href="http://community.qnx.com/sf/wiki/do/viewPage/projects.bsp/wiki/TiAm335Beaglebone">QNX</a>,
-   <a href="http://people.freebsd.org/~dmarion/beaglebone/creating_bootable_sd_card/">FreeBSD</a>
-  </li>
- </ul>
-
- <h2 id="software"><u>Super-quick-start</u></h2>
- <p>Connect Ethernet and browse to <a href="http://beaglebone.local">
-  <b>beaglebone.local</b></a>.  You can also 'ssh&nbsp;root@beaglebone.local'.
- </p>
- <p>Your browser will introduce you to the board features and
-  Cloud9 IDE with Bonescript.
- </p>
-
- <h3>beaglebone.local</h3>
- <p>To provide this network name, the BeagleBone is running 
-  <a href="http://en.wikipedia.org/wiki/Avahi_(software)">Avahi</a> and a
-  <a href="http://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol">
-  DHCP client</a>.  This is supported by most network configurations and Mac,
-  Windows and Linux computers.
- </p>
- <p>
-  You can also connect to your BeagleBone using
-  built-in USB-to-serial or USB-to-Ethernet.
- </p>
-
- <h3 id="decision">Powering options</h3>
- <p>
-  You may power via a USB cable (provided) or purchase a
-  <a href="http://beagleboard.org/peripheral#5V">recommended 5V power
-  adapter</a>.
- <p>
-  <small><b>Note:</b> Some software images limit the clock speed of the BeagleBone
-  by determining if the power source is USB or the 5V adapter to avoid excess use
-  of current.</small>
- </p>
-
- <h2 id="drivers"><u>Using USB-to-serial/JTAG/Ethernet on your computer</u></h2>
- <h3>Drivers</h3>
- <p>
-  Depending on the platform and board revision, you may need to manualy install or
-  load drivers for access to these interfaces.
- </p>
+ <h2>Step #1: Plug in BeagleBone via USB</h2>
+ <p>The BeagleBone will boot Linux from the provided microSD card and operates as a flash drive. This provides you with a local copy of the documentation and drivers.</p>
+ <h2>Step #2: Install drivers</h2>
+ <p>Install the drivers for your operating system.</p>
  <table border="1">
   <tr>
    <th>Operating System</th>
-   <th>USB-to-serial
-    (<a href="http://www.ftdichip.com/Drivers/VCP.htm">FTDI</a>)
+   <th>USB Drivers†<sup>[<a href="http://www.ftdichip.com/Drivers/VCP.htm">FTDI</a>]†[<a href="http://www.linux-usb.org/gadget/">Network</a>]</sup>
    </th>
-   <th>Ethernet over USB
-    (<a href="http://www.linux-usb.org/gadget/">Gadget</a>)
-   </th>
+   <th>Comments</th>
   </tr>
   <tr>
    <td>Windows (32-bit)</td>
    <td>
     <a href="Drivers/Windows/BONE_DRV.exe">BONE_DRV.exe</a>
    </td>
-   <td>
-    <a href="Drivers/Windows/BONE_DRV.exe">BONE_DRV.exe</a>
-   </td>
+   <td rowspan="2"><small>
+    <ul>
+     <li><b>Note #1</b>:†Windows Driver Certification warning may pop up a couple times.  Click ëIgnoreí</li>
+     <li><b>Note #2</b>:†To check if youíre running 32 or 64-bit Windows see this: <a href="http://support.microsoft.com/kb/827218">http://support.microsoft.com/kb/827218</a></li>
+    </ul>
+   </small></td>
   </tr>
   <tr>
    <td>Windows (64-bit)</td>
    <td>
     <a href="Drivers/Windows/BONE_D64.exe">BONE_D64.exe</a>
    </td>
-   <td>
-    <a href="Drivers/Windows/BONE_D64.exe">BONE_D64.exe</a>
   </tr>
   <tr>
    <td>Mac OS X</td>
    <td>
-    Rev&nbsp;A3-A4:&nbsp;<a href="Drivers/MacOSX/FTDI/FTDI_Ser.dmg">FTDI_Ser.dmg</a><br/>
-    Rev&nbsp;A5+:&nbsp;Not&nbsp;required
+    <a href="Drivers/MacOSX/FTDI/FTDI_Ser.dmg">FTDI_Ser.dmg</a>
    </td>
-   <td>
-    Not required
-   </td>
+   <td><small><b>Note</b>: Driver installation is not required for rev A5 boards or newer</small></td>
   </tr>
   <tr>
    <td>Linux</td>
    <td>
-    Rev&nbsp;A3-A4:&nbsp<a href="Drivers/Linux/FTDI/mkudevrule.sh">mkudevrule.sh</a><br/>
-    Rev&nbsp;A5+:&nbsp;Not&nbsp;required
+    <a href="Drivers/Linux/FTDI/mkudevrule.sh">mkudevrule.sh</a>      
    </td>
-   <td>
-    Not required
-   </td>
+   <td><small><b>Note</b>: Driver installation is not required for rev A5 boards or newer</small></td>
   </tr>
  </table>
- <p><small><b>Note:</b><br/>
-  On revision A3/A4 boards, the VID/PID matches
-  the TI XDS100v2: 0x0403/0xA6D0<br/>
-  On revision A5+ boards, the generic FTDI VID/PID is used: 0x0403/0x6010</small>
+ <h2>Step #3: Eject BEAGLE_BONE</h2>
+ <p>The EJECT operation tells your BeagleBone to switch from "storage mode" to "network mode", enabling you to access the networking features over your USB cable.</p>
+ <img src="Docs/windows-eject.png" width="600px" />
+ <ul>
+  <li><b>Note #1:</b> "Safely remove hardware" is <b>not</b> the same as EJECT. </li>
+  <li><b>Note #2:</b> On Windows, it may take a
+   couple of minutes for the driver to load after EJECT.</li>
+  <li><b>Note #3:</b> On Windows, you may be prompted
+   to locate the 'linux.inf' file.  If the driver was installed properly, you should be able to
+   find it under c:\windows\system32\drvstore\linux_...</li>
+  <li><b>Note #4:</b> OS X Mountain Lion no longer issues the EJECT operation upon using
+   EJECT. You'll need to access the serial console (as described further below) and input the following commands into the console:<pre>
+   systemctl stop storage-gadget-init.service; systemctl start network-gadget-init.service</pre></li>
+ </ul>
+ <h2>Step #4: Browse to your board</h2>
+ <p>Using either <a href="http://www.google.com/chrome">Chrome</a> or <a href="http://www.mozilla.org/firefox">Firefox</a> (Internet Explorer will <b>NOT</b> work), browse to the web server running on your board. It will load a presentation showing you the capabilities of the board. Use the arrow keys on your keyboard to navigate the presentation.
+  <ul class="arrow">
+   <li><a href="http://192.168.7.2">http://192.168.7.2</a></li>
+  </ul>
+  <img src="Docs/bone101.png" width="600px" />
+ <h2>Step #5: Explore Cloud9 IDE</h2>
+ <p>Cloud9 IDE can be used to develop software on your BeagleBone without the need to download any development software. Cloud9 IDE runs directly on your BeagleBone and is accessible through your browser.</p>
+  <ul class="arrow">
+   <li><a href="http://192.168.7.2:3000">http://192.168.7.2:3000/</a></li>
+  </ul>
+ <img src="Docs/Cloud9_Screen.png" width="600px" />
+ <h2><u>Troubleshooting and reference</u></h2>
+  <p><b><a href="Docs/Hardware/BONE_SRM.pdf">
+   BeagleBone System Reference Manual</a></b>
+  <-- please read before asking for help
+  <br />
+  <b><a href="http://beagleboard.org/static/beaglebone/latest/README.htm">
+  BeagleBone README Quick-Start Guide</a></b>
+  <-- latest version of this document
+  <br />
+  <a href="http://beagleboard.org/discuss">Online discussion</a>
+  <-- Where to ask questions
+  <br />
+  <a href="http://beagleboard.org/angstrom">Angstrom Mirrors</a>
+  <-- latest pre-built microSD card images
+  <br />
+  <a href="http://www.angstrom-distribution.org/building-angstrom">
+   Building Angstrom</a>
+  <-- instructions to rebuild the image
  </p>
-
+ <h3 id="serial">Connect to your BeagleBone's serial console</h3>
+ <p>Under Windows, it is recommended to follow the
+  <a href="http://ladyada.net/products/beaglebone/ethernet.html">
+  Adafruit tutorial</a>.
+ <p>
+ <p>For Mac or Linux, it is recommended simply to invoke 'screen':
+  <pre>
+screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
+  </pre>
+  Type 'CTRL-a k' to exit screen.
+ </p>
+ <p>The username is 'root' and the password is blank, so you may simply press the ENTER key.</p>
+ <h3>Other currently available starting images</h3>
+ <ul class="arrow">
+  <li>Texas Instruments releases: 
+   <a href="http://beagleboard.org/project/android/">
+    Android</a>,
+   <a href="http://beagleboard.org/project/amsdk/">
+    Linux</a>,
+   <a href="http://beagleboard.org/project/starterware/">
+    StarterWare (no OS)</a>
+  </li>
+  <li>Linux: 
+   <a href="http://beagleboard.org/project/ubuntu/">Ubuntu</a>,
+   <a href="http://beagleboard.org/project/Debian/">Debian</a>,
+   <a href="http://beagleboard.org/project/AM/">ArchLinux</a>,
+   <a href="http://beagleboard.org/project/Gentoo/">Gentoo</a>,
+   <a href="http://beagleboard.org/project/sabayon/">
+    Sabayon</a>,
+   <a href="http://beagleboard.org/project/buildroot/">Buildroot</a>,
+   <a href="http://beagleboard.org/project/Nerves/">Erlang</a>,
+   <a href="http://beagleboard.org/project/fedora/">Fedora</a>
+  </li>
+  <li>Other:
+   <a href="http://beagleboard.org/project/QNX+Neutrino+on+OMAP/">QNX</a>,
+   <a href="http://beagleboard.org/project/freebsd/">FreeBSD</a>
+  </li>
+ </ul>
+ <h3 id="decision">Powering options</h3>
+ <p>
+  To power the board with connected USB peripherals, a
+  <a href="http://beagleboard.org/peripheral#5V">2A, 5V power
+  adapter is recommended</a>.
+ <p>
+  <small><b>Note:</b> Some software images limit the clock speed of the BeagleBone
+  by determining if the power source is USB or the 5V adapter to avoid excess use
+  of current.</small>
+ </p>
  <h3>JTAG debug</h3>
  <p><b><a href="http://processors.wiki.ti.com/index.php/Category:Code_Composer_Studio_v5">
   Code Composer Studio v5 (CCSv5)</a></b> is available for free for BealgeBone users and
@@ -176,42 +185,6 @@
   Linux is verified.  Please visit
   <a href="http://www.mattlmassey.com/2012/04/26/using-openocd-with-the-beaglebone/">
   Matt Massey's blog post describing installation in Ubuntu</a>.</p>
-
- <h3 id="serial"><u>Connect to your BeagleBone's serial console</u></h3>
- <p>Under Windows, it is recommended to follow the
-  <a href="http://ladyada.net/products/beaglebone/ethernet.html">
-  Adafruit tutorial</a>.
- <p>
-
- <p>For Mac or Linux, it is recommended simply to invoke 'screen':
-  <pre>
-screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
-  </pre>
-  Type CTRL-a k to exit screen.
- </p>
-
- <h3 id="g_ether"><u>Launch USB-to-Ethernet interface</u></h3>
- <p><b><u>Eject</u> the "BEAGLE_BONE" drive to enable the USB-to-Ethernet interface.</b></p>
- <p>At boot-up, the processor on your BeagleBone is running a USB storage "gadget" driver
-  that served you up this file.  For this software build, you need to swap the storage gadget
-  for a USB-to-Ethernet gadget when you are ready to establish an IP connection over your
-  USB cable.
- </p>
- <ul class="arrow">
-  <li>From your PC, eject the BEAGLE_BONE USB drive.  The USB Ethernet gadget will automatically start.<br />
-   <br /><small><b>Note #1:</b> It has been observed in Windows that it may actually take a
-   couple of minutes for the driver to load on occasion.</small><br />
-   <br /><small><b>Note #2:</b> It has been observed in Windows that you may be prompted
-   to locate the 'linux.inf' file.  If you installed the driver properly, you should be able to
-   find it under c:\windows\system32\drvstore\linux_...</small><br />
-   <br />
-  </li>
-  <li>Configure the adapter that appears for DHCP.</li>
-  <li>The adapter should be given the IP address 192.168.7.1.<li>
-  <li>The BeagleBone should have IP address 192.168.7.2.<li>
-  <li>It is recommended to use Chrome or Firefox.</li>
- </ul>
-
  <h2 id="hardware"><u>Hardware</u></h2>
  <h3 ><u>Design materials</u></h3>
  <ul>
@@ -253,7 +226,7 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
  board to that of the Rev A3 via the removal of R219. There have been no PCB
  changes for this revision. It uses the same PCB revision as the A4. It also
  ships with an updated version of the Angstrom image providing out of the box
- support for the DVI-D and 7‚Äù LCD Capes.</p>
+ support for the DVI-D and 7î LCD Capes.</p>
     
  <p>There will be three possible versions of the Rev A5. One will be the new
  production version that is built from the ground up as an A5. The second
@@ -334,17 +307,29 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
    </ul>
   </li>
  </ul>
+</div>
+<div id="list">
 
- </div></div></div>
- <div id="footer">
- <div id="cc"><a href="http://creativecommons.org/about/license/" target="_blank"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" alt="Creative Commons - Conditions - Attribution and Share Alike" border="0" /></a></div>
- <p>
-  Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution-Share Alike 3.0 license.<br/>
-  Please see <a href="LICENSE.txt">LICENSE.txt</a> for more information.  Document version: 1.5
- </p>
- </div>
+</div>
+<br/>
+<div id="createtime">Last updated by blog.hangerhead.com on Mon Oct 15 2012 14:24:27 GMT-0500 (CDT).</div>
 
- </div>
-</body>
+    </div>
+   </div>
+   <!-- Content Area - END -->
+  </div>
+  <!-- DIV that centers page - END -->
+  <!-- Footer - START -->
+  <div id="footer">
+   <div id="cc"><a href="http://creativecommons.org/about/license/" target="_blank"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" alt="Creative Commons - Conditions - Attribution and Share Alike" border="0" width="88" height="31" /></a></div>
+   <div id="footernav">
+    <p>
+     <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Use</a> | <div class="login"> <div id="prompt_form"></div> <a href="/register">Register</a>
+</div><br />
+     Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution-Share Alike 3.0 license
+    </p>
+   </div>
+  </div>
+  <!-- Footer - END -->
+ </body>
 </html>
-
