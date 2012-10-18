@@ -36,9 +36,12 @@
      <div id="page">
  <img id="in-hand" src="Docs/in-hand.png"
   alt="beaglebone in hand" align="right" height="200px" />
+
  <h1>BeagleBone README Quick-Start Guide</h1>
+
  <h2>Step #1: Plug in BeagleBone via USB</h2>
  <p>The BeagleBone will boot Linux from the provided microSD card and operates as a flash drive. This provides you with a local copy of the documentation and drivers.</p>
+
  <h2>Step #2: Install drivers</h2>
  <p>Install the drivers for your operating system.</p>
  <table border="1">
@@ -55,8 +58,9 @@
    </td>
    <td rowspan="2"><small>
     <ul>
-     <li><b>Note #1</b>:&nbsp;Windows Driver Certification warning may pop up a couple times.  Click &quot;Ignore&quot;</li>
-     <li><b>Note #2</b>:&nbsp;To check if you&#39;re running 32 or 64-bit Windows see this: <a href="http://support.microsoft.com/kb/827218">http://support.microsoft.com/kb/827218</a></li>
+     <li><b>Note #1:</b>&nbsp;Windows Driver Certification warning may pop up two or three times.  Click &quot;Ignore&quot; or &quot;Install&quot;</li>
+     <li><b>Note #2:</b>&nbsp;To check if you&#39;re running 32 or 64-bit Windows see this: <a href="http://support.microsoft.com/kb/827218">http://support.microsoft.com/kb/827218</a></li>
+     <li><b>Note #3:</b>&nbsp;On systems without the latest service release, you may get an error (0xc000007b). In that case, please install the following and retry: <a href="http://www.microsoft.com/en-us/download/confirmation.aspx?id=13523">http://www.microsoft.com/en-us/download/confirmation.aspx?id=13523</a></li>
     </ul>
    </small></td>
   </tr>
@@ -71,16 +75,17 @@
    <td>
     <a href="Drivers/MacOSX/FTDI/FTDI_Ser.dmg">FTDI_Ser.dmg</a>
    </td>
-   <td><small><b>Note</b>: Driver installation is not required for rev A5 boards or newer. Check sticker on Ethernet port for revision.</small></td>
+   <td><small><b>Note:</b>&nbsp;Driver installation is not required for rev A5 boards or newer. Check sticker on Ethernet port for revision.</small></td>
   </tr>
   <tr>
    <td>Linux</td>
    <td>
     <a href="Drivers/Linux/FTDI/mkudevrule.sh">mkudevrule.sh</a>      
    </td>
-   <td><small><b>Note</b>: Driver installation is not required for rev A5 boards or newer. Check sticker on Ethernet port for revision.</small></td>
+   <td><small><b>Note:</b>&nbsp;Driver installation is not required for rev A5 boards or newer. Check sticker on Ethernet port for revision.</small></td>
   </tr>
  </table>
+
  <h2>Step #3: Eject BEAGLE_BONE</h2>
  <p>The EJECT operation tells your BeagleBone to switch from "storage mode" to "network mode", enabling you to access the networking features over your USB cable.</p>
  <img src="Docs/windows-eject.png" width="600px" />
@@ -95,18 +100,62 @@
    EJECT. You'll need to access the serial console (as described further below) and input the following commands into the console:<pre>
    systemctl stop storage-gadget-init.service; systemctl start network-gadget-init.service</pre></li>
  </ul>
- <h2>Step #4: Browse to your board</h2>
- <p>Using either <a href="http://www.google.com/chrome">Chrome</a> or <a href="http://www.mozilla.org/firefox">Firefox</a> (Internet Explorer will <b>NOT</b> work), browse to the web server running on your board. It will load a presentation showing you the capabilities of the board. Use the arrow keys on your keyboard to navigate the presentation.
-  <ul class="arrow">
-   <li><a href="http://192.168.7.2">http://192.168.7.2</a></li>
-  </ul>
-  <img src="Docs/bone101.png" width="600px" />
- <h2>Step #5: Explore Cloud9 IDE</h2>
+
+ <h2>Step #4: Explore Cloud9 IDE</h2>
  <p>Cloud9 IDE can be used to develop software on your BeagleBone without the need to download any development software. Cloud9 IDE runs directly on your BeagleBone and is accessible through your browser.</p>
-  <ul class="arrow">
-   <li><a href="http://192.168.7.2:3000">http://192.168.7.2:3000/</a></li>
-  </ul>
+ <ul class="arrow">
+  <li><a href="http://192.168.7.2:3000">http://192.168.7.2:3000/</a></li>
+ </ul>
  <img src="Docs/Cloud9_Screen.png" width="600px" />
+ <p>As a simple exercise to become familiar with Cloud9 IDE and the Bonescript JavaScript library, creating a simple application to blink one of the 4 user programmable LEDs on the BeagleBone is a good start.</p>
+ <ul class="action">
+  <li><b>Step A:</b>&nbsp;Close any open file tabs.<br /><br />
+   <img src="Docs/images/c9-close-tab.png" /><br /><br />
+  </li>
+  <li><b>Step B:</b>&nbsp;Click the &quot;+&quot; in the top-right to create a new file.<br /><br />
+   <img src="Docs/images/c9-create-tab.png" /><br /><br />
+   <img src="Docs/images/c9-new-tab.png" /><br /><br />
+  </li>
+  <li><b>Step C:</b>&nbsp;Cut and paste the following code into the new tab:<br />
+   <pre>
+require('bonescript');
+
+setup = function () {
+    pinMode(bone.USR3, OUTPUT);
+}
+
+loop = function () {
+    digitalWrite(bone.USR3, HIGH);
+    delay(100);
+    digitalWrite(bone.USR3, LOW);
+    delay(100);
+}</pre>
+  </li>
+  <li><b>Step D:</b>&nbsp;Save the file by clicking the disk icon and giving the file a name with the .js extension.<br /><br />
+   <img src="Docs/images/c9-disk-icon.png" /><br /><br />
+   <img src="Docs/images/c9-save-name.png" /><br /><br />
+   <img src="Docs/images/c9-save-name-complete.png" /><br /><br />
+   <img src="Docs/images/c9-named-tab.png" /><br /><br />
+  </li>
+  <li><b>Step E:</b>&nbsp;Run the code by selecting the arrow to the right of &quot;run&quot; in the toolbar to pull down the list of files to run and select your new file.<br /><br />
+   <img src="Docs/images/c9-run.png" /><br /><br />
+  </li>
+  <li><b>Step F:</b>&nbsp;Observe the BeagleBone USR3 LED blinking.<br /><br />
+   <img src="Docs/images/bone-usr3-led.png" /><br /><br />
+  </li>
+  <li><b>Step G:</b>&nbsp;Stop the code by clicking &quot;stop&quot; in the toolbar.<br /><br />
+   <img src="Docs/images/c9-stop.png" /><br /><br />
+  </li>
+ </ul>
+ <p>Additional information about the Bonescript library is available in the presentation viewed in the next step and on-line at <a href="http://github.com/jadonk/bonescript">http://github.com/jadonk/bonescript</a>.</p>
+
+ <h2>Step #5: Browse to your board</h2>
+ <p>Using either <a href="http://www.google.com/chrome">Chrome</a> or <a href="http://www.mozilla.org/firefox">Firefox</a> (Internet Explorer will <b>NOT</b> work), browse to the web server running on your board. It will load a presentation showing you the capabilities of the board. Use the arrow keys on your keyboard to navigate the presentation.</p>
+ <ul class="arrow">
+  <li><a href="http://192.168.7.2">http://192.168.7.2</a></li>
+ </ul>
+ <img src="Docs/bone101.png" width="600px" />
+
  <h2><u>Troubleshooting and reference</u></h2>
   <p><b><a href="Docs/Hardware/BONE_SRM.pdf">
    BeagleBone System Reference Manual</a></b>
@@ -139,13 +188,14 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
  </p>
  <p>The username is 'root' and the password is blank, so you may simply press the ENTER key.</p>
  <h2>Next steps to try</h2>
+ <div class="portal">
  <h3><a href="http://blog.makezine.com/2012/03/14/how-to-get-started-with-the-beaglebone/">Matt Richardson's getting started video</a></h3>
  <iframe width="853" height="480" src="http://www.youtube.com/embed/Y0uqRVxismQ" frameborder="0" allowfullscreen></iframe>
- <h3><a href="http://www.youtube.com/watch?v=z6b4zlh0IrE&list=PLbsFVwRYmHo068J9zj8nNIc0AAqFvtSVI">Derek Molloy's tutorial series on YouTube</h3>
+ <h3><a href="http://www.youtube.com/watch?v=z6b4zlh0IrE&list=PLbsFVwRYmHo068J9zj8nNIc0AAqFvtSVI">Derek Molloy's tutorial series on YouTube</a></h3>
  <iframe width="853" height="480" src="http://www.youtube.com/embed/z6b4zlh0IrE?list=PLbsFVwRYmHo068J9zj8nNIc0AAqFvtSVI&amp;hl=en_US" frameborder="0" allowfullscreen></iframe>
  <h3><a href="http://www.lvr.com/beaglebone.htm">Jan Axelson's BeagleBone getting started guide</a></h3>
  <h3><a href="http://elinux.org/EBC_Exercise_02_Out-of-the-Box,_Bone">Mark Yoder's ECE497 materials</a></h3>
- <h3>Other currently available starting images</h3>
+ <h3><a href="http://beagleboard.org/project">Other currently available starting images</a></h3>
  <ul class="arrow">
   <li>Texas Instruments releases: 
    <a href="http://beagleboard.org/project/android/">
@@ -193,8 +243,9 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
   Linux is verified.  Please visit
   <a href="http://www.mattlmassey.com/2012/04/26/using-openocd-with-the-beaglebone/">
   Matt Massey's blog post describing installation in Ubuntu</a>.</p>
+ </div>
  <h2 id="hardware"><u>Hardware</u></h2>
- <h3 ><u>Design materials</u></h3>
+ <h3><u>Design materials</u></h3>
  <ul>
   <li>
    <a href="Docs/Hardware/BONE_SRM.pdf">System Reference Manual</a>
