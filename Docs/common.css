@@ -6,7 +6,7 @@ body {
 	background:#7886D1;
 	color: #333;
 	background: #dda01b url();
-	font-family:Verdana, Arial, Helvetica, sans-serif; color:#525252; font-size: 71%; 
+	font-family:Verdana, Arial, Helvetica, sans-serif; color:#525252; font-size: 100%; 
 	}
 a:link, a:hover {color:#f56203; text-decoration:none;}
 a:visited {text-decoration:none;}
@@ -25,7 +25,9 @@ h2 {font-size:1.7em;font-family: "Arial", Verdana, Helvetica, sans-serif; color:
 h2 a:link, h2 a:visited, .portal h3 a:link, .portal h3 a:visited {text-decoration:none; padding-right:15px; color:#333;
 background:url(images/beagle-lrg-action-arrow.gif) right no-repeat;}
 h2 a:hover, .portal h3 a:hover {background: url(images/beagle-lrg-action-arrow.gif) right no-repeat; padding-right:15px;text-decoration:underline;}
-h3, h4 {font-size:1.5em;font-family: "Arial", Verdana, Helvetica, sans-serif; color:#000; margin:20px 0 5px 0; font-weight:normal; max-width:550px;}
+h3 {font-size:1.5em;font-family: "Arial", Verdana, Helvetica, sans-serif; color:#000; margin:20px 0 5px 0; font-weight:normal; max-width:550px;}
+h4 {font-size:1.2em;font-family: "Arial", Verdana, Helvetica, sans-serif; color:#000; margin:20px 0 5px 0; font-weight:normal; max-width:550px;}
+#news h3 a:link, #news h3 a:visited, #news h3 a:hover {font-family: "Arial", Verdana, Helvetica, sans-serif;background: url(none);font-size:.9em; font-weight:normal;}
 #news h3 a:link, #news h3 a:visited, #news h3 a:hover {font-family: "Arial", Verdana, Helvetica, sans-serif;background: url(none);font-size:.9em; font-weight:normal;}
 #news div.pipesTitle {font-weight:normal;}
 #news div.pipesTitle a:hover {font-weight:normal; text-decoration:underline;}

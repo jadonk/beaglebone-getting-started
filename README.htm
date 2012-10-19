@@ -37,12 +37,14 @@
  <img id="in-hand" src="Docs/in-hand.png"
   alt="beaglebone in hand" align="right" height="200px" />
 
- <h1>BeagleBone README Quick-Start Guide</h1>
+ <h1>BeagleBone Quick-Start Guide</h1>
 
- <h2>Step #1: Plug in BeagleBone via USB</h2>
+ <h2>Step-by-step quick-start</h2>
+
+ <h3>Step #1: Plug in BeagleBone via USB</h3>
  <p>The BeagleBone will boot Linux from the provided microSD card and operates as a flash drive. This provides you with a local copy of the documentation and drivers.</p>
 
- <h2>Step #2: Install drivers</h2>
+ <h3>Step #2: Install drivers</h3>
  <p>Install the drivers for your operating system.</p>
  <table border="1">
   <tr>
@@ -86,9 +88,9 @@
   </tr>
  </table>
 
- <h2>Step #3: Eject BEAGLE_BONE</h2>
+ <h3>Step #3: Eject BEAGLE_BONE</h3>
  <p>The EJECT operation tells your BeagleBone to switch from "storage mode" to "network mode", enabling you to access the networking features over your USB cable.</p>
- <img src="Docs/windows-eject.png" width="600px" />
+ <img src="Docs/images/drive-eject.png" width="850px" />
  <ul>
   <li><b>Note #1:</b> "Safely remove hardware" is <b>not</b> the same as EJECT. </li>
   <li><b>Note #2:</b> On Windows, it may take a
@@ -98,15 +100,16 @@
    find it under c:\windows\system32\drvstore\linux_...</li>
   <li><b>Note #4:</b> OS X Mountain Lion no longer issues the EJECT operation upon using
    EJECT. You'll need to access the serial console (as described further below) and input the following commands into the console:<pre>
-   systemctl stop storage-gadget-init.service; systemctl start network-gadget-init.service</pre></li>
+   systemctl stop storage-gadget-init.service
+   systemctl start network-gadget-init.service</pre></li>
  </ul>
 
- <h2>Step #4: Explore Cloud9 IDE</h2>
+ <h3>Step #4: Explore Cloud9 IDE</h3>
  <p>Cloud9 IDE can be used to develop software on your BeagleBone without the need to download any development software. Cloud9 IDE runs directly on your BeagleBone and is accessible through your browser.</p>
  <ul class="arrow">
   <li><a href="http://192.168.7.2:3000">http://192.168.7.2:3000/</a></li>
  </ul>
- <img src="Docs/Cloud9_Screen.png" width="600px" />
+ <img src="Docs/Cloud9_Screen.png" width="850px" />
  <p>As a simple exercise to become familiar with Cloud9 IDE and the Bonescript JavaScript library, creating a simple application to blink one of the 4 user programmable LEDs on the BeagleBone is a good start.</p>
  <ul class="action">
   <li><b>Step A:</b>&nbsp;Close any open file tabs.<br /><br />
@@ -149,32 +152,26 @@ loop = function () {
  </ul>
  <p>Additional information about the Bonescript library is available in the presentation viewed in the next step and on-line at <a href="http://github.com/jadonk/bonescript">http://github.com/jadonk/bonescript</a>.</p>
 
- <h2>Step #5: Browse to your board</h2>
+ <h3>Step #5: Browse to your board</h3>
  <p>Using either <a href="http://www.google.com/chrome">Chrome</a> or <a href="http://www.mozilla.org/firefox">Firefox</a> (Internet Explorer will <b>NOT</b> work), browse to the web server running on your board. It will load a presentation showing you the capabilities of the board. Use the arrow keys on your keyboard to navigate the presentation.</p>
  <ul class="arrow">
   <li><a href="http://192.168.7.2">http://192.168.7.2</a></li>
  </ul>
  <img src="Docs/bone101.png" width="600px" />
 
- <h2><u>Troubleshooting and reference</u></h2>
-  <p><b><a href="Docs/Hardware/BONE_SRM.pdf">
-   BeagleBone System Reference Manual</a></b>
-  <-- please read before asking for help
-  <br />
-  <b><a href="http://beagleboard.org/static/beaglebone/latest/README.htm">
-  BeagleBone README Quick-Start Guide</a></b>
-  <-- latest version of this document
-  <br />
-  <a href="http://beagleboard.org/discuss">Online discussion</a>
-  <-- Where to ask questions
-  <br />
-  <a href="http://beagleboard.org/angstrom">Angstrom Mirrors</a>
-  <-- latest pre-built microSD card images
-  <br />
-  <a href="http://www.angstrom-distribution.org/building-angstrom">
-   Building Angstrom</a>
-  <-- instructions to rebuild the image
- </p>
+ <h2>Troubleshooting and reference</h2>
+
+ <h3>Top resources</h3>
+ <ul>
+  <li><a href="Docs/Hardware/BONE_SRM.pdf">BeagleBone System Reference Manual</a></li>
+  <li><a href="http://beagleboard.org/static/beaglebone/latest/README.htm">
+   Latest BeagleBone Quick-Start Guide</a>
+  </li>
+  <li><a href="http://beagleboard.org/discuss">Online discussion</a></li>
+  <li><a href="http://beagleboard.org/angstrom">Angstrom Mirrors</a></li>
+  <li><a href="http://www.angstrom-distribution.org/building-angstrom">Building Angstrom</a></li>
+ </ul>
+
  <h3 id="serial">Connect to your BeagleBone's serial console</h3>
  <p>Under Windows, it is recommended to follow the
   <a href="http://ladyada.net/products/beaglebone/ethernet.html">
@@ -187,14 +184,16 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
   Type 'CTRL-a k' to exit screen.
  </p>
  <p>The username is 'root' and the password is blank, so you may simply press the ENTER key.</p>
+
  <h2>Next steps to try</h2>
  <div class="portal">
- <h3><a href="http://blog.makezine.com/2012/03/14/how-to-get-started-with-the-beaglebone/">Matt Richardson's getting started video</a></h3>
+ <h4><a href="http://blog.makezine.com/2012/03/14/how-to-get-started-with-the-beaglebone/">Matt Richardson's getting started video</a></h4>
  <iframe width="853" height="480" src="http://www.youtube.com/embed/Y0uqRVxismQ" frameborder="0" allowfullscreen></iframe>
- <h3><a href="http://www.youtube.com/watch?v=z6b4zlh0IrE&list=PLbsFVwRYmHo068J9zj8nNIc0AAqFvtSVI">Derek Molloy's tutorial series on YouTube</a></h3>
+ <h4><a href="http://www.youtube.com/watch?v=z6b4zlh0IrE&list=PLbsFVwRYmHo068J9zj8nNIc0AAqFvtSVI">Derek Molloy's tutorial series on YouTube</a></h4>
  <iframe width="853" height="480" src="http://www.youtube.com/embed/z6b4zlh0IrE?list=PLbsFVwRYmHo068J9zj8nNIc0AAqFvtSVI&amp;hl=en_US" frameborder="0" allowfullscreen></iframe>
- <h3><a href="http://www.lvr.com/beaglebone.htm">Jan Axelson's BeagleBone getting started guide</a></h3>
- <h3><a href="http://elinux.org/EBC_Exercise_02_Out-of-the-Box,_Bone">Mark Yoder's ECE497 materials</a></h3>
+ <h4><a href="http://www.lvr.com/beaglebone.htm">Jan Axelson's BeagleBone getting started guide</a></h4>
+ <h4><a href="http://elinux.org/EBC_Exercise_02_Out-of-the-Box,_Bone">Mark Yoder's ECE497 materials</a></h4>
+
  <h3><a href="http://beagleboard.org/project">Other currently available starting images</a></h3>
  <ul class="arrow">
   <li>Texas Instruments releases: 
@@ -221,16 +220,18 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
    <a href="http://beagleboard.org/project/freebsd/">FreeBSD</a>
   </li>
  </ul>
+
  <h3 id="decision">Powering options</h3>
  <p>
   To power the board with connected USB peripherals, a
-  <a href="http://beagleboard.org/peripheral#5V">2A, 5V power
+  <a href="http://beagleboard.org/peripheral#5V">2A 5V power
   adapter is recommended</a>.
  <p>
   <small><b>Note:</b> Some software images limit the clock speed of the BeagleBone
   by determining if the power source is USB or the 5V adapter to avoid excess use
   of current.</small>
  </p>
+
  <h3>JTAG debug</h3>
  <p><b><a href="http://processors.wiki.ti.com/index.php/Category:Code_Composer_Studio_v5">
   Code Composer Studio v5 (CCSv5)</a></b> is available for free for BealgeBone users and
@@ -244,8 +245,9 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
   <a href="http://www.mattlmassey.com/2012/04/26/using-openocd-with-the-beaglebone/">
   Matt Massey's blog post describing installation in Ubuntu</a>.</p>
  </div>
- <h2 id="hardware"><u>Hardware</u></h2>
- <h3><u>Design materials</u></h3>
+
+ <h2 id="hardware">Hardware</h2>
+ <h3>Design materials</h3>
  <ul>
   <li>
    <a href="Docs/Hardware/BONE_SRM.pdf">System Reference Manual</a>
@@ -266,7 +268,7 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
    <a href="Docs/Hardware/BONE_MFG.zip">PCB manufacturing files</a>
  </ul>
 
- <h3 id="revisions"><u>Revisions</u></h3>
+ <h3 id="revisions">Revisions</h3>
  <p> <a href="http://circuitco.com/support/index.php?title=BeagleBone">
  CircuitCo.com's BeagleBone page</a> documents all of the known hardware issues.
  </p>
@@ -315,8 +317,8 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
   <li>Removed incorrect and ignored configuration resistor for LAN8710</li>
  </ul>
 
- <h2 id="updates"><u>Software updates</u></h2>
- <h3 id="todo"><u>Known issues and to-do list</u></h3>
+ <h2 id="updates">Software updates</h2>
+ <h3 id="todo">Known issues and to-do list</h3>
  <ul class="arrow">
   <li>System
    <ul class="subitem">
