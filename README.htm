@@ -159,6 +159,53 @@ loop = function () {
  </ul>
  <img src="Docs/bone101.png" width="600px" />
 
+ <h2>Program an SD card with latest or alternative software</h2>
+
+ <h3><a href="http://beagleboard.org/project">Other currently available starting images</a></h3>
+ <ul class="arrow">
+  <li><a href="http://beagleboard.org/project/angstrom">Latest SD card image (Angstrom Distribution)</a></li>
+  <li>Texas Instruments releases: 
+   <a href="http://beagleboard.org/project/android/">
+    Android</a>,
+   <a href="http://beagleboard.org/project/amsdk/">
+    Linux</a>,
+   <a href="http://beagleboard.org/project/starterware/">
+    StarterWare (no OS)</a>
+  </li>
+  <li>Linux: 
+   <a href="http://beagleboard.org/project/ubuntu/">Ubuntu</a>,
+   <a href="http://beagleboard.org/project/Debian/">Debian</a>,
+   <a href="http://beagleboard.org/project/AM/">ArchLinux</a>,
+   <a href="http://beagleboard.org/project/Gentoo/">Gentoo</a>,
+   <a href="http://beagleboard.org/project/sabayon/">
+    Sabayon</a>,
+   <a href="http://beagleboard.org/project/buildroot/">Buildroot</a>,
+   <a href="http://beagleboard.org/project/Nerves/">Erlang</a>,
+   <a href="http://beagleboard.org/project/fedora/">Fedora</a>
+  </li>
+  <li>Other:
+   <a href="http://beagleboard.org/project/QNX+Neutrino+on+OMAP/">QNX</a>,
+   <a href="http://beagleboard.org/project/freebsd/">FreeBSD</a>
+  </li>
+ </ul>
+
+ <h3>Step #1: Download one of the above images</h3>
+ <p>The Angstrom Distribution is what ships with the boards. Some of the above starting points involve multiple steps to produce an SD card image or otherwise change some of the steps below, so be sure to read all the instructions on their pages. Chose the starting point you want, download or produce the SD card image and continue to the next step.</p>
+
+ <h3>Step #2: Install compression utility</h3>
+ <p><a href="http://www.7-zip.org/download.html">7-zip</a></p>
+
+ <h3>Step #3: Install SD card programming utility</h3>
+ <p><a href="http://help.ubuntu.com/community/Installation/FromImgFiles">Ubuntu Image Writer</a></p>
+ <p><a href="https://launchpad.net/win32-image-writer/+download">Windows</a></p>
+
+ <h3>Step #4: Connect SD card to your computer</h3>
+
+ <h3>Step #5: Decompress the image</h3>
+
+ <h3>Step #6: Write the image to your SD card</h3>
+ <img src="Docs/images/imager.png" />
+
  <h2>Troubleshooting and reference</h2>
 
  <h3>Top resources</h3>
@@ -192,33 +239,6 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
  <iframe width="853" height="480" src="http://www.youtube.com/embed/z6b4zlh0IrE?list=PLbsFVwRYmHo068J9zj8nNIc0AAqFvtSVI&amp;hl=en_US" frameborder="0" allowfullscreen></iframe>
  <h4><a href="http://www.lvr.com/beaglebone.htm">Jan Axelson's BeagleBone getting started guide</a></h4>
  <h4><a href="http://elinux.org/EBC_Exercise_02_Out-of-the-Box,_Bone">Mark Yoder's ECE497 materials</a></h4>
-
- <h3><a href="http://beagleboard.org/project">Other currently available starting images</a></h3>
- <ul class="arrow">
-  <li>Texas Instruments releases: 
-   <a href="http://beagleboard.org/project/android/">
-    Android</a>,
-   <a href="http://beagleboard.org/project/amsdk/">
-    Linux</a>,
-   <a href="http://beagleboard.org/project/starterware/">
-    StarterWare (no OS)</a>
-  </li>
-  <li>Linux: 
-   <a href="http://beagleboard.org/project/ubuntu/">Ubuntu</a>,
-   <a href="http://beagleboard.org/project/Debian/">Debian</a>,
-   <a href="http://beagleboard.org/project/AM/">ArchLinux</a>,
-   <a href="http://beagleboard.org/project/Gentoo/">Gentoo</a>,
-   <a href="http://beagleboard.org/project/sabayon/">
-    Sabayon</a>,
-   <a href="http://beagleboard.org/project/buildroot/">Buildroot</a>,
-   <a href="http://beagleboard.org/project/Nerves/">Erlang</a>,
-   <a href="http://beagleboard.org/project/fedora/">Fedora</a>
-  </li>
-  <li>Other:
-   <a href="http://beagleboard.org/project/QNX+Neutrino+on+OMAP/">QNX</a>,
-   <a href="http://beagleboard.org/project/freebsd/">FreeBSD</a>
-  </li>
- </ul>
 
  <h3 id="decision">Powering options</h3>
  <p>
