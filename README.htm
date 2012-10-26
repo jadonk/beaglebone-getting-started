@@ -42,7 +42,9 @@
  <h2>Step-by-step quick-start</h2>
 
  <h3>Step #1: Plug in BeagleBone via USB</h3>
- <p>The BeagleBone will boot Linux from the provided microSD card and operates as a flash drive. This provides you with a local copy of the documentation and drivers.</p>
+ <p>Use the provided USB cable to plug BeagleBone into your computer. This will both power the board and provide a development interface. BeagleBone will boot Linux from the provided microSD card and operates as a flash drive. This provides you with a local copy of the documentation and drivers.</p>
+ <p>You'll see the PWR LED on steadily. Within 10 seconds, you should see the USR0 LED blinking in a heartbeat pattern. During accesses to the SD card, you should see the USR1 LED turning on.</p>
+ <pre>Insert picture here -- ideally an animated .gif</pre>
 
  <h3>Step #2: Install drivers</h3>
  <p>Install the drivers for your operating system.</p>
@@ -105,7 +107,7 @@
  </ul>
 
  <h3>Step #4: Explore Cloud9 IDE</h3>
- <p>Cloud9 IDE can be used to develop software on your BeagleBone without the need to download any development software. Cloud9 IDE runs directly on your BeagleBone and is accessible through your browser.</p>
+ <p>Cloud9 IDE can be used to develop software on your BeagleBone without the need to download any development software. Cloud9 IDE runs directly on your BeagleBone and is accessible through either <a href="http://www.google.com/chrome">Chrome</a> or <a href="http://www.mozilla.org/firefox">Firefox</a> (Internet Explorer will <b>NOT</b> work).</p>
  <ul class="arrow">
   <li><a href="http://192.168.7.2:3000">http://192.168.7.2:3000/</a></li>
  </ul>
@@ -140,10 +142,11 @@ loop = function () {
    <img src="Docs/images/c9-save-name-complete.png" /><br /><br />
    <img src="Docs/images/c9-named-tab.png" /><br /><br />
   </li>
-  <li><b>Step E:</b>&nbsp;Run the code by selecting the arrow to the right of &quot;run&quot; in the toolbar to pull down the list of files to run and select your new file.<br /><br />
+  <li><b>Step E:</b>&nbsp;Run the code by selecting the arrow to the right of &quot;run&quot; (or &quot;debug&quot;) in the toolbar to pull down the list of files to run and select your new file.<br /><br />
    <img src="Docs/images/c9-run.png" /><br /><br />
   </li>
-  <li><b>Step F:</b>&nbsp;Observe the BeagleBone USR3 LED blinking.<br /><br />
+  <li><b>Step F:</b>&nbsp;Observe the BeagleBone USR3 LED blinking steadily about 5 times a second.<br /><br />
+   <b>Note:</b> By default, Linux has programmed USR0 to provide a &quot;heartbeat&quot; pattern and USR1 to turn on during microSD card access.<br /><br />
    <img src="Docs/images/bone-usr3-led.png" /><br /><br />
   </li>
   <li><b>Step G:</b>&nbsp;Stop the code by clicking &quot;stop&quot; in the toolbar.<br /><br />
@@ -193,18 +196,23 @@ loop = function () {
  <p>The Angstrom Distribution is what ships with the boards. Some of the above starting points involve multiple steps to produce an SD card image or otherwise change some of the steps below, so be sure to read all the instructions on their pages. Chose the starting point you want, download or produce the SD card image and continue to the next step.</p>
 
  <h3>Step #2: Install compression utility</h3>
- <p><a href="http://www.7-zip.org/download.html">7-zip</a></p>
+ <p>Download and install <a href="http://www.7-zip.org/download.html">7-zip</a>.</p>
 
- <h3>Step #3: Install SD card programming utility</h3>
- <p><a href="http://help.ubuntu.com/community/Installation/FromImgFiles">Ubuntu Image Writer</a></p>
- <p><a href="https://launchpad.net/win32-image-writer/+download">Windows</a></p>
+ <h3>Step #3: Decompress the image</h3>
+ <p>Use 7-zip to decompress the SD card .img file</p>
 
- <h3>Step #4: Connect SD card to your computer</h3>
+ <h3>Step #4: Install SD card programming utility</h3>
+ <p>Instructions for programming SD cards can be found on the <a href="http://help.ubuntu.com/community/Installation/FromImgFiles">Ubuntu Image Writer page</a>. Here are the <a href="https://launchpad.net/win32-image-writer/+download">Image Writer for Windows download page</a>.</p>
 
- <h3>Step #5: Decompress the image</h3>
+ <h3>Step #5: Connect SD card to your computer</h3>
+ <p>Use the provided microSD card to SD adapter or a USB adapter to connect the SD card to your computer.</p>
 
  <h3>Step #6: Write the image to your SD card</h3>
+ <p>Use either the Ubuntu Image Writer or instructions on its page to write the decompressed image to your SD card.</p>
  <img src="Docs/images/imager.png" />
+
+ <h3>Step #7: Eject the SD card</h3>
+ <p>Eject the newly programmed SD card, insert it into your (powered-down) board and apply power, either by the USB cable or 5V adapter.</p>
 
  <h2>Troubleshooting and reference</h2>
 
@@ -216,7 +224,6 @@ loop = function () {
   </li>
   <li><a href="http://beagleboard.org/discuss">Online discussion</a></li>
   <li><a href="http://beagleboard.org/angstrom">Angstrom Mirrors</a></li>
-  <li><a href="http://www.angstrom-distribution.org/building-angstrom">Building Angstrom</a></li>
  </ul>
 
  <h3 id="serial">Connect to your BeagleBone's serial console</h3>
@@ -231,14 +238,6 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
   Type 'CTRL-a k' to exit screen.
  </p>
  <p>The username is 'root' and the password is blank, so you may simply press the ENTER key.</p>
-
- <h3>Next steps to try</h3>
- <h4><a href="http://blog.makezine.com/2012/03/14/how-to-get-started-with-the-beaglebone/">Matt Richardson's getting started video</a></h4>
- <iframe width="853" height="480" src="http://www.youtube.com/embed/Y0uqRVxismQ" frameborder="0" allowfullscreen></iframe>
- <h4><a href="http://www.youtube.com/watch?v=z6b4zlh0IrE&list=PLbsFVwRYmHo068J9zj8nNIc0AAqFvtSVI">Derek Molloy's tutorial series on YouTube</a></h4>
- <iframe width="853" height="480" src="http://www.youtube.com/embed/z6b4zlh0IrE?list=PLbsFVwRYmHo068J9zj8nNIc0AAqFvtSVI&amp;hl=en_US" frameborder="0" allowfullscreen></iframe>
- <h4><a href="http://www.lvr.com/beaglebone.htm">Jan Axelson's BeagleBone getting started guide</a></h4>
- <h4><a href="http://elinux.org/EBC_Exercise_02_Out-of-the-Box,_Bone">Mark Yoder's ECE497 materials</a></h4>
 
  <h3 id="decision">Powering options</h3>
  <p>
@@ -258,11 +257,21 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
   debug and develop C/C++ applications.  Please visit the
   <a href="http://processors.wiki.ti.com/index.php/FAQ_-_CCSv5">CCSv5 Frequently Asked
   Questions page</a>.</p>
+ <p><small><b>Note:</b> The CCS installer on Linux may fail on 64-bit operating systems if 32-bit libraries are not installed. For Ubuntu, 'sudo apt-get install ia32-libs' before running the installer.</small></p>
+ <br />
  <p><b><a href="http://openocd.sourceforge.net">OpenOCD</a></b> is an application
   that provides JTAG-based debugging on all three operating systems, but currently only
   Linux is verified.  Please visit
   <a href="http://www.mattlmassey.com/2012/04/26/using-openocd-with-the-beaglebone/">
   Matt Massey's blog post describing installation in Ubuntu</a>.</p>
+
+ <h3>Next steps to try</h3>
+ <h4><a href="http://blog.makezine.com/2012/03/14/how-to-get-started-with-the-beaglebone/">Matt Richardson's getting started video</a></h4>
+ <iframe width="853" height="480" src="http://www.youtube.com/embed/Y0uqRVxismQ" frameborder="0" allowfullscreen></iframe>
+ <h4><a href="http://www.youtube.com/watch?v=z6b4zlh0IrE&list=PLbsFVwRYmHo068J9zj8nNIc0AAqFvtSVI">Derek Molloy's tutorial series on YouTube</a></h4>
+ <iframe width="853" height="480" src="http://www.youtube.com/embed/z6b4zlh0IrE?list=PLbsFVwRYmHo068J9zj8nNIc0AAqFvtSVI&amp;hl=en_US" frameborder="0" allowfullscreen></iframe>
+ <h4><a href="http://www.lvr.com/beaglebone.htm">Jan Axelson's BeagleBone getting started guide</a></h4>
+ <h4><a href="http://elinux.org/EBC_Exercise_02_Out-of-the-Box,_Bone">Mark Yoder's ECE497 materials</a></h4>
 
  <h2 id="hardware">Hardware</h2>
  <h3>Design materials</h3>
