@@ -21,10 +21,10 @@
     <!-- Horizontal Navigation - START -->
     <div id="nav">
      <ul>
-      <li class="navitem1"><a href="http://beagleboard.org/discuss">Discuss</a></li>
-      <li class="navitem2"><a href="http://beagleboard.org/details">Details</a></li>
-      <li class="navitem3"><a href="http://beagleboard.org/project">Projects</a></li>
-      <li class="navitem4"><a href="http://beagleboard.org/buy">Buy</a></li>
+      <li class="navitem1"><a target="_blank" href="http://beagleboard.org/discuss">Discuss</a></li>
+      <li class="navitem2"><a target="_blank" href="http://beagleboard.org/details">Details</a></li>
+      <li class="navitem3"><a target="_blank" href="http://beagleboard.org/project">Projects</a></li>
+      <li class="navitem4"><a target="_blank" href="http://beagleboard.org/buy">Buy</a></li>
      </ul>
     </div>
     <!-- Horizontal Navigation - END -->
@@ -51,47 +51,47 @@
  <table border="1">
   <tr>
    <th>Operating System</th>
-   <th>USB Drivers&nbsp;<sup>[<a href="http://www.ftdichip.com/Drivers/VCP.htm">FTDI</a>]&nbsp;[<a href="http://www.linux-usb.org/gadget/">Network</a>]</sup>
+   <th>USB Drivers&nbsp;<sup>[<a target="_blank" href="http://www.ftdichip.com/Drivers/VCP.htm">FTDI</a>]&nbsp;[<a target="_blank" href="http://www.linux-usb.org/gadget/">Network</a>]</sup>
    </th>
    <th>Comments</th>
   </tr>
   <tr>
    <td>Windows (32-bit)</td>
    <td>
-    <a href="Drivers/Windows/BONE_DRV.exe">BONE_DRV.exe</a>
+    <a target="_blank" href="Drivers/Windows/BONE_DRV.exe">BONE_DRV.exe</a>
    </td>
    <td rowspan="2"><small>
     <ul>
      <li><b>Note #1:</b>&nbsp;Windows Driver Certification warning may pop up two or three times.  Click &quot;Ignore&quot; or &quot;Install&quot;</li>
-     <li><b>Note #2:</b>&nbsp;To check if you&#39;re running 32 or 64-bit Windows see this: <a href="http://support.microsoft.com/kb/827218">http://support.microsoft.com/kb/827218</a></li>
-     <li><b>Note #3:</b>&nbsp;On systems without the latest service release, you may get an error (0xc000007b). In that case, please install the following and retry: <a href="http://www.microsoft.com/en-us/download/confirmation.aspx?id=13523">http://www.microsoft.com/en-us/download/confirmation.aspx?id=13523</a></li>
+     <li><b>Note #2:</b>&nbsp;To check if you&#39;re running 32 or 64-bit Windows see this: <a target="_blank" href="http://support.microsoft.com/kb/827218">http://support.microsoft.com/kb/827218</a></li>
+     <li><b>Note #3:</b>&nbsp;On systems without the latest service release, you may get an error (0xc000007b). In that case, please install the following and retry: <a target="_blank" href="http://www.microsoft.com/en-us/download/confirmation.aspx?id=13523">http://www.microsoft.com/en-us/download/confirmation.aspx?id=13523</a></li>
     </ul>
    </small></td>
   </tr>
   <tr>
    <td>Windows (64-bit)</td>
    <td>
-    <a href="Drivers/Windows/BONE_D64.exe">BONE_D64.exe</a>
+    <a target="_blank" href="Drivers/Windows/BONE_D64.exe">BONE_D64.exe</a>
    </td>
   </tr>
   <tr>
    <td>Mac OS X</td>
    <td>
-    <a href="Drivers/MacOSX/FTDI/FTDI_Ser.dmg">FTDI_Ser.dmg</a>
+    <a target="_blank" href="Drivers/MacOSX/FTDI/FTDI_Ser.dmg">FTDI_Ser.dmg</a>
    </td>
    <td><small><b>Note:</b>&nbsp;Driver installation is not required for rev A5 boards or newer. Check sticker on Ethernet port for revision.</small></td>
   </tr>
   <tr>
    <td>Linux</td>
    <td>
-    <a href="Drivers/Linux/FTDI/mkudevrule.sh">mkudevrule.sh</a>      
+    <a target="_blank" href="Drivers/Linux/FTDI/mkudevrule.sh">mkudevrule.sh</a>      
    </td>
    <td><small><b>Note:</b>&nbsp;Driver installation is not required for rev A5 boards or newer. Check sticker on Ethernet port for revision.</small></td>
   </tr>
  </table>
 
  <h3>Step #3: Eject BEAGLE_BONE</h3>
- <p>The EJECT operation tells your BeagleBone to switch from "storage mode" to "network mode", enabling you to access the networking features over your USB cable.</p>
+ <p>The EJECT operation tells your BeagleBone to switch from "storage mode" to "network mode", enabling you to access the networking features over your USB cable. On each power-up, BeagleBone defaults to "storage mode".</p>
  <img src="Docs/images/drive-eject.png" width="850px" />
  <ul>
   <li><b>Note #1:</b> "Safely remove hardware" is <b>not</b> the same as EJECT. </li>
@@ -107,9 +107,9 @@
  </ul>
 
  <h3>Step #4: Explore Cloud9 IDE</h3>
- <p>Cloud9 IDE can be used to develop software on your BeagleBone without the need to download any development software. Cloud9 IDE runs directly on your BeagleBone and is accessible through either <a href="http://www.google.com/chrome">Chrome</a> or <a href="http://www.mozilla.org/firefox">Firefox</a> (Internet Explorer will <b>NOT</b> work).</p>
+ <p>Cloud9 IDE can be used to develop software on your BeagleBone without the need to download any development software. Cloud9 IDE runs directly on your BeagleBone and is accessible through either <a target="_blank" href="http://www.google.com/chrome">Chrome</a> or <a target="_blank" href="http://www.mozilla.org/firefox">Firefox</a> (Internet Explorer will <b>NOT</b> work).</p>
  <ul class="arrow">
-  <li><a href="http://192.168.7.2:3000">http://192.168.7.2:3000/</a></li>
+  <li>Click here to launch: <a href="http://192.168.7.2:3000" target="_blank">http://192.168.7.2:3000/</a></li>
  </ul>
  <img src="Docs/Cloud9_Screen.png" width="850px" />
  <p>As a simple exercise to become familiar with Cloud9 IDE and the Bonescript JavaScript library, creating a simple application to blink one of the 4 user programmable LEDs on the BeagleBone is a good start.</p>
@@ -153,56 +153,57 @@ loop = function () {
    <img src="Docs/images/c9-stop.png" /><br /><br />
   </li>
  </ul>
- <p>Additional information about the Bonescript library is available in the presentation viewed in the next step and on-line at <a href="http://github.com/jadonk/bonescript">http://github.com/jadonk/bonescript</a>.</p>
+ <p>Additional information about the Bonescript library is available in the presentation viewed in the next step and on-line at <a target="_blank" href="http://github.com/jadonk/bonescript">http://github.com/jadonk/bonescript</a>.</p>
 
  <h3>Step #5: Browse to your board</h3>
- <p>Using either <a href="http://www.google.com/chrome">Chrome</a> or <a href="http://www.mozilla.org/firefox">Firefox</a> (Internet Explorer will <b>NOT</b> work), browse to the web server running on your board. It will load a presentation showing you the capabilities of the board. Use the arrow keys on your keyboard to navigate the presentation.</p>
+ <p>Using either <a target="_blank" href="http://www.google.com/chrome">Chrome</a> or <a target="_blank" href="http://www.mozilla.org/firefox">Firefox</a> (Internet Explorer will <b>NOT</b> work), browse to the web server running on your board. It will load a presentation showing you the capabilities of the board. Use the arrow keys on your keyboard to navigate the presentation.</p>
  <ul class="arrow">
-  <li><a href="http://192.168.7.2">http://192.168.7.2</a></li>
+  <li>Click here to launch: <a href="http://192.168.7.2" target="_blank">http://192.168.7.2</a></li>
  </ul>
  <img src="Docs/bone101.png" width="600px" />
 
  <h2>Program an SD card with latest or alternative software</h2>
 
- <h3><a href="http://beagleboard.org/project">Other currently available starting images</a></h3>
+ <h3>Other currently available starting images</h3>
  <ul class="arrow">
-  <li><a href="http://beagleboard.org/project/angstrom">Latest SD card image (Angstrom Distribution)</a></li>
+  <li><a target="_blank" href="http://beagleboard.org/project/angstrom">Latest SD card image (Angstrom Distribution)</a></li>
   <li>Texas Instruments releases: 
-   <a href="http://beagleboard.org/project/android/">
+   <a target="_blank" href="http://beagleboard.org/project/android/">
     Android</a>,
-   <a href="http://beagleboard.org/project/amsdk/">
+   <a target="_blank" href="http://beagleboard.org/project/amsdk/">
     Linux</a>,
-   <a href="http://beagleboard.org/project/starterware/">
+   <a target="_blank" href="http://beagleboard.org/project/starterware/">
     StarterWare (no OS)</a>
   </li>
   <li>Linux: 
-   <a href="http://beagleboard.org/project/ubuntu/">Ubuntu</a>,
-   <a href="http://beagleboard.org/project/Debian/">Debian</a>,
-   <a href="http://beagleboard.org/project/AM/">ArchLinux</a>,
-   <a href="http://beagleboard.org/project/Gentoo/">Gentoo</a>,
-   <a href="http://beagleboard.org/project/sabayon/">
+   <a target="_blank" href="http://beagleboard.org/project/ubuntu/">Ubuntu</a>,
+   <a target="_blank" href="http://beagleboard.org/project/Debian/">Debian</a>,
+   <a target="_blank" href="http://beagleboard.org/project/AM/">ArchLinux</a>,
+   <a target="_blank" href="http://beagleboard.org/project/Gentoo/">Gentoo</a>,
+   <a target="_blank" href="http://beagleboard.org/project/sabayon/">
     Sabayon</a>,
-   <a href="http://beagleboard.org/project/buildroot/">Buildroot</a>,
-   <a href="http://beagleboard.org/project/Nerves/">Erlang</a>,
-   <a href="http://beagleboard.org/project/fedora/">Fedora</a>
+   <a target="_blank" href="http://beagleboard.org/project/buildroot/">Buildroot</a>,
+   <a target="_blank" href="http://beagleboard.org/project/Nerves/">Erlang</a>,
+   <a target="_blank" href="http://beagleboard.org/project/fedora/">Fedora</a>
   </li>
   <li>Other:
-   <a href="http://beagleboard.org/project/QNX+Neutrino+on+OMAP/">QNX</a>,
-   <a href="http://beagleboard.org/project/freebsd/">FreeBSD</a>
+   <a target="_blank" href="http://beagleboard.org/project/QNX+Neutrino+on+OMAP/">QNX</a>,
+   <a target="_blank" href="http://beagleboard.org/project/freebsd/">FreeBSD</a>
   </li>
+  <li><a target="_blank" href="http://beagleboard.org/project">Projects page</a></li>
  </ul>
 
  <h3>Step #1: Download one of the above images</h3>
  <p>The Angstrom Distribution is what ships with the boards. Some of the above starting points involve multiple steps to produce an SD card image or otherwise change some of the steps below, so be sure to read all the instructions on their pages. Chose the starting point you want, download or produce the SD card image and continue to the next step.</p>
 
  <h3>Step #2: Install compression utility</h3>
- <p>Download and install <a href="http://www.7-zip.org/download.html">7-zip</a>.</p>
+ <p>Download and install <a target="_blank" href="http://www.7-zip.org/download.html">7-zip</a>.</p>
 
  <h3>Step #3: Decompress the image</h3>
  <p>Use 7-zip to decompress the SD card .img file</p>
 
  <h3>Step #4: Install SD card programming utility</h3>
- <p>Instructions for programming SD cards can be found on the <a href="http://help.ubuntu.com/community/Installation/FromImgFiles">Ubuntu Image Writer page</a>. Here are the <a href="https://launchpad.net/win32-image-writer/+download">Image Writer for Windows download page</a>.</p>
+ <p>Instructions for programming SD cards can be found on the <a target="_blank" href="http://help.ubuntu.com/community/Installation/FromImgFiles">Ubuntu Image Writer page</a>. Here are the <a target="_blank" href="https://launchpad.net/win32-image-writer/+download">Image Writer for Windows download page</a>.</p>
 
  <h3>Step #5: Connect SD card to your computer</h3>
  <p>Use the provided microSD card to SD adapter or a USB adapter to connect the SD card to your computer.</p>
@@ -218,17 +219,17 @@ loop = function () {
 
  <h3>Top resources</h3>
  <ul>
-  <li><a href="Docs/Hardware/BONE_SRM.pdf">BeagleBone System Reference Manual</a></li>
-  <li><a href="http://beagleboard.org/static/beaglebone/latest/README.htm">
+  <li><a target="_blank" href="Docs/Hardware/BONE_SRM.pdf">BeagleBone System Reference Manual</a></li>
+  <li><a target="_blank" href="http://beagleboard.org/static/beaglebone/latest/README.htm">
    Latest BeagleBone Quick-Start Guide</a>
   </li>
-  <li><a href="http://beagleboard.org/discuss">Online discussion</a></li>
-  <li><a href="http://beagleboard.org/angstrom">Angstrom Mirrors</a></li>
+  <li><a target="_blank" href="http://beagleboard.org/discuss">Online discussion</a></li>
+  <li><a target="_blank" href="http://beagleboard.org/angstrom">Angstrom Mirrors</a></li>
  </ul>
 
  <h3 id="serial">Connect to your BeagleBone's serial console</h3>
  <p>Under Windows, it is recommended to follow the
-  <a href="http://ladyada.net/products/beaglebone/ethernet.html">
+  <a target="_blank" href="http://ladyada.net/products/beaglebone/ethernet.html">
   Adafruit tutorial</a>.
  <p>
  <p>For Mac or Linux, it is recommended simply to invoke 'screen':
@@ -242,7 +243,7 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
  <h3 id="decision">Powering options</h3>
  <p>
   To power the board with connected USB peripherals, a
-  <a href="http://beagleboard.org/peripheral#5V">2A 5V power
+  <a target="_blank" href="http://beagleboard.org/peripheral#5V">2A 5V power
   adapter is recommended</a>.
  <p>
   <small><b>Note:</b> Some software images limit the clock speed of the BeagleBone
@@ -251,52 +252,52 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
  </p>
 
  <h3>JTAG debug</h3>
- <p><b><a href="http://processors.wiki.ti.com/index.php/Category:Code_Composer_Studio_v5">
+ <p><b><a target="_blank" href="http://processors.wiki.ti.com/index.php/Category:Code_Composer_Studio_v5">
   Code Composer Studio v5 (CCSv5)</a></b> is available for free for BealgeBone users and
   is a TI-provided Eclipse-based integrated development environment that enables you to
   debug and develop C/C++ applications.  Please visit the
-  <a href="http://processors.wiki.ti.com/index.php/FAQ_-_CCSv5">CCSv5 Frequently Asked
+  <a target="_blank" href="http://processors.wiki.ti.com/index.php/FAQ_-_CCSv5">CCSv5 Frequently Asked
   Questions page</a>.</p>
  <p><small><b>Note:</b> The CCS installer on Linux may fail on 64-bit operating systems if 32-bit libraries are not installed. For Ubuntu, 'sudo apt-get install ia32-libs' before running the installer.</small></p>
  <br />
- <p><b><a href="http://openocd.sourceforge.net">OpenOCD</a></b> is an application
+ <p><b><a target="_blank" href="http://openocd.sourceforge.net">OpenOCD</a></b> is an application
   that provides JTAG-based debugging on all three operating systems, but currently only
   Linux is verified.  Please visit
-  <a href="http://www.mattlmassey.com/2012/04/26/using-openocd-with-the-beaglebone/">
+  <a target="_blank" href="http://www.mattlmassey.com/2012/04/26/using-openocd-with-the-beaglebone/">
   Matt Massey's blog post describing installation in Ubuntu</a>.</p>
 
  <h3>Next steps to try</h3>
- <h4><a href="http://blog.makezine.com/2012/03/14/how-to-get-started-with-the-beaglebone/">Matt Richardson's getting started video</a></h4>
+ <h4><a target="_blank" href="http://blog.makezine.com/2012/03/14/how-to-get-started-with-the-beaglebone/">Matt Richardson's getting started video</a></h4>
  <iframe width="853" height="480" src="http://www.youtube.com/embed/Y0uqRVxismQ" frameborder="0" allowfullscreen></iframe>
- <h4><a href="http://www.youtube.com/watch?v=z6b4zlh0IrE&list=PLbsFVwRYmHo068J9zj8nNIc0AAqFvtSVI">Derek Molloy's tutorial series on YouTube</a></h4>
+ <h4><a target="_blank" href="http://www.youtube.com/watch?v=z6b4zlh0IrE&list=PLbsFVwRYmHo068J9zj8nNIc0AAqFvtSVI">Derek Molloy's tutorial series on YouTube</a></h4>
  <iframe width="853" height="480" src="http://www.youtube.com/embed/z6b4zlh0IrE?list=PLbsFVwRYmHo068J9zj8nNIc0AAqFvtSVI&amp;hl=en_US" frameborder="0" allowfullscreen></iframe>
- <h4><a href="http://www.lvr.com/beaglebone.htm">Jan Axelson's BeagleBone getting started guide</a></h4>
- <h4><a href="http://elinux.org/EBC_Exercise_02_Out-of-the-Box,_Bone">Mark Yoder's ECE497 materials</a></h4>
+ <h4><a target="_blank" href="http://www.lvr.com/beaglebone.htm">Jan Axelson's BeagleBone getting started guide</a></h4>
+ <h4><a target="_blank" href="http://elinux.org/EBC_Exercise_02_Out-of-the-Box,_Bone">Mark Yoder's ECE497 materials</a></h4>
 
  <h2 id="hardware">Hardware</h2>
  <h3>Design materials</h3>
  <ul>
   <li>
-   <a href="Docs/Hardware/BONE_SRM.pdf">System Reference Manual</a>
+   <a target="_blank" href="Docs/Hardware/BONE_SRM.pdf">System Reference Manual</a>
   </li>
   <li>
-   <a href="Docs/Hardware/BONE_SCH.pdf">Schematics (PDF)</a>
+   <a target="_blank" href="Docs/Hardware/BONE_SCH.pdf">Schematics (PDF)</a>
   </li>
   <li>
-   <a href="Docs/Hardware/BONE_SCH.zip">Schematics (Orcad)</a>
+   <a target="_blank" href="Docs/Hardware/BONE_SCH.zip">Schematics (Orcad)</a>
   </li>
   <li>
-   <a href="Docs/Hardware/BONE_BOM.xls">Bill of materials</a>
+   <a target="_blank" href="Docs/Hardware/BONE_BOM.xls">Bill of materials</a>
   </li>
   <li>
-   <a href="Docs/Hardware/BONE_PCB.zip">PCB design files</a>
+   <a target="_blank" href="Docs/Hardware/BONE_PCB.zip">PCB design files</a>
   </li>
   <li>
-   <a href="Docs/Hardware/BONE_MFG.zip">PCB manufacturing files</a>
+   <a target="_blank" href="Docs/Hardware/BONE_MFG.zip">PCB manufacturing files</a>
  </ul>
 
  <h3 id="revisions">Revisions</h3>
- <p> <a href="http://circuitco.com/support/index.php?title=BeagleBone">
+ <p> <a target="_blank" href="http://circuitco.com/support/index.php?title=BeagleBone">
  CircuitCo.com's BeagleBone page</a> documents all of the known hardware issues.
  </p>
 
@@ -406,10 +407,10 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
   <!-- DIV that centers page - END -->
   <!-- Footer - START -->
   <div id="footer">
-   <div id="cc"><a href="http://creativecommons.org/about/license/" target="_blank"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" alt="Creative Commons - Conditions - Attribution and Share Alike" border="0" width="88" height="31" /></a></div>
+   <div id="cc"><a target="_blank" href="http://creativecommons.org/about/license/" target="_blank"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" alt="Creative Commons - Conditions - Attribution and Share Alike" border="0" width="88" height="31" /></a></div>
    <div id="footernav">
     <p>
-     <a href="http://beagleboard.org/privacy">Privacy Policy</a> | <a href="http://beagleboard.org/terms">Terms of Use</a><br />
+     <a target="_blank" href="http://beagleboard.org/privacy">Privacy Policy</a> | <a target="_blank" href="http://beagleboard.org/terms">Terms of Use</a><br />
      Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution-Share Alike 3.0 license
     </p>
    </div>
