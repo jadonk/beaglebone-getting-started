@@ -1,0 +1,14 @@
+{
+ "name": "getting-started"
+ , "main": "README.htm"
+ , "description": "BeagleBone Getting Started App"
+ , "window": {
+  "toolbar": false
+  , "icon": "Docs/beagle.png"
+  , "width": 1024
+  , "height": 600
+ }
+ , "webkit": {
+  "plugin": true
+ }
+}
