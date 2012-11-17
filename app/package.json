@@ -1,7 +1,8 @@
 {
- "name": "getting-started"
+ "name": "beaglebone-getting-started"
  , "main": "README.htm"
  , "description": "BeagleBone Getting Started App"
+ , "keywords": [ "beaglebone", "linux", "node-webkit" ]
  , "window": {
   "toolbar": false
   , "icon": "Docs/beagle.png"
@@ -11,4 +12,18 @@
  , "webkit": {
   "plugin": true
  }
+ , "maintainers": [
+  {
+   "name": "Jason Kridner"
+   , "email": "jkridner@beagleboard.org"
+   , "web": "http://blog.hangerhead.com"
+  }
+ ]
+ , "repositories": [
+  {
+   "type": "git"
+   , "url": "http://github.com/jadonk/beaglebone-getting-started.git"
+   , "path": ""
+  }
+ ]
 }
