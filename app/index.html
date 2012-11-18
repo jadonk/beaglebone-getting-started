@@ -1,11 +1,25 @@
 <html>
 <head>
 <title>Hello World!</title>
+<script>
+var funcs = require('./index');
+
+funcs.getNetworkIPs(funcs.loadSocketIO, false);
+
+var writeIP = function() {
+ getNetworkIPs(
+  function(error, ip) {
+   document.write("" + ip);
+  }
+  , false
+ );
+};
+</script>
 </head>
 <body>
 <h1>Hello World!</h1>
-We are using node.js <script>document.write(process.version)</script>
-<p><a href="http://localhost:3000/hello.txt">hello.txt</a></p>
-<p><a href="README.htm">README.htm</a></p>
+<p>We are using node.js <script>document.write(process.version)</script></p>
+<p>We are at IP address <script>writeIP()</script></p>
+<p><a href="../README.htm">README.htm</a></p>
 </body>
 </html>

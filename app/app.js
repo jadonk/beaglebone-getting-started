@@ -1,23 +1,12 @@
-var express = require('express');
 var http = require('http');
-var app = express();
+var socketio = require('socket.io')
 
-var helloworld = function(req, res) {
- var body = 'Hello World';
- res.setHeader('Content-Type', 'text/plain');
- res.setHeader('Content-Length', body.length);
- res.end(body);
-};
+var io = socketio.listen(process.env.PORT || 3000);
 
-var configure = function() {
- app.set('port', process.env.PORT || 3000);
- app.use(express.logger('dev'));
-};
+io.sockets.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
+  });
+});
 
-var log = function() {
- console.log("Express server listening on port " + app.get('port'));
-};
-
-app.configure(configure);
-app.get('/hello.txt', helloworld);
-http.createServer(app).listen(app.get('port'), log);
