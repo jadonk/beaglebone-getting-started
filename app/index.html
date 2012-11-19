@@ -4,22 +4,13 @@
 <script>
 var funcs = require('./index');
 
-funcs.getNetworkIPs(funcs.loadSocketIO, false);
-
-var writeIP = function() {
- getNetworkIPs(
-  function(error, ip) {
-   document.write("" + ip);
-  }
-  , false
- );
-};
+funcs.getNetworkIPs(document, funcs.loadSocketIO, false);
 </script>
 </head>
 <body>
 <h1>Hello World!</h1>
 <p>We are using node.js <script>document.write(process.version)</script></p>
-<p>We are at IP address <script>writeIP()</script></p>
+<p>We are at IP address <script>funcs.writeIP(document);</script></p>
 <p><a href="../README.htm">README.htm</a></p>
 </body>
 </html>
