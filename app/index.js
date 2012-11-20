@@ -22,9 +22,9 @@ var getNetworkIPs = (function () {
   break;
  }
 
- return function (callback, bypassCache) {
+ return function (document, callback, bypassCache) {
   if (cached && !bypassCache) {
-   callback(null, cached);
+   callback(document, null, cached);
    return;
   }
   // system call
@@ -38,7 +38,7 @@ var getNetworkIPs = (function () {
      cached.push(ip);
     }
    }
-   callback(error, cached);
+   callback(document, error, cached);
   });
  };
 })();
@@ -59,7 +59,7 @@ var loadScript = function(document, script, callback) {
  x.parentNode.insertBefore(s, x);
 };
 
-loadSocketIO = function(error, ip) {
+loadSocketIO = function(document, error, ip) {
  console.log('http://' + ip + '/socket.io/socket.io.js');
  var socketIOLoaded = function(error, e) {
   var socket = io.connect('http://' + ip + ':3000/');
@@ -69,13 +69,15 @@ loadSocketIO = function(error, ip) {
   socket.on('connect', connected);
  };
 
- loadScript('http://' + ip + ':3000/socket.io/socket.io.js', socketIOLoaded);
+ loadScript(document, 'http://' + ip + ':3000/socket.io/socket.io.js', socketIOLoaded);
 };
 
 var writeIP = function(document) {
  getNetworkIPs(
-  function(error, ip) {
-   document.write("" + ip);
+  document,
+  function(document, error, ip) {
+   console.log("IP address is " + ip);
+   console.log("document is " + document);
   }
   , false
  );
