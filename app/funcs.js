@@ -1,4 +1,6 @@
-var getNetworkIPs = (function () {
+var http = require('http');
+
+var getNetworkIPs = function () {
  var ignoreRE = /^(127\.0\.0\.1|::1|fe80(:1)?::1(%.*)?)$/i;
 
  var exec = require('child_process').exec;
@@ -22,7 +24,7 @@ var getNetworkIPs = (function () {
   break;
  }
 
- return function (callback, bypassCache) {
+ var mycall = function(callback, bypassCache) {
   if (cached && !bypassCache) {
    callback(null, cached);
    return;
@@ -41,6 +43,11 @@ var getNetworkIPs = (function () {
    callback(error, cached);
   });
  };
-})();
 
-exports.getNetworkIPs = getNetworkIPs;
+ return(mycall);
+};
+
+var listLatestDownloads = function(callback) {
+};
+
+exports.getNetworkIPs = getNetworkIPs();
