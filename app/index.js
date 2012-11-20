@@ -1,4 +1,4 @@
-var getNetworkIPs = (function () {
+getNetworkIPs = (function () {
  var ignoreRE = /^(127\.0\.0\.1|::1|fe80(:1)?::1(%.*)?)$/i;
 
  var exec = require('child_process').exec;
@@ -22,9 +22,9 @@ var getNetworkIPs = (function () {
   break;
  }
 
- return function (document, callback, bypassCache) {
+ return function (callback, bypassCache) {
   if (cached && !bypassCache) {
-   callback(document, null, cached);
+   callback(null, cached);
    return;
   }
   // system call
@@ -38,12 +38,12 @@ var getNetworkIPs = (function () {
      cached.push(ip);
     }
    }
-   callback(document, error, cached);
+   callback(error, cached);
   });
  };
 })();
 
-var loadScript = function(document, script, callback) {
+loadScript = function(document, script, callback) {
  var s = document.createElement('script');
  s.type = 'text/javascript';
  s.async = true;
@@ -59,7 +59,7 @@ var loadScript = function(document, script, callback) {
  x.parentNode.insertBefore(s, x);
 };
 
-loadSocketIO = function(document, error, ip) {
+loadSocketIO = function(document, ip) {
  console.log('http://' + ip + '/socket.io/socket.io.js');
  var socketIOLoaded = function(error, e) {
   var socket = io.connect('http://' + ip + ':3000/');
@@ -72,18 +72,12 @@ loadSocketIO = function(document, error, ip) {
  loadScript(document, 'http://' + ip + ':3000/socket.io/socket.io.js', socketIOLoaded);
 };
 
-var writeIP = function(document) {
+writeIP = function(document) {
  getNetworkIPs(
-  document,
-  function(document, error, ip) {
+  function(error, ip) {
    console.log("IP address is " + ip);
-   console.log("document is " + document);
+   document.write("" + ip);
   }
   , false
  );
 };
-
-exports.loadScript = loadScript;
-exports.writeIP = writeIP;
-exports.getNetworkIPs = getNetworkIPs;
-exports.loadSocketIO = loadSocketIO;

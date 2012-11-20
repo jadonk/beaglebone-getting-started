@@ -10,7 +10,7 @@ zip $ZIP -r autorun.inf Docs Drivers info.txt LICENSE.txt README.htm
 
 # Add package.json
 cd $DIR/app
-zip $ZIP -r package.json app.js index.html index.js node_modules
+zip $ZIP -r package.json app.js index.html index.js node_modules jquery.js
 
 # Make Mac app
 rm -f $DIR/app/beaglebone-getting-started.app.zip
