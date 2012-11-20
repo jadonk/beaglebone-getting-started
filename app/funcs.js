@@ -47,7 +47,33 @@ var getNetworkIPs = function () {
  return(mycall);
 };
 
-var listLatestDownloads = function(callback) {
+var listLatestDownloads = function() {
+ var options = {
+  host: 'beagleboard.org'
+  , port: 80
+  , path: '/latest-images/'
+  , method: 'GET'
+ };
+ var responseHandler = function(res) {
+  console.log('STATUS: ' + res.statusCode);
+  console.log('HEADERS: ' + JSON.stringify(res.headers));
+  res.setEncoding('utf8');
+  var dataHandler = function(chunk) {
+   console.log('BODY: ' + chunk);
+  };
+  res.on('data', dataHandler);
+ };
+ var mycall = function() {
+  var req = http.request(options, responseHandler);
+  var errorHandler = function(e) {
+   console.log('problem with request: ' + e.message);
+  };
+  req.on('error', errorHandler);
+  req.end();
+ };
+
+ return(mycall);
 };
 
 exports.getNetworkIPs = getNetworkIPs();
+exports.listLatestDownloads = listLatestDownloads();

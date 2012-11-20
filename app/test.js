@@ -5,3 +5,5 @@ var gotIP = function(error, ip) {
 }
 
 funcs.getNetworkIPs(gotIP, false);
+
+funcs.listLatestDownloads();
