@@ -1,20 +1,12 @@
 <html>
 <head>
-<title>Hello World!</title>
+<title>BeagleBone Getting Started</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
-<h1>Hello World!</h1>
-<p>We are at IP address <span id="ip_addr">XXXX</span></p>
+<h1>BeagleBone Getting Started</h1>
+<p>Status: <span id="socket_status">Uninitialized</span></p>
 <p><a href="README.htm">README.htm</a></p>
-<script>
-var loadSocketIOForIP = function(error, ip) {
- loadSocketIO(document, ip);
- $('#ip_addr').html('' + ip);
-};
-
-getNetworkIPs(loadSocketIOForIP, false);
-</script>
 </body>
 </html>

@@ -1,83 +1,44 @@
-getNetworkIPs = (function () {
- var ignoreRE = /^(127\.0\.0\.1|::1|fe80(:1)?::1(%.*)?)$/i;
-
- var exec = require('child_process').exec;
- var cached;
- var command;
- var filterRE;
-
- switch (process.platform) {
- case 'win32':
- case 'win64':
-  command = 'ipconfig';
-  filterRE = /\bIP(v[46])?-?[^:\r\n]+:\s*([^\s]+)/g;
-  break;
- case 'darwin':
-  command = 'ifconfig';
-  filterRE = /\binet\s+([^\s]+)/g;
-  break;
- default:
-  command = 'ifconfig';
-  filterRE = /\binet\b[^:]+:\s*([^\s]+)/g;
-  break;
- }
-
- return function (callback, bypassCache) {
-  if (cached && !bypassCache) {
-   callback(null, cached);
-   return;
-  }
-  // system call
-  exec(command, function (error, stdout, sterr) {
-   cached = [];
-   var ip;
-   var matches = stdout.match(filterRE) || [];
-   for (var i = 0; i < matches.length; i++) {
-    ip = matches[i].replace(filterRE, '$1')
-    if (!ignoreRE.test(ip)) {
-     cached.push(ip);
-    }
-   }
-   callback(error, cached);
-  });
- };
-})();
-
-loadScript = function(document, script, callback) {
- var s = document.createElement('script');
- s.type = 'text/javascript';
- s.async = true;
- s.src = script;
- var x = document.getElementsByTagName('script')[0];
- //o.u = '//' + script;
- if (callback) {
-  var listener = function(e) {
-   callback(null, e);
-  };
-  x.addEventListener('load', listener, false);
- }
- x.parentNode.insertBefore(s, x);
-};
-
-loadSocketIO = function(document, ip) {
- console.log('http://' + ip + '/socket.io/socket.io.js');
- var socketIOLoaded = function(error, e) {
-  var socket = io.connect('http://' + ip + ':3000/');
+loadSocketIO = function(ip) {
+ var url = 'http://' + ip[0] + ':3000/';
+ var socketIOURL = url + 'socket.io/socket.io.js';
+ console.log('URL is ' + socketIOURL);
+ var socketIOLoaded = function(script, textStatus, jqXHR) {
+  var socket = io.connect(url);
   var connected = function() {
-   alert("Connected to " + ip);
+   $('#socket_status').html('Connected to ' + url);
+  };
+  var connecting = function() {
+   $('#socket_status').html('Connecting to ' + url);
+  };
+  var disconnected = function() {
+   $('#socket_status').html('Disconnected');
+  };
+  var connectFailed = function() {
+   $('#socket_status').html('Connection to ' + url + ' failed');
+  };
+  var reconnecting = function() {
+   $('#socket_status').html('Reconnecting to ' + url);
+  };
+  var reconnect = function() {
+   $('#socket_status').html('Reconnected to ' + url);
   };
   socket.on('connect', connected);
+  socket.on('connecting', connecting);
+  socket.on('disconnect', disconnected);
+  socket.on('connect_failed', connectFailed);
+  socket.on('reconnect', reconnect);
+  socket.on('reconnecting', reconnecting);
  };
 
- loadScript(document, 'http://' + ip + ':3000/socket.io/socket.io.js', socketIOLoaded);
+ jQuery.getScript(socketIOURL, socketIOLoaded);
 };
 
-writeIP = function(document) {
- getNetworkIPs(
-  function(error, ip) {
-   console.log("IP address is " + ip);
-   document.write("" + ip);
-  }
-  , false
- );
+var gotIP = function(error, ip) {
+ loadSocketIO(ip);
 };
+
+var myInit = function() {
+ gotIP(null, ['127.0.0.1']);
+};
+
+myInit();

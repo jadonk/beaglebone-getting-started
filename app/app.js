@@ -1,5 +1,6 @@
 var http = require('http');
-var socketio = require('socket.io')
+var socketio = require('socket.io');
+var funcs = require('./funcs');
 
 var io = socketio.listen(process.env.PORT || 3000);
 
