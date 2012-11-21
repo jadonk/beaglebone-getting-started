@@ -48,12 +48,6 @@ var getNetworkIPs = function () {
 };
 
 var listLatestDownloads = function() {
- var options = {
-  host: 'beagleboard.org'
-  , port: 80
-  , path: '/latest-images/'
-  , method: 'GET'
- };
  var responseHandler = function(res) {
   console.log('STATUS: ' + res.statusCode);
   console.log('HEADERS: ' + JSON.stringify(res.headers));
@@ -63,14 +57,20 @@ var listLatestDownloads = function() {
   };
   res.on('data', dataHandler);
  };
- var mycall = function() {
-  var req = http.request(options, responseHandler);
+ var mycall = function mycall() {
+  console.log('Making request: ' + JSON.stringify(mycall.options));
+  var req = http.request(mycall.options, responseHandler);
   var errorHandler = function(e) {
    console.log('problem with request: ' + e.message);
   };
   req.on('error', errorHandler);
   req.end();
  };
+ mycall.options = {};
+ mycall.options.host = 'beagleboard.org';
+ mycall.options.path = '/latest-images';
+ mycall.options.port = 80;
+ mycall.options.method = 'GET';
 
  return(mycall);
 };

@@ -6,4 +6,6 @@ var gotIP = function(error, ip) {
 
 funcs.getNetworkIPs(gotIP, false);
 
+funcs.listLatestDownloads.options.host = 'wwwgate.ti.com';
+funcs.listLatestDownloads.options.path = 'http://beagleboard.org/latest-images/';
 funcs.listLatestDownloads();
