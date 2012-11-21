@@ -1,4 +1,6 @@
 var http = require('http');
+var jsdom = require('jsdom');
+var fs = require('fs');
 
 var getNetworkIPs = function () {
  var ignoreRE = /^(127\.0\.0\.1|::1|fe80(:1)?::1(%.*)?)$/i;
@@ -49,22 +51,40 @@ var getNetworkIPs = function () {
 
 var listLatestDownloads = function() {
  var responseHandler = function(res) {
-  console.log('STATUS: ' + res.statusCode);
-  console.log('HEADERS: ' + JSON.stringify(res.headers));
+  //console.log('STATUS: ' + res.statusCode);
+  //console.log('HEADERS: ' + JSON.stringify(res.headers));
   res.setEncoding('utf8');
+  var body = '';
   var dataHandler = function(chunk) {
-   console.log('BODY: ' + chunk);
+   body = body + chunk;
+  };
+  var parseDownloads = function() {
+   //console.log('Parsing...' + body);
+   //console.log('Parsing...');
+   var parser = function(err, window) {
+    var $ = window.jQuery;
+    var pd = function(i) {
+     var downloadURL = $('a[itemprop="downloadURL"]').attr('href');
+     console.log('downloadURL = ' + downloadURL);
+    };
+    var downloads = $('li[itemtype="http://schema.org/SoftwareApplication"]').each(pd);
+   };
+   var options = {};
+   options.html = body;
+   options.src = fs.readFileSync("./jquery.js").toString();
+   options.done = parser;
+   jsdom.env(options);
   };
   res.on('data', dataHandler);
+  res.on('end', parseDownloads);
  };
  var mycall = function mycall() {
-  console.log('Making request: ' + JSON.stringify(mycall.options));
-  var req = http.request(mycall.options, responseHandler);
+  //console.log('Making request: ' + JSON.stringify(mycall.options));
+  var req = http.get(mycall.options, responseHandler);
   var errorHandler = function(e) {
    console.log('problem with request: ' + e.message);
   };
   req.on('error', errorHandler);
-  req.end();
  };
  mycall.options = {};
  mycall.options.host = 'beagleboard.org';
