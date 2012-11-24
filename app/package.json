@@ -6,7 +6,7 @@
  , "description": "BeagleBone Getting Started App"
  , "keywords": [ "beaglebone", "linux", "node-webkit" ]
  , "window": {
-  "toolbar": false
+  "toolbar": true
   , "icon": "Docs/beagle.png"
   , "width": 1024
   , "height": 600

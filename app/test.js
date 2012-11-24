@@ -12,13 +12,26 @@ var options = funcs.listLatestDownloads.options;
 funcs.listLatestDownloads();
 
 var mdns = require('mdns');
-var browser = mdns.createBrowser(mdns.tcp('ssh'));
-
-browser.on('serviceUp', function(service) {
-  console.log("service up: ", service);
-});
-browser.on('serviceDown', function(service) {
-  console.log("service down: ", service);
-});
-
-browser.start();
+var mdnsServiceUp = function(service) {
+ if(service.host && service.host.match(/beagle/i)) {
+  console.log('Found ' + service.name + ' at ' +
+  service.host.replace(/\.$/, '') +
+  ' ' + service.type.name + '://' +
+  service.addresses[0] +
+  ':' + service.port);
+ }
+};
+var mdnsServiceDown = function(service) {
+};
+mdns.createBrowser(mdns.tcp('https'))
+ .on('serviceUp', mdnsServiceUp)
+ .on('serviceDown', mdnsServiceDown)
+ .start();
+mdns.createBrowser(mdns.tcp('tcp'))
+ .on('serviceUp', mdnsServiceUp)
+ .on('serviceDown', mdnsServiceDown)
+ .start();
+mdns.createBrowser(mdns.tcp('http'))
+ .on('serviceUp', mdnsServiceUp)
+ .on('serviceDown', mdnsServiceDown)
+ .start();
