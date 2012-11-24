@@ -30,5 +30,7 @@
  ]
  , "dependencies": {
   "socket.io": "0.9.11"
+  , "jsdom": "0.2.10"
+  , "mdns": "0.0.7"
  }
 }
