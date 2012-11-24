@@ -13,21 +13,23 @@ var socketConnect = function(socket) {
  var mdnsServiceDown = function(service) {
   socket.emit('serviceDown', service);
  };
- mdns.createBrowser(mdns.tcp('workstation'))
-  .on('serviceUp', mdnsServiceUp)
-  .on('serviceDown', mdnsServiceDown)
-  .start();
+ var mdnsError = function(error) {
+  console.log('mdns error: ' + error);
+ };
  mdns.createBrowser(mdns.tcp('ssh'))
   .on('serviceUp', mdnsServiceUp)
   .on('serviceDown', mdnsServiceDown)
+  .on('error', mdnsError)
   .start();
  mdns.createBrowser(mdns.tcp('http'))
   .on('serviceUp', mdnsServiceUp)
   .on('serviceDown', mdnsServiceDown)
+  .on('error', mdnsError)
   .start();
  mdns.createBrowser(mdns.tcp('https'))
   .on('serviceUp', mdnsServiceUp)
   .on('serviceDown', mdnsServiceDown)
+  .on('error', mdnsError)
   .start();
 };
 io.sockets.on('connection', socketConnect);
