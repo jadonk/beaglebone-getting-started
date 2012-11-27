@@ -3,6 +3,15 @@ var toID = function(string) {
  return id;
 };
 
+var chooseIP = function(ip) {
+ for(n in ip) {
+  if(ip[n].match(/\:/)) {
+   return(ip[n]);
+  }
+ }
+ return(ip[0]);
+};
+
 var loadSocketIO = function(ip) {
  var url = 'http://' + ip[0] + ':3000/';
  var socketIOURL = url + 'socket.io/socket.io.js';
