@@ -18,6 +18,12 @@ var loadSocketIO = function(ip) {
  console.log('URL is ' + socketIOURL);
  var socketIOLoaded = function(script, textStatus, jqXHR) {
   var socket = io.connect(url);
+  var onDisconnect = function() {
+   var remove = function() {
+    $(this).remove();
+   };
+   $('#services li').each(remove);
+  };
   var connected = function() {
    $('#socket_status').html('Connected to ' + url);
   };
@@ -28,6 +34,7 @@ var loadSocketIO = function(ip) {
   socket.on('connecting', connecting);
   var disconnected = function() {
    $('#socket_status').html('Disconnected');
+   onDisconnect();
   };
   socket.on('disconnect', disconnected);
   var connectFailed = function() {
@@ -36,6 +43,7 @@ var loadSocketIO = function(ip) {
   socket.on('connect_failed', connectFailed);
   var reconnecting = function() {
    $('#socket_status').html('Reconnecting to ' + url);
+   onDisconnect();
   };
   socket.on('reconnect', reconnect);
   var reconnect = function() {
