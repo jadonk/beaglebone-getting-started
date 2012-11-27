@@ -13,10 +13,6 @@ var socketConnect = function(socket) {
  var mdnsServiceDown = function(service) {
   socket.emit('serviceDown', service);
  };
- mdns.createBrowser(mdns.tcp('workstation'))
-  .on('serviceUp', mdnsServiceUp)
-  .on('serviceDown', mdnsServiceDown)
-  .start();
  mdns.createBrowser(mdns.tcp('ssh'))
   .on('serviceUp', mdnsServiceUp)
   .on('serviceDown', mdnsServiceDown)

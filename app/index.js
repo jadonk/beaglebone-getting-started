@@ -34,11 +34,15 @@ var loadSocketIO = function(ip) {
   };
   socket.on('reconnecting', reconnecting);
   var serviceUp = function(service) {
+   var username = '';
    if($('#' + toID(service.fullname)).length == 0) {
+    if((service.type.name == 'ssh') && (service.host.match(/beagle/))) {
+     username = 'root@';
+    }
     $('#services').append('<li id="' + toID(service.fullname) +
      '"><a href="' + 
      service.type.name + '://' +
-     service.addresses[0] +
+     username + service.addresses[0] +
      ':' + service.port +
      '/">' + service.name +
      '</a></li>\n'
