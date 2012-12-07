@@ -44,15 +44,14 @@
  <h3>Step #1: Plug in BeagleBone via USB</h3>
  <p>Use the provided USB cable to plug BeagleBone into your computer. This will both power the board and provide a development interface. BeagleBone will boot Linux from the provided microSD card and operates as a flash drive. This provides you with a local copy of the documentation and drivers.</p>
  <p>You'll see the PWR LED on steadily. Within 10 seconds, you should see the USR0 LED blinking in a heartbeat pattern. During accesses to the SD card, you should see the USR1 LED turning on.</p>
- <pre>Insert picture here -- ideally an animated .gif</pre>
+ <img width="50%" src="Docs/images/bone-usr3-led.png" /><br /><br />
 
  <h3>Step #2: Install drivers</h3>
  <p>Install the drivers for your operating system.</p>
  <table border="1">
   <tr>
    <th>Operating System</th>
-   <th>USB Drivers&nbsp;<sup>[<a target="_blank" href="http://www.ftdichip.com/Drivers/VCP.htm">FTDI</a>]&nbsp;[<a target="_blank" href="http://www.linux-usb.org/gadget/">Network</a>]</sup>
-   </th>
+   <th>USB Drivers</th>
    <th>Comments</th>
   </tr>
   <tr>
@@ -90,6 +89,12 @@
    <td><small><b>Note:</b>&nbsp;Driver installation is not required for rev A5 boards or newer. Check sticker on Ethernet port for revision.</small></td>
   </tr>
  </table>
+ <p><b>Note:</b>&nbsp;Additional FTDI USB to serial/JTAG information and drivers are available from
+  <a target="_blank" href="http://www.ftdichip.com/Drivers/VCP.htm">http://www.ftdichip.com/Drivers/VCP.htm</a>.
+ </p>
+ <p><b>Note:</b>&nbsp;Additional USB to virtual Ethernet information and drivers are available from
+  <a target="_blank" href="http://www.linux-usb.org/gadget/">http://www.linux-usb.org/gadget/</a>.
+ </p>
 
  <h3>Step #3: Eject BEAGLE_BONE</h3>
  <p>The EJECT operation tells your BeagleBone to switch from "storage mode" to "network mode", enabling you to access the networking features over your USB cable. On each power-up, BeagleBone defaults to "storage mode".</p>
@@ -113,7 +118,7 @@
   <li>Click here to launch: <a href="http://192.168.7.2:3000/" target="_blank">http://192.168.7.2:3000/</a></li>
  </ul>
  <img src="Docs/Cloud9_Screen.png" width="850px" />
- <p>As a simple exercise to become familiar with Cloud9 IDE and the Bonescript JavaScript library, creating a simple application to blink one of the 4 user programmable LEDs on the BeagleBone is a good start.</p>
+ <p>As a simple exercise to become familiar with <a href="http://c9.io" target="_blank">Cloud9 IDE</a> and the <a target="_blank" href="http://beagleboard.org/project/bonescript">Bonescript JavaScript library</a>, creating a simple application to blink one of the 4 user programmable LEDs on the BeagleBone is a good start.</p>
  <ul class="action">
   <li><b>Step A:</b>&nbsp;Close any open file tabs.<br /><br />
    <img src="Docs/images/c9-close-tab.png" /><br /><br />
@@ -127,14 +132,14 @@
 require('bonescript');
 
 setup = function () {
-    pinMode(bone.USR3, OUTPUT);
+    pinMode(bone.USR3, OUTPUT);    // Enable LED USR3 control
 }
 
 loop = function () {
-    digitalWrite(bone.USR3, HIGH);
-    delay(100);
-    digitalWrite(bone.USR3, LOW);
-    delay(100);
+    digitalWrite(bone.USR3, HIGH); // Turn LED USR3 on
+    delay(100);                    // Delay 100ms
+    digitalWrite(bone.USR3, LOW);  // Turn LED USR3 off
+    delay(100);                    // Delay 100ms
 }</pre>
   </li>
   <li><b>Step D:</b>&nbsp;Save the file by clicking the disk icon and giving the file a name with the .js extension.<br /><br />
@@ -147,14 +152,14 @@ loop = function () {
    <img src="Docs/images/c9-run.png" /><br /><br />
   </li>
   <li><b>Step F:</b>&nbsp;Observe the BeagleBone USR3 LED blinking steadily about 5 times a second.<br /><br />
-   <b>Note:</b> By default, Linux has programmed USR0 to provide a &quot;heartbeat&quot; pattern and USR1 to turn on during microSD card access.<br /><br />
-   <img src="Docs/images/bone-usr3-led.png" /><br /><br />
+   <b>Note:</b> By default, Linux has programmed USR0 LED to provide a &quot;heartbeat&quot; pattern and USR1 LED to turn on during microSD card access.<br /><br />
+   <img width="80%" src="Docs/images/bone-usr3-led.png" /><br /><br />
   </li>
   <li><b>Step G:</b>&nbsp;Stop the code by clicking &quot;stop&quot; in the toolbar.<br /><br />
    <img src="Docs/images/c9-stop.png" /><br /><br />
   </li>
  </ul>
- <p>Additional information about the Bonescript library is available in the presentation viewed in the next step and on-line at <a target="_blank" href="http://github.com/jadonk/bonescript">http://github.com/jadonk/bonescript</a>.</p>
+ <p>Additional information about the Bonescript library is available in the presentation viewed in the next step and on-line at <a target="_blank" href="http://beagleboard.org/project/bonescript">http://beagleboard.org/project/bonescript</a>.</p>
 
  <h3>Step #5: Browse to your board</h3>
  <p>Using either <a target="_blank" href="http://www.google.com/chrome">Chrome</a> or <a target="_blank" href="http://www.mozilla.org/firefox">Firefox</a> (Internet Explorer will <b>NOT</b> work), browse to the web server running on your board. It will load a presentation showing you the capabilities of the board. Use the arrow keys on your keyboard to navigate the presentation.</p>
@@ -163,39 +168,11 @@ loop = function () {
  </ul>
  <img src="Docs/bone101.png" width="600px" />
 
- <h2>Program an SD card with latest or alternative software</h2>
+ <h2>Program a SD card with latest software</h2>
 
- <h3>Other currently available starting images</h3>
- <ul class="arrow">
-  <li><a target="_blank" href="http://beagleboard.org/project/angstrom">Latest SD card image (Angstrom Distribution)</a></li>
-  <li>Texas Instruments releases: 
-   <a target="_blank" href="http://beagleboard.org/project/android/">
-    Android</a>,
-   <a target="_blank" href="http://beagleboard.org/project/amsdk/">
-    Linux</a>,
-   <a target="_blank" href="http://beagleboard.org/project/starterware/">
-    StarterWare (no OS)</a>
-  </li>
-  <li>Linux: 
-   <a target="_blank" href="http://beagleboard.org/project/ubuntu/">Ubuntu</a>,
-   <a target="_blank" href="http://beagleboard.org/project/Debian/">Debian</a>,
-   <a target="_blank" href="http://beagleboard.org/project/AM/">ArchLinux</a>,
-   <a target="_blank" href="http://beagleboard.org/project/Gentoo/">Gentoo</a>,
-   <a target="_blank" href="http://beagleboard.org/project/sabayon/">
-    Sabayon</a>,
-   <a target="_blank" href="http://beagleboard.org/project/buildroot/">Buildroot</a>,
-   <a target="_blank" href="http://beagleboard.org/project/Nerves/">Erlang</a>,
-   <a target="_blank" href="http://beagleboard.org/project/fedora/">Fedora</a>
-  </li>
-  <li>Other:
-   <a target="_blank" href="http://beagleboard.org/project/QNX+Neutrino+on+OMAP/">QNX</a>,
-   <a target="_blank" href="http://beagleboard.org/project/freebsd/">FreeBSD</a>
-  </li>
-  <li><a target="_blank" href="http://beagleboard.org/project">Projects page</a></li>
- </ul>
-
- <h3>Step #1: Download one of the above images</h3>
- <p>The Angstrom Distribution is what ships with the boards. Some of the above starting points involve multiple steps to produce an SD card image or otherwise change some of the steps below, so be sure to read all the instructions on their pages. Chose the starting point you want, download or produce the SD card image and continue to the next step.</p>
+ <h3>Step #1: Download the latest software image</h3>
+ <p>Download "Angstrom Distribution" from <a target="_blank" href="http://beagleboard.org/latest-images">http://beagleboard.org/latest-images</a>.</p>
+ <p>The Angstrom Distribution is what ships with the boards. The file you download will have an .img.xz extention. This is a compressed sector-by-sector image of the SD card.</p>
 
  <h3>Step #2: Install compression utility</h3>
  <p>Download and install <a target="_blank" href="http://www.7-zip.org/download.html">7-zip</a>.</p>
@@ -215,6 +192,36 @@ loop = function () {
 
  <h3>Step #7: Eject the SD card</h3>
  <p>Eject the newly programmed SD card, insert it into your (powered-down) board and apply power, either by the USB cable or 5V adapter.</p>
+
+ <h3>Other currently available starting images</h3>
+ <p>Some of the starting images below involve multiple steps to produce an SD card image or otherwise change some of the steps above, so be sure to read all the instructions on their pages. Choose the starting point you want, download or produce the SD card image and follow the steps above.</p>
+ <ul class="arrow">
+  <li>Texas Instruments releases: 
+   <a target="_blank" href="http://beagleboard.org/project/android/">
+    Android</a>,
+   <a target="_blank" href="http://beagleboard.org/project/amsdk/">
+    Linux</a>,
+   <a target="_blank" href="http://beagleboard.org/project/starterware/">
+    StarterWare (no OS)</a>
+  </li>
+  <li>Linux: 
+   <a target="_blank" href="http://beagleboard.org/project/angstrom">Angstrom Distribution</a></li>
+   <a target="_blank" href="http://beagleboard.org/project/ubuntu/">Ubuntu</a>,
+   <a target="_blank" href="http://beagleboard.org/project/Debian/">Debian</a>,
+   <a target="_blank" href="http://beagleboard.org/project/AM/">ArchLinux</a>,
+   <a target="_blank" href="http://beagleboard.org/project/Gentoo/">Gentoo</a>,
+   <a target="_blank" href="http://beagleboard.org/project/sabayon/">
+    Sabayon</a>,
+   <a target="_blank" href="http://beagleboard.org/project/buildroot/">Buildroot</a>,
+   <a target="_blank" href="http://beagleboard.org/project/Nerves/">Erlang</a>,
+   <a target="_blank" href="http://beagleboard.org/project/fedora/">Fedora</a>
+  </li>
+  <li>Other:
+   <a target="_blank" href="http://beagleboard.org/project/QNX+Neutrino+on+OMAP/">QNX</a>,
+   <a target="_blank" href="http://beagleboard.org/project/freebsd/">FreeBSD</a>
+  </li>
+  <li><a target="_blank" href="http://beagleboard.org/project">Projects page</a></li>
+ </ul>
 
  <h2>Troubleshooting and reference</h2>
 
