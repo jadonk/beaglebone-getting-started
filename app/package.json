@@ -2,7 +2,7 @@
  "name": "beaglebone-getting-started"
  , "version": "0.0.1"
  , "main": "index.html"
- , "node-main": "app.js"
+ //, "node-main": "app.js"
  , "description": "BeagleBone Getting Started App"
  , "keywords": [ "beaglebone", "linux", "node-webkit" ]
  , "window": {
