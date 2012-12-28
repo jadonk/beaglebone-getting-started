@@ -77,6 +77,15 @@ var loadSocketIO = function(ip) {
     }
    };
    socket.on('serviceDown', serviceDown);
+
+   var myIP = function(data) {
+   };
+   socket.on('myIP', myIP);
+
+   var latestDownloads = function(data) {
+    $('#downloads').append('<li>' + data + '</li>');
+   };
+   socket.on('latestDownloads', latestDownloads);
   };
  
   jQuery.getScript(socketIOURL, socketIOLoaded);

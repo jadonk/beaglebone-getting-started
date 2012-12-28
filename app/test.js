@@ -6,10 +6,10 @@ var gotIP = function(error, ip) {
 
 funcs.getNetworkIPs(gotIP, false);
 
-var options = funcs.listLatestDownloads.options;
-//funcs.listLatestDownloads.options.path = 'http://' + options.host + options.path;
-//funcs.listLatestDownloads.options.host = 'wwwgate.ti.com';
-funcs.listLatestDownloads();
+var options = funcs.getLatestDownloads.options;
+//funcs.getLatestDownloads.options.path = 'http://' + options.host + options.path;
+//funcs.getLatestDownloads.options.host = 'wwwgate.ti.com';
+funcs.getLatestDownloads();
 
 var mdns = require('mdns');
 var mdnsServiceUp = function(service) {

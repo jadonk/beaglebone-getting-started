@@ -34,6 +34,16 @@ try {
  };
 
  var socketConnect = function(socket) {
+  var sendIPs = function(data) {
+   socket.emit('myIP', data);
+  };
+  funcs.getNetworkIPs(sendIPs, false);
+
+  var sendLatestDownloads = function(data) {
+   socket.emit('latestDownloads', data);
+  };  
+  funcs.getLatestDownloads(sendLatestDownloads);
+
   var mdnsServiceUp = function(service) {
    socket.emit('serviceUp', service);
   };

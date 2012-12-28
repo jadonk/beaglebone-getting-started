@@ -49,36 +49,37 @@ var getNetworkIPs = function () {
  return(mycall);
 };
 
-var listLatestDownloads = function() {
- var responseHandler = function(res) {
-  //console.log('STATUS: ' + res.statusCode);
-  //console.log('HEADERS: ' + JSON.stringify(res.headers));
-  res.setEncoding('utf8');
-  var body = '';
-  var dataHandler = function(chunk) {
-   body = body + chunk;
-  };
-  var parseDownloads = function() {
-   //console.log('Parsing...' + body);
-   //console.log('Parsing...');
-   var parser = function(err, window) {
-    var $ = window.jQuery;
-    var pd = function(i) {
-     var downloadURL = $('a[itemprop="downloadURL"]').attr('href');
-     console.log('downloadURL = ' + downloadURL);
-    };
-    var downloads = $('li[itemtype="http://schema.org/SoftwareApplication"]').each(pd);
+var getLatestDownloads = function() {
+ var mycall = function mycall(callback) {
+  var responseHandler = function(res) {
+   //console.log('STATUS: ' + res.statusCode);
+   //console.log('HEADERS: ' + JSON.stringify(res.headers));
+   res.setEncoding('utf8');
+   var body = '';
+   var dataHandler = function(chunk) {
+    body = body + chunk;
    };
-   var options = {};
-   options.html = body;
-   options.src = fs.readFileSync("./jquery.js").toString();
-   options.done = parser;
-   jsdom.env(options);
+   var parseDownloads = function() {
+    //console.log('Parsing...' + body);
+    //console.log('Parsing...');
+    var parser = function(err, window) {
+     var $ = window.jQuery;
+     var pd = function(i) {
+      var downloadURL = $('a[itemprop="downloadURL"]').attr('href');
+      console.log('downloadURL = ' + downloadURL);
+      callback(downloadURL);
+     };
+     var downloads = $('li[itemtype="http://schema.org/SoftwareApplication"]').each(pd);
+    };
+    var options = {};
+    options.html = body;
+    options.src = fs.readFileSync("./jquery.js").toString();
+    options.done = parser;
+    jsdom.env(options);
+   };
+   res.on('data', dataHandler);
+   res.on('end', parseDownloads);
   };
-  res.on('data', dataHandler);
-  res.on('end', parseDownloads);
- };
- var mycall = function mycall() {
   //console.log('Making request: ' + JSON.stringify(mycall.options));
   var req = http.get(mycall.options, responseHandler);
   var errorHandler = function(e) {
@@ -96,4 +97,4 @@ var listLatestDownloads = function() {
 };
 
 exports.getNetworkIPs = getNetworkIPs();
-exports.listLatestDownloads = listLatestDownloads();
+exports.getLatestDownloads = getLatestDownloads();
