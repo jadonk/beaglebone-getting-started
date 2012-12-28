@@ -16,8 +16,12 @@
 	<string>node-webkit Helper</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>25.0.1324.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1324.0</string>
 	<key>LSFileQuarantineEnabled</key>
 	<true/>
 	<key>LSMinimumSystemVersion</key>
@@ -29,6 +33,6 @@
 	<key>SCMPath</key>
 	<string>/trunk/src</string>
 	<key>SCMRevision</key>
-	<string>165081</string>
+	<string>170896</string>
 </dict>
 </plist>
