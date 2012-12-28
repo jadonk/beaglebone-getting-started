@@ -3,13 +3,15 @@ var funcs = require('./funcs');
 var gotIP = function(error, ip) {
  console.log("IP address is " + ip);
 }
-
 funcs.getNetworkIPs(gotIP, false);
 
 var options = funcs.getLatestDownloads.options;
 //funcs.getLatestDownloads.options.path = 'http://' + options.host + options.path;
 //funcs.getLatestDownloads.options.host = 'wwwgate.ti.com';
-funcs.getLatestDownloads();
+var gotDownload = function(download) {
+ console.log("Download available at " + download);
+}
+funcs.getLatestDownloads(gotDownload);
 
 var mdns = require('mdns');
 var mdnsServiceUp = function(service) {
