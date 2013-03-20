@@ -5,10 +5,9 @@ The FTDI_Ser.dmg file was created from the file:
 http://www.ftdichip.com/Drivers/VCP/MacOSX/FTDIUSBSerialDriver_v2_2_16.dmg
 
 I modified the archive by:
-1) copying it to a read/write version using Disk Utility
-2) mounting it and running the 'do_patch.sh' script in this folder
+1) downloading and mounting the above .dmg file
+2) running the 'do_patch.sh' script in this folder
    (this adds the BeagleBone A3/A4 VID/PID)
-3) copying it all back to compressed version using Disk Utility
 
 I found the file on this page:
 http://www.ftdichip.com/Drivers/VCP.htm
