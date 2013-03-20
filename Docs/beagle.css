@@ -49,16 +49,18 @@ div.background {
   right: auto;
   top: 0;
   bottom: 0;
-  width: 4.1em;
+  /* width: 4.1em; */
   padding: 0 0 0 0.2em;
   margin: 0 0 0 0;
   border-width: 0;
   background-color: #dda01d;
 }
 
+/* 
 div.background img {
   height: 4em;
 }
+*/
 
 /* this rule is hidden from IE which doesn't support + selector */
 div.slide + div[class].slide { page-break-before: always;}
@@ -86,6 +88,12 @@ div.slide h1 a {
 div.slide h1 a:link {
   color: #DDA01D;
   text-decoration: none;
+}
+
+.dynlink {
+  color: #DDA01D;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 div.slide h1 a:visited {
