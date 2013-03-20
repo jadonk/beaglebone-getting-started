@@ -97,21 +97,12 @@
   <a target="_blank" href="http://www.linux-usb.org/gadget/">http://www.linux-usb.org/gadget/</a>.
  </p>
 
- <h3>Step #3: Eject BEAGLE_BONE</h3>
- <p>The EJECT operation tells your BeagleBone to switch from "storage mode" to "network mode", enabling you to access the networking features over your USB cable. On each power-up, BeagleBone defaults to "storage mode".</p>
- <img src="Docs/images/drive-eject.png" width="850px" />
- <ul>
-  <li><b>Note #1:</b> "Safely remove hardware" is <b>not</b> the same as EJECT. </li>
-  <li><b>Note #2:</b> On Windows, it may take a
-   couple of minutes for the driver to load after EJECT.</li>
-  <li><b>Note #3:</b> On Windows, you may be prompted
-   to locate the 'linux.inf' file.  If the driver was installed properly, you should be able to
-   find it under c:\windows\system32\drvstore\linux_...</li>
-  <li><b>Note #4:</b> OS X Mountain Lion no longer issues the EJECT operation upon using
-   EJECT. You'll need to access the serial console (as described further below) and input the following commands into the console:<pre>
-   systemctl stop storage-gadget-init.service
-   systemctl start network-gadget-init.service</pre></li>
+ <h3>Step #3: Browse to Your Board</h3>
+ <p>Using either <a target="_blank" href="http://www.google.com/chrome">Chrome</a> or <a target="_blank" href="http://www.mozilla.org/firefox">Firefox</a> (Internet Explorer will <b>NOT</b> work), browse to the web server running on your board. It will load a presentation showing you the capabilities of the board. Use the arrow keys on your keyboard to navigate the presentation.</p>
+ <ul class="arrow">
+  <li>Click here to launch: <a href="http://192.168.7.2" target="_blank">http://192.168.7.2</a></li>
  </ul>
+ <a href="http://beagleboard.org/beagleboard101"><img src="Docs/bone101.png" width="600px" /></a>
 
  <h3>Step #4: Explore Cloud9 IDE</h3>
  <p>Cloud9 IDE can be used to develop software on your BeagleBone without the need to download any development software. Cloud9 IDE runs directly on your BeagleBone and is accessible through either <a target="_blank" href="http://www.google.com/chrome">Chrome</a> or <a target="_blank" href="http://www.mozilla.org/firefox">Firefox</a> (Internet Explorer will <b>NOT</b> work).</p>
@@ -161,13 +152,6 @@ loop = function () {
   </li>
  </ul>
  <p>Additional information about the Bonescript library is available in the presentation viewed in the next step and on-line at <a target="_blank" href="http://beagleboard.org/project/bonescript">http://beagleboard.org/project/bonescript</a>.</p>
-
- <h3>Step #5: Browse to Your Board</h3>
- <p>Using either <a target="_blank" href="http://www.google.com/chrome">Chrome</a> or <a target="_blank" href="http://www.mozilla.org/firefox">Firefox</a> (Internet Explorer will <b>NOT</b> work), browse to the web server running on your board. It will load a presentation showing you the capabilities of the board. Use the arrow keys on your keyboard to navigate the presentation.</p>
- <ul class="arrow">
-  <li>Click here to launch: <a href="http://192.168.7.2" target="_blank">http://192.168.7.2</a></li>
- </ul>
- <a href="http://beagleboard.org/beagleboard101"><img src="Docs/bone101.png" width="600px" /></a>
 
  <h2>Program an SD Card with Latest Software</h2>
 
