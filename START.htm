@@ -10,6 +10,12 @@
   <link rel="shortcut icon" href="Docs/beagle.ico" type="image/x-icon">
   <style type="text/css" media="screen">@import "Docs/common.css";</style>
   <script src="Docs/bonescript.js"></script>
+  <script>
+setTargetAddress('192.168.7.2', foundBonescript);
+function foundBonescript() {
+ window.location = 'http://192.168.7.2';
+}
+  </script>
  </head>
  <body>
   <a name="top" id="top"></a>
