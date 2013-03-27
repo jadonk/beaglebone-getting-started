@@ -47,7 +47,6 @@ var demoRun = function(id) {
    <!-- Content Area - START -->
    <div id="contentarea2" class="line">
     <div id="contentbuffer">
- <div class="slide">
   <h1>First experience of Bonescript</h1>
   <h2>Familiar Arduino function calls, exported to the browser</h2>
   <p>The buttons below wil run code in your that will impact
@@ -76,9 +75,25 @@ b.digitalWrite('USR0', 0);
 b.digitalWrite('USR1', 0);
 b.digitalWrite('USR2', 0);
 b.digitalWrite('USR3', 0);</pre>
-  <p>All GPIOs accessible via digitalWrite and digtalRead.</p>
- </div>
-
+  <p>The language is JavaScript and there are some great references for it. JavaScript was chosen to
+  provide a language that is an early language to learn due to being so accessible through your web browser.
+  I was also chosen to help rapidly build GUIs to your hardware applications. We'll explore other ways
+  of programming once we've walked you through the basics of the hardware.</p>
+  <p>The 'require' function brings in all of the bonescript functions from the library.</p>
+  <p>The 'pinMode' function configures the pin to be a GPIO with the direction specified.</p>
+  <p>The pin names USR0 through USR3 are to control the on-board LEDs. The expansion header pins have the
+  names P8_1, P8_2, ... P8_46 where P8 is the name of the header on the slikscreen on the board and the
+  number that follows is the pin number on the header.</p>
+  <p>Both the LEDs and the GPIOs on the headers accessible via 'digitalWrite'.</p>
+  <p>Make LEDs blink for 30 seconds: <button onclick="demoRun('blink1')">run</button></p>
+  <pre id="blink1">
+b=require('bonescript');
+b.pinMode('USR0', 'out');
+var state = 0;
+function toggleUSR0() {
+ state = state ? 0 : 1;
+ b.digitalWrite
+}
     </div>
    </div>
    <!-- Content Area - END -->
