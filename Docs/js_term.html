@@ -3,10 +3,15 @@
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en"> 
 	<head> 
-		<title>BeagleBone BASH shell</title>
+		<title>BeagleBone JavaScript shell</title>
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<!-- http://terminal.jcubic.pl/js/jquery.terminal.css -->
+		<link rel="stylesheet" type="text/css" href="jquery.terminal.css" />
+		<!-- http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css -->
+		<link rel="stylesheet" type="text/css" href="jquery-ui.css" />
 		<script src="jquery.js"></script>
+		<!-- http://terminal.jcubic.pl/js/jquery.terminal-0.4.12.min.js -->
 		<script src="jquery.terminal.js"></script>
 		<script src="jquery.mousewheel.js"></script>
 		<script src="jquery-ui.min.js"></script>
@@ -14,15 +19,16 @@
 		<script src="bonescript.js"></script>
 	</head>
 	<body>
-		<div class="slide">
+		<div>
 			<h1>JavaScript terminal</h1>
 			<h2>&nbsp;</h2>
 			<table>
 				<tr>
-					<td>
+					<td width="600px">
 						<div id="js_term"></div>
 					</td>
-					<td>
+					<td width="20px"></td>
+					<td width="250px">
 						<canvas id="canvas1"></canvas>
 						<div id="slider1"></div>
 					</td>
@@ -32,6 +38,7 @@
 		<script type="text/javascript">
 			window.onload = function() {
 				$("#slider1").slider();
+
 				var canvas = document.getElementById("canvas1");
 				var graphDataSize = 50;
 				window.graphData = new Array(graphDataSize);
@@ -103,10 +110,22 @@
 					processing.redraw();
 				}
 
-				var myJSTerm = document.getElementById('js_term');            
-				$(myJSTerm).terminal(js_term.term, js_term.args);
-				myJSTerm.isEnabled = true;
-				myJSTerm.hasTerminal = true;
+				js_term.term = function(command, term) {
+					if(command !== '') {
+						var result = eval(command);
+						if (result !== undefined) {
+							term.echo(String(result));
+						}
+					}
+				};
+				js_term.args = {
+					greetings: 'Javascript Interpreter',
+					name: 'js_demo',
+					height: 300,
+					width: 600,
+					prompt: 'js>'
+				};
+				var myJSTerm = $('#js_term').terminal(js_term.term, js_term.args);
 			}
 		</script>
 	</body>
