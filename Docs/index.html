@@ -11,6 +11,15 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   <style type="text/css" media="screen">@import "common.css";</style>
   <script src="bonescript.js"></script>
+  <script>
+var demoRun = function(id) {
+    var myScript = document.getElementById(id).innerHTML;
+    myScript = myScript.replace("&lt;", "<");
+    myScript = myScript.replace("&gt;", ">");
+    myScript = myScript.replace("&amp;", "&");
+    eval(myScript);
+};
+  </script>
  </head>
  <body>
   <a name="top" id="top"></a>
@@ -349,13 +358,28 @@
   <p>The links below are live and will impact the USR3 LED on your BeagleBone. The exact code used
    in the browser is below and will send messages to your board using <a href="http://socket.io/">
    Socket.IO</a>.</p>
-  <p>Set pin high: <span class="dynlink" onclick="demoRun('led1')">run</span></p>
+  <p>Turn LEDs on: <span class="dynlink" onclick="demoRun('led1')">run</span></p>
   <pre id="led1">
-pinMode(bone.USR3, 'out');
-digitalWrite(bone.USR3, 1);</pre>
+b=require('bonescript');
+b.pinMode('USR0', 'out');
+b.pinMode('USR1', 'out');
+b.pinMode('USR2', 'out');
+b.pinMode('USR3', 'out');
+b.digitalWrite('USR0', 1);
+b.digitalWrite('USR1', 1);
+b.digitalWrite('USR2', 1);
+b.digitalWrite('USR3', 1);</pre>
   <p>Set pin low: <span class="dynlink" onclick="demoRun('led2')">run</span></p>
   <pre id="led2">
-digitalWrite(bone.USR3, 0);</pre>
+b=require('bonescript');
+b.pinMode('USR0', 'out');
+b.pinMode('USR1', 'out');
+b.pinMode('USR2', 'out');
+b.pinMode('USR3', 'out');
+b.digitalWrite('USR0', 0);
+b.digitalWrite('USR1', 0);
+b.digitalWrite('USR2', 0);
+b.digitalWrite('USR3', 0);</pre>
   <p>All GPIOs accessible via digitalWrite and digtalRead.</p>
  </div>
 
