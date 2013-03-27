@@ -2,23 +2,112 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en"> 
-<head> 
- <title>BeagleBone BASH shell</title> 
- <script src="client.js" charset="utf-8" type="text/javascript"></script> 
- <link rel="icon" href="favicon.ico" type="image/x-icon" />
- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<body>
- <div class="slide"> 
-  <h1>JavaScript terminal</h1>
-  <h2>&nbsp;</h2>
-  <canvas id="canvas1"></canvas>
-  <div id="slider1"></div>
-  <div id="js_term"></div>
- </div>
- <script type="text/javascript">
-  window.onload = function() {
-   openJSTerm('js_term');
-  };
- </script>
-</body>
+	<head> 
+		<title>BeagleBone BASH shell</title>
+		<link rel="icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<script src="jquery.js"></script>
+		<script src="jquery.terminal.js"></script>
+		<script src="jquery.mousewheel.js"></script>
+		<script src="jquery-ui.min.js"></script>
+		<script src="processing.js"></script>
+		<script src="bonescript.js"></script>
+	</head>
+	<body>
+		<div class="slide">
+			<h1>JavaScript terminal</h1>
+			<h2>&nbsp;</h2>
+			<table>
+				<tr>
+					<td>
+						<div id="js_term"></div>
+					</td>
+					<td>
+						<canvas id="canvas1"></canvas>
+						<div id="slider1"></div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<script type="text/javascript">
+			window.onload = function() {
+				$("#slider1").slider();
+				var canvas = document.getElementById("canvas1");
+				var graphDataSize = 50;
+				window.graphData = new Array(graphDataSize);
+				for(var i=0; i<graphDataSize; i++) {
+					window.graphData[i] = 0;
+				}
+				var processing = new Processing(canvas, sketchProc);
+
+				function sketchProc(p) {
+					p.size(600, 250);
+
+					// variables referenced elsewhere
+					window.height = p.height;
+
+					// variables that might get updated
+					window.rangeLow = 0;
+					window.rangeHigh = 1;
+					window.scaleY = window.height /
+						(window.rangeHigh - window.rangeLow);
+
+					// local variables
+					var stepX = p.width / (graphDataSize - 1);
+					var centerY = window.height / 2;
+
+					p.noLoop();
+					p.draw = function() {
+						// erase background
+						p.background(224);
+
+						// draw axis
+						p.stroke(25);
+						p.strokeWeight(1);
+						p.line(0, centerY, p.width, centerY);
+
+						// draw graph
+						p.stroke(0);
+						p.strokeWeight(3);
+						//p.line(0, centerY+1, p.width, centerY+1);
+						var lastX = 0, nextX = 0, lastY, nextY;
+						for(var point in window.graphData) {
+							nextY = ((window.rangeHigh -
+								window.graphData[point]) * scaleY);
+							if(point != 0) {
+								p.line(lastX, lastY, nextX, nextY);
+								lastX += stepX;
+							}
+							nextX += stepX;
+							lastY = nextY;
+						}
+					};
+				}
+
+				function graphDraw(data) {
+					var myData = parseFloat(data);
+					for(var i=0; i<graphDataSize-1; i++) {
+						window.graphData[i] = window.graphData[i+1];
+					}
+					window.graphData[i] = myData;
+					if (myData > rangeHigh) {
+						rangeHigh = myData;
+						window.scaleY = window.height /
+							(window.rangeHigh - window.rangeLow);
+					}
+					if (myData < rangeLow) {
+						rangeLow = myData;
+						window.scaleY = window.height /
+							(window.rangeHigh - window.rangeLow);
+					}
+					processing.redraw();
+				}
+
+				var myJSTerm = document.getElementById('js_term');            
+				$(myJSTerm).terminal(js_term.term, js_term.args);
+				myJSTerm.isEnabled = true;
+				myJSTerm.hasTerminal = true;
+			}
+		</script>
+	</body>
 </html>
