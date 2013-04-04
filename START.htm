@@ -12,11 +12,16 @@
   <script src="Docs/jquery.js"></script>
   <script src="Docs/bonescript.js"></script>
   <script>
-setTargetAddress('192.168.7.2', function () {
- if(typeof _bonescript != 'undefined') {
-  $('#board-address').html('<h2><a href="http://192.168.7.2"><b><u><i>Your board is alive. Click me now!</i></u></b></a><h2>');
- }
-});
+var boardConnectTimer = setInterval(testForLocalConnection, 2000);
+
+function testForLocalConnection() {
+ setTargetAddress('192.168.7.2', function () {
+  if(typeof _bonescript != 'undefined') {
+   clearInterval(boardConnectTimer);
+   $('#board-address').html('<h2><a href="http://192.168.7.2"><b><u><i>Your board is alive. Click me now!</i></u></b></a><h2>');
+  }
+ });
+}
   </script>
  </head>
  <body>
