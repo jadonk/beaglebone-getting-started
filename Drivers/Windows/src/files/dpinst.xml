@@ -60,6 +60,7 @@
   <search>
     <subDirectory>FTDI</subDirectory>
     <subDirectory>RNDIS</subDirectory>
+    <subDirectory>CDCACM</subDirectory>
   </search>
   <legacyMode>on</legacyMode>
 </dpinst>
