@@ -237,7 +237,7 @@ a:hover   {color:#de7224; text-decoration:underline;}
 }
 
 /* floating menu */
-.floatMenu {  
+#floatMenu {  
     position:absolute;  
     top:200px;  
     right:50%;  
@@ -245,13 +245,13 @@ a:hover   {color:#de7224; text-decoration:underline;}
     width:240px;  
 } 
    
-.floatMenu ul {  
+#floatMenu ul {  
     margin-bottom:20px; 
 	list-style:none;
 	font-family:Arial, Helvetica, sans-serif  
 }
 
-.floatMenu ul li a {  
+#floatMenu ul li a {  
     display:block;
 	color:#de7224; 
 	border-radius: 5px 5px 5px 5px;
@@ -264,7 +264,7 @@ a:hover   {color:#de7224; text-decoration:underline;}
     padding:5px 5px 5px 8px;  
 }
 
-.floatMenu ul li.fmGreen a {  
+#floatMenu ul li.fmGreen a {  
     display:block;
 	color:#549660;
  
@@ -278,23 +278,23 @@ a:hover   {color:#de7224; text-decoration:underline;}
     padding:5px 5px 5px 8px;  
 }
 
-.floatMenu ul li.fmGreen a strong {  
+#floatMenu ul li.fmGreen a strong {  
     background:transparent url(images/small_check.png) center right no-repeat;
     padding-right:18px;
 }
 
-.floatMenu ul li a:hover {  
+#floatMenu ul li a:hover {  
     background-color:#de7224;
 	color:#fff;
 	border-left:15px solid #b04b0c; 
 }  
-.floatMenu ul li a:hover {  
+#floatMenu ul li a:hover {  
     background-color:#de7224; 
 	color:#fff;
 	border-left:15px solid #b04b0c;   
 }  
 
-.floatMenu ul li.fmGreen a:hover {  
+#floatMenu ul li.fmGreen a:hover {  
     background-color:#549660; 
 	color:#fff;
 	border-left:15px solid #305a2d;   

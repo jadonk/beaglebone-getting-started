@@ -14,15 +14,20 @@
   <script type="text/javascript" src="Docs/jquery.dimensions.js"></script>
   <script type="text/javascript" src="Docs/jquery.ui.core.js"></script>
   <script type="text/javascript" src="Docs/jquery.ui.widget.js"></script>
+  <script type="text/javascript" src="Docs/beagle-ui.js"></script>
   <script type="text/javascript" src="Docs/bonescript.js"></script>
   <script>
 var boardConnectTimer = setInterval(testForLocalConnection, 2000);
+
+$(document).ready(function(){  
+ $('#fmStep1').addClass('fmGreen');
+});
 
 function testForLocalConnection() {
  setTargetAddress('192.168.7.2', function () {
   if(typeof _bonescript != 'undefined') {
    clearInterval(boardConnectTimer);
-   $('#board-address').html('<h2><a href="http://192.168.7.2"><b><u><i>Your board is alive. Click me now!</i></u></b></a><h2>');
+   $('#fmStep2').addClass('fmGreen');
   }
  });
 }
@@ -46,28 +51,37 @@ function testForLocalConnection() {
   <div id="content">
    <div id="contentbuffer">
     <h1>Getting Started</h1>
-    <div class="floatMenu">  
+    <div id="floatMenu">  
      <ul>   
-       <li class="fmGreen"><a href="#step1"><strong>Step 1:</strong><br />
+       <li id="fmStep1"><a href="#step1"><strong>Step 1:</strong><br />
 Plug in BeagleBone via USB</a></li> 
-       <li><a href="#step2"><strong>Step 2:</strong><br />
-Install Drivers</a></li>         
+       <li id="fmStep2"><a href="#step2"><strong>Step 2:</strong><br />
+Install drivers</a></li>         
+       <li id="fmStep3"><a href="#step3"><strong>Step 3:</strong><br />
+Browse to web server on board</a></li>
     </ul>
     <ul> 
-     <li><a href="#hardware">Hardware</a></li>
-     <li><a href="#software">Software updates</a></li> 
+     <li><a href="#troubleshooting">Troubleshooting</a></li>
+     <li><a href="#update">Update to latest software</a></li>
+     <li><a href="#hardware">Hardware documentation</a></li>
     </ul> 
    </div>
    <div id="gettingstarted">
  <h2>Step-by-Step Quick-Start</h2>
- <p><em>Do not use Internet Explorer. Also, virtual machines are not recommended (they will work via a network but not always for direct USB connection).</em></p>
- <h3>Step #1: Plug in BeagleBone via USB</h3>
- <p>Use the provided USB cable to plug BeagleBone into your computer. This will both power the board and provide a development interface. BeagleBone will boot Linux from the provided microSD card and operates as a flash drive. This provides you with a local copy of the documentation and drivers.</p>
- <p>You'll see the PWR LED lit steadily. Within 10 seconds, you should see the USR0 LED blinking in a heartbeat pattern. During accesses to the SD card, you should see the USR1 LED turning on.</p>
+ <h3 id="step1">Step #1: Plug in BeagleBone via USB</h3>
+ <p>Use the provided USB cable to plug BeagleBone into your computer. This will both power the board and provide a development interface. BeagleBone will boot Linux from the provided 4GB microSD card (White board) or on-board 2GB eMMC (Black board) and operates as a flash drive. This provides you with a local copy of the documentation and drivers.</p>
+ <p>You'll see the PWR LED lit steadily. Within 10 seconds, you should see the other LEDs blinking in their default configurations.</p>
+ <ul>
+  <li>USR0 is configured at boot to blink in a heartbeat pattern</li>
+  <li>USR1 is configured at boot to light during microSD card accesses</li>
+  <li>USR2 is configured at boot to light during CPU activity</li>
+  <li>USR3 is configured at boot to light during eMMC accesses</li>
+ </ul>
  <img width="50%" src="Docs/images/bone-usr3-led.png" /><br /><br />
 
- <h3>Step #2: Install Drivers</h3>
- <p>Install the drivers for your operating system.</p>
+ <h3 id="step2">Step #2: Install drivers</h3>
+ <p>Install the drivers for your operating system to give you network-over-USB access to your BeagleBone.  Additional drivers give
+you serial access to your board.</p>
  <table border="1">
   <tr>
    <th>Operating System</th>
@@ -77,7 +91,7 @@ Install Drivers</a></li>
   <tr>
    <td>Windows (32-bit)</td>
    <td>
-    <a target="_blank" href="Drivers/Windows/BONE_DRV.exe">BONE_DRV.exe</a>
+    <a target="_blank" href="Drivers/Windows/BONE_DRV.exe">32-bit installer</a>
    </td>
    <td rowspan="2"><small>
     <ul>
@@ -91,14 +105,14 @@ Install Drivers</a></li>
   <tr>
    <td>Windows (64-bit)</td>
    <td>
-    <a target="_blank" href="Drivers/Windows/BONE_D64.exe">BONE_D64.exe</a>
+    <a target="_blank" href="Drivers/Windows/BONE_D64.exe">64-bit installer</a>
    </td>
   </tr>
   <tr>
-   <td>Mac OS X</td>
+   <td>Mac&nbsp;OS&nbsp;X</td>
    <td>
-    <a target="_blank" href="Drivers/MacOSX/FTDI/FTDI_Ser.dmg">FTDI_Ser.dmg</a><br />
-    <a target="_blank" href="Drivers/MacOSX/RNDIS/HoRNDIS-rel4.pkg">HoRNDIS-rel4.pkg</a>
+    <a target="_blank" href="Drivers/MacOSX/RNDIS/HoRNDIS-rel4.pkg">USB network</a><br />
+    <a target="_blank" href="Drivers/MacOSX/FTDI/FTDI_Ser.dmg">Serial</a><br />
    </td>
    <td>Install both sets of drivers.</td>
   </tr>
@@ -107,7 +121,7 @@ Install Drivers</a></li>
    <td>
     <a target="_blank" href="Drivers/Linux/FTDI/mkudevrule.sh">mkudevrule.sh</a>      
    </td>
-   <td><small><b>Note:</b>&nbsp;Driver installation is not required for rev A5 boards or newer. Check sticker on Ethernet port for revision.</small></td>
+   <td>Driver installation isn't required, but you might find a few udev rules helpful.</td>
   </tr>
  </table>
  <p><b>Note:</b>&nbsp;Additional FTDI USB to serial/JTAG information and drivers are available from
@@ -118,14 +132,14 @@ Install Drivers</a></li>
   <a target="_blank" href="http://joshuawise.com/horndis">http://joshuawise.com/horndis</a>.
  </p>
 
- <h3>Step #3: Browse to Your Board</h3>
+ <h3 id="step3">Step #3: Browse to Your Board</h3>
  <p>Using either <a target="_blank" href="http://www.google.com/chrome">Chrome</a> or <a target="_blank" href="http://www.mozilla.org/firefox">Firefox</a> (Internet Explorer will <b>NOT</b> work), browse to the web server running on your board. It will load a presentation showing you the capabilities of the board. Use the arrow keys on your keyboard to navigate the presentation.</p>
  <ul class="arrow">
   <li>Click here to launch: <a href="http://192.168.7.2" target="_blank">http://192.168.7.2</a></li>
  </ul>
  <a href="http://beagleboard.org/beagleboard101"><img src="Docs/bone101.png" width="600px" /></a>
 
- <h3>Step #4: Explore Cloud9 IDE</h3>
+ <h3 id="step4">Step #4: Explore Cloud9 IDE</h3>
  <p>Cloud9 IDE can be used to develop software on your BeagleBone without the need to download any development software. Cloud9 IDE runs directly on your BeagleBone and is accessible through either <a target="_blank" href="http://www.google.com/chrome">Chrome</a> or <a target="_blank" href="http://www.mozilla.org/firefox">Firefox</a> (Internet Explorer will <b>NOT</b> work).</p>
  <ul class="arrow">
   <li>Click here to launch: <a href="http://192.168.7.2:3000/" target="_blank">http://192.168.7.2:3000/</a></li>
@@ -174,7 +188,7 @@ loop = function () {
  </ul>
  <p>Additional information about the Bonescript library is available in the presentation viewed in the next step and on-line at <a target="_blank" href="http://beagleboard.org/project/bonescript">http://beagleboard.org/project/bonescript</a>.</p>
 
- <h2>Program an SD Card with Latest Software</h2>
+ <h2 id="update">Update board with latest software</h2>
 
  <h3>Step #1: Download the Latest Software image</h3>
  <p>Download "Angstrom Distribution" from <a target="_blank" href="http://beagleboard.org/latest-images">http://beagleboard.org/latest-images</a>.</p>
@@ -237,13 +251,14 @@ loop = function () {
   <li><a target="_blank" href="http://beagleboard.org/project">Projects page</a></li>
  </ul>
 
- <h2>Troubleshooting and References</h2>
+ <h2 id="troubleshooting">Troubleshooting and References</h2>
+ <p><em>Do not use Internet Explorer. Also, virtual machines are not recommended (they will work via a network but not always for direct USB connection).</em></p>
 
  <h3>Top Resources</h3>
  <ul>
-  <li><a target="_blank" href="Docs/Hardware/BONE_SRM.pdf">BeagleBone System Reference Manual</a></li>
-  <li><a target="_blank" href="http://beagleboard.org/static/beaglebone/latest/README.htm">
-   Latest BeagleBone Quick-Start Guide</a>
+  <li><a target="_blank" href="Docs/Hardware/BLACKSRM.pdf">BeagleBone Black System Reference Manual</a></li>
+  <li><a target="_blank" href="http://beagleboard.org/getting-started">
+Latest BeagleBone Quick-Start Guide</a>
   </li>
   <li><a target="_blank" href="http://beagleboard.org/discuss">Online discussion</a></li>
   <li><a target="_blank" href="http://beagleboard.org/angstrom">Angstrom Mirrors</a></li>
@@ -296,130 +311,24 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
  <h4><a target="_blank" href="http://www.lvr.com/beaglebone.htm">Jan Axelson's BeagleBone getting started guide</a></h4>
  <h4><a target="_blank" href="http://elinux.org/EBC_Exercise_02_Out-of-the-Box,_Bone">Mark Yoder's ECE497 materials</a></h4>
 
- <h2 id="hardware">Hardware</h2>
- <h3>Design materials</h3>
+ <h2 id="hardware">Hardware documentation</h2>
+ <p><a target="_blank" href="http://circuitco.com/support/index.php?title=BeagleBoneBlack">
+CircuitCo.com's BeagleBoneBlack page</a> documents all of the known hardware issues, as well as the latest available software, hardware
+hardware documentation and design materials.
+ </p>
+ <h3><a href="http://beagleboard.org/hardware/design">Design materials</a></h3>
  <ul>
   <li>
-   <a target="_blank" href="Docs/Hardware/BONE_SRM.pdf">System Reference Manual</a>
+   <a target="_blank" href="Docs/Hardware/BLACKSRM.pdf">System Reference Manual</a>
   </li>
   <li>
-   <a target="_blank" href="Docs/Hardware/BONE_SCH.pdf">Schematics (PDF)</a>
+   <a target="_blank" href="Docs/Hardware/BLACKSCH.pdf">Schematics (PDF)</a>
   </li>
   <li>
-   <a target="_blank" href="Docs/Hardware/BONE_SCH.zip">Schematics (Orcad)</a>
-  </li>
-  <li>
-   <a target="_blank" href="Docs/Hardware/BONE_BOM.xls">Bill of materials</a>
-  </li>
-  <li>
-   <a target="_blank" href="Docs/Hardware/BONE_PCB.zip">PCB design files</a>
-  </li>
-  <li>
-   <a target="_blank" href="Docs/Hardware/BONE_MFG.zip">PCB manufacturing files</a>
- </ul>
-
- <h3 id="revisions">Revisions</h3>
- <p> <a target="_blank" href="http://circuitco.com/support/index.php?title=BeagleBone">
- CircuitCo.com's BeagleBone page</a> documents all of the known hardware issues.
- </p>
-
- <h4>A3</h4> <p>This is the original version of the board. Main issue was
- issues with the reset switch where the reset line was being pulled low which
- could cause random dropping of the Ethernet port. This issue has not be seen
- broadly.</p>
-  
- <h4>A4</h4> <p>This version of the board was mainly to provide a new SD
- connector due to supply issues. Also added was R219 in an attempt to make the
- Yellow LED on the RJ45 turn on when at 100M operation. This caused the
- Ethernet not to work on power up but did work after a board reboot.</p>
-   
- <h4>A5</h4> <p>This version of the board returns the functionality of the
- board to that of the Rev A3 via the removal of R219. There have been no PCB
- changes for this revision. It uses the same PCB revision as the A4. It also
- ships with an updated version of the Angstrom image providing out of the box
- support for the DVI-D and 7&quot; LCD Capes.</p>
-    
- <p>There will be three possible versions of the Rev A5. One will be the new
- production version that is built from the ground up as an A5. The second
- version will be a reworked Revision A4 that has R219 removed at the factory
- and retested. The third version will be a revision A3, that just has the
- updated SW added. All reworked versions will have the reset switches double
- checked as well. All reworked boards will be retested using the full
- production test process.</p>
-     
- <p>You will be able to identify these versions via the serial number. They
- all will be labeled as revision A5. The two digits after the BB in the serial
- number, S/N: 5111BB<font color="red">00</font>0023, will indicate the board.
- A fresh revision A5, will be 00, A4 reworked will be 01, and a recertified A3
- will be 02. There is no functional or operational difference between any of
- these boards. They are all revision A5 and will ship with the same SW.</p>
-
- <h4>A6</h4>
- <p>This version of the board has several updates, but none should impact
- execution of existing software.</p>
- <ul class="arrow">
-  <li>Yellow LED to turns on during 100M operation</li>
-  <li>Two additional PRU signals overlaid with existing signals to the
-   expansion header</li>
-  <li>Moved resistors away from the standoff</li>
-  <li>Removed connection to VPP pin from the layout</li>
-  <li>Removed R163 to avoid spurious JTAG reset issues</li>
-  <li>Removed incorrect and ignored configuration resistor for LAN8710</li>
- </ul>
-
- <h2 id="updates">Software updates</h2>
- <h3 id="todo">Known issues and to-do list</h3>
- <ul class="arrow">
-  <li>System
-   <ul class="subitem">
-    <li>Mount time for USB-to-Ethernet may take a couple of minutes under Windows</li>
-   </ul>
-  </li>
-  <li>Kernel
-   <ul class="subitem">
-    <li>Need completed CAN drivers</li>
-    <li>Need improved PWM support</li>
-    <li>Need device tree support and run-time configuration with daughterboards</li>
-    <li>Need improved USB and USB DMA support</li>
-    <li>Need improved SD performance</li>
-   </ul>
-  </li>
-  <li>SD card image
-   <ul class="subitem">
-    <li>Add Java</li>
-    <li>Need simplified IP discovery</li>
-    <li>Need improved GateOne performance and resolve 'redirect loop' issue</li>
-    <li>Need to consider ConnMan tethering for USB-based IP</li>
-    <li>'top' refresh rate can sometimes be crazy fast</li>
-    <li>Restore automounting of hotplugged media</li>
-    <li>Restore Matrix and add application entries for GateOne and Cloud9 IDE</li>
-   </ul>
-  </li>
-  <li>Documentation
-   <ul class="subitem">
-    <li>Need daughterboard building guide</li>
-    <li>Add graphics and/or videos where appropriate</li>
-    <li>Need full description of /sys entries</li>
-    <li>Basic information on apps for each major interface type, ie. I2C, SPI, etc.</li>
-    <li>Need to highlight daughterboard ("cape") EEPROM spec</li>
-   </ul>
-  </li>
-  <li>Cloud9 IDE and BoneScript
-   <ul class="subitem">
-    <li>Update the git data to match the checked out repository</li>
-    <li>Update version of Bone101 included to one that runs</li>
-    <li>Inclusion of node-fibers such that delays don't hog the CPU</li>
-    <li>Arduino-like automatic execution of installed apps</li>
-    <li>Dynamic web conent example with board status and streaming data</li>
-    <li>Optimal utilization of the PRU and performance improvements</li>
-    <li>Extensive improvements to the BoneScript API</li>
-    <li>Need examples on programming in C and Python through the Cloud9 IDE interface</li>
-    <li>Include npm and several node modules</li>
-   </ul>
+   <a target="_blank" href="Docs/Hardware/BLACKBOM.xls">Bill of materials</a>
   </li>
  </ul>
 </div>
-<br/>
 
     </div>
    </div>

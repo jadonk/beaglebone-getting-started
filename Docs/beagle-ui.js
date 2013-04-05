@@ -8,9 +8,3 @@ $(document).ready(function(){
         $(name).animate({top:offset},{duration:500,queue:false});  
     });  
 });  
-
-$(function() {
-    $("#accordion").accordion({
-        collapsible: true
-    });
-});
