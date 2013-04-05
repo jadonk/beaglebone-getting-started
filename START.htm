@@ -5,12 +5,17 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>BeagleBoard.org - getting-started</title>
   <meta name="keywords" content="Beagle Board, BeagleBoard, beagleboard.org, BeagleBone, BeagleBoard-xM, bealgeboard, open hardware, open source, Linux, computer" />
-  <link href="http://feeds.feedburner.com/BeagleBoard" rel="alternate" title="Beagle Board news feed" type="application/atom+xml">
-  <link rel="icon" href="Docs/beagle.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="Docs/beagle.ico" type="image/x-icon">
-  <style type="text/css" media="screen">@import "Docs/common.css";</style>
-  <script src="Docs/jquery.js"></script>
-  <script src="Docs/bonescript.js"></script>
+  <link href="http://feeds.feedburner.com/BeagleBoard" rel="alternate" title="BeagleBoard.org news feed" type="application/atom+xml" />
+  <link rel="icon" href="Docs/beagle.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="Docs/beagle.ico" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" media="screen" href="Docs/common.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="Docs/beagle.css" />
+  <script type="text/javascript" src="Docs/jquery.js"></script>
+  <script type="text/javascript" src="Docs/jquery.dimensions.js"></script>
+  <script type="text/javascript" src="Docs/jquery.ui.core.js"></script>
+  <script type="text/javascript" src="Docs/jquery.ui.widget.js"></script>
+  <script type="text/javascript" src="Docs/beagle-ui.js"></script>
+  <script type="text/javascript" src="Docs/bonescript.js"></script>
   <script>
 var boardConnectTimer = setInterval(testForLocalConnection, 2000);
 
@@ -25,36 +30,36 @@ function testForLocalConnection() {
   </script>
  </head>
  <body>
-  <a name="top" id="top"></a>
-  <!-- DIV that centers page - START -->
-  <div id="wrapper">
-   <!-- Header/Logo Area - START -->
-   <div id="header">
-    <div id="logo"><a href="http://beagleboard.org"><img src="Docs/beagle-hd-logo.gif" alt="Beagle Board - beagleboard.org" border="0" width="301" height="53" /></a></div>
-    <div id="nav2"></div>
-    <!-- Horizontal Navigation - START -->
-    <div id="nav">
-     <ul>
-      <li class="navitem1"><a target="_blank" href="http://beagleboard.org/discuss">Discuss</a></li>
-      <li class="navitem2"><a target="_blank" href="http://beagleboard.org/details">Details</a></li>
-      <li class="navitem3"><a target="_blank" href="http://beagleboard.org/project">Projects</a></li>
-      <li class="navitem4"><a target="_blank" href="http://beagleboard.org/buy">Buy</a></li>
-     </ul>
-    </div>
-    <!-- Horizontal Navigation - END -->
+ <div class="top">
+  <div class="top-header"><a href="http://beagleboard.org"><img src="Docs/images/beagle_logo_hdr.gif" alt="beagleboard.org" border="0" width="326" height="60" /></a>
+   <div class="social">
+    <span style="padding-left:8px"><a href="http://facebook.com/beagleboard" name="header_facebook_icon"><img src="Docs/images/icon_facebook.png" width="27" height="28" alt="facebook" border="0"/></a></span>
+    <span style="padding-left:8px"><a href="http://twitter.com/beagleboardorg" name="header_twitter_icon"><img src="Docs/images/icon_twitter.png" width="27" height="28" border="0" alt="twitter"/></a></span>
+    <span style="padding-left:8px"><a href="http://www.linkedin.com/groups/BeagleBoardorg-1474607?gid=1474607&mostPopular=&trk=tyah" name="header_linkedin_icon"><img src="Docs/images/icon_linkedin.png" width="27" height="28" border="0" alt="linkedin" /></a></span>
+    <span style="padding-left:8px"><a href="http://plus.google.com/+beagleboard" name="header_google+_icon"><img src="Docs/images/icon_google+.png" width="27" height="28" border="0" alt="google+"/></a></span>
+   </div> 
+  </div>
+ </div>
+ <a name="top" id="top"></a>
+ <div id="wrapper">
+  <div id="cssmenu">
+  </div>
+  <div id="content">
+   <div id="contentbuffer">
+    <h1>Getting Started</h1>
+    <div id="floatMenu">  
+     <ul class="menu1">   
+       <li><a href="#step1"><strong>Step 1:</strong><br />
+Plug in BeagleBone via USB</a></li> 
+       <li><a href="#step2"><strong>Step 2:</strong><br />
+Install Drivers</a></li>         
+    </ul>
+    <ul class="menu2"> 
+     <li><a href="#hardware">Hardware</a></li>
+     <li><a href="#software">Software updates</a></li> 
+    </ul> 
    </div>
-   <!-- Header/Logo Area - END -->
-   <!-- Content Area - START -->
-   <div id="contentarea2" class="line">
-    <div id="contentbuffer">
-     <div id="page">
- <img id="in-hand" src="Docs/in-hand.png"
-  alt="beaglebone in hand" align="right" height="200px" />
-
- <h1>BeagleBone Quick-Start Guide</h1>
-
- <div id='board-address'></div>
-
+   <div id="gettingstarted">
  <h2>Step-by-Step Quick-Start</h2>
  <p><em>Do not use Internet Explorer. Also, virtual machines are not recommended (they will work via a network but not always for direct USB connection).</em></p>
  <h3>Step #1: Plug in BeagleBone via USB</h3>
@@ -416,23 +421,41 @@ screen `ls /dev/{tty.usb*B,beaglebone-serial}` 115200
  </ul>
 </div>
 <br/>
-<div id="createtime">Last updated by blog.hangerhead.com on Mon Oct 15 2012 14:24:27 GMT-0500 (CDT).</div>
 
     </div>
    </div>
-   <!-- Content Area - END -->
-  </div>
-  <!-- DIV that centers page - END -->
-  <!-- Footer - START -->
-  <div id="footer">
-   <div id="cc"><a target="_blank" href="http://creativecommons.org/about/license/" target="_blank"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" alt="Creative Commons - Conditions - Attribution and Share Alike" border="0" width="88" height="31" /></a></div>
-   <div id="footernav">
-    <p>
-     <a target="_blank" href="http://beagleboard.org/privacy">Privacy Policy</a> | <a target="_blank" href="http://beagleboard.org/terms">Terms of Use</a><br />
-     Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution-Share Alike 3.0 license
-    </p>
+   <div class="footer">
+    <div class="social">
+     <span style="padding-left:8px"><a href="http://facebook.com/beagleboard" name="header_facebook_icon"><img src="Docs/images/icon_facebook.png" width="27" height="28" alt="facebook" border="0"/></a></span>
+     <span style="padding-left:8px"><a href="http://twitter.com/beagleboardorg" name="header_twitter_icon"><img src="Docs/images/icon_twitter.png" width="27" height="28" border="0" alt="twitter"/></a></span>
+     <span style="padding-left:8px"><a href="http://www.linkedin.com/groups/BeagleBoardorg-1474607?gid=1474607&mostPopular=&trk=tyah" name="header_linkedin_icon"><img src="Docs/images/icon_linkedin.png" width="27" height="28" border="0" alt="linkedin" /></a></span>
+     <span style="padding-left:8px"><a href="http://plus.google.com/+beagleboard" name="header_google+_icon"><img src="Docs/images/icon_google+.png" width="27" height="28" border="0" alt="google+"/></a></span>
+    </div>
+    <div id="login"></div>
+    <div id="footer-col1">
+     <ul>
+      <li><a target="_blank" href="http://beagleboard.org/about">About Us</a></li>
+      <li><a target="_blank" href="http://beagleboard.org/support">Support</a></li>
+      <li><a target="_blank" href="http://beagleboard.org/buy">Distributors</a></li>
+     </ul>
+    </div>
+    <div id="footer-col2">
+     <ul>
+      <li><a target="_blank" href="http://beagleboard.org/chat">Live chat</a></li>
+      <li><a target="_blank" href="http://beagleboard.org/discuss">Mailing list</a></li>
+      <li><a target="_blank" href="http://beagleboard.org/project">Projects</a></li>
+     </ul>
+    </div>
+    <div id="footer-col3">
+     <ul>
+      <li><a target="_blank" href="http://beagleboard.org/privacy">Privacy Policy</a></li>
+      <li><a target="_blank" href="http://beagleboard.org/terms">Terms of Use</a></li>
+     </ul>
+    </div>
+    <div id="cc"><a href="http://creativecommons.org/about/license/" target="_blank"><img src="Docs/images/88x31.png" alt="Creative Commons - Conditions - Attribution and Share Alike" border="0" width="88" height="31" /></a><span style="padding-left:8px">Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution-Share Alike 3.0 license </span></div>
    </div>
   </div>
-  <!-- Footer - END -->
+ </div>
+ <div id="fb-root"></div>
  </body>
 </html>
