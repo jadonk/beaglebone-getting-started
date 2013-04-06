@@ -1,8 +1,7 @@
 {
  "name": "beaglebone-getting-started"
  , "version": "0.0.1"
- , "main": "index.html"
- //, "node-main": "app.js"
+ , "main": "START.htm"
  , "description": "BeagleBone Getting Started App"
  , "keywords": [ "beaglebone", "linux", "node-webkit" ]
  , "window": {
@@ -18,7 +17,7 @@
   {
    "name": "Jason Kridner"
    , "email": "jkridner@beagleboard.org"
-   , "web": "http://blog.hangerhead.com"
+   , "web": "http://beagleboard.org/about"
   }
  ]
  , "repositories": [
@@ -29,8 +28,5 @@
   }
  ]
  , "dependencies": {
-  "socket.io": "0.9.11"
-  , "jsdom": "0.2.10"
-  , "mdns": "0.0.7"
  }
 }
