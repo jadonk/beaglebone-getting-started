@@ -17,17 +17,23 @@
   <script type="text/javascript" src="Docs/beagle-ui.js"></script>
   <script type="text/javascript" src="Docs/bonescript.js"></script>
   <script>
-var boardConnectTimer = setInterval(testForLocalConnection, 2000);
-
+var step1done = false;
 $(document).ready(function(){  
- $('#fmStep1').addClass('fmGreen');
+ testForCompletedSteps();
 });
 
-function testForLocalConnection() {
+function testForCompletedSteps() {
+ if(!step1done && window.location.toString().match(/^file.*BEAGLEBONE\/START.htm$/)) {
+  step1done = true;
+  $('#fmStep1').addClass('fmGreen');
+ }
  setTargetAddress('192.168.7.2', function () {
   if(typeof _bonescript != 'undefined') {
-   clearInterval(boardConnectTimer);
+   step1done = true;
+   $('#fmStep1').addClass('fmGreen');
    $('#fmStep2').addClass('fmGreen');
+  } else {
+   setTimeout(testForCompletedSteps, 2000);
   }
  });
 }
