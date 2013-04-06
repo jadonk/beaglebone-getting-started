@@ -13,16 +13,15 @@ cd $DIR/app
 zip $ZIP -r package.json
 
 # Make Mac app
-rm -f $DIR/app/beaglebone-getting-started.app.zip
-cp $ZIP $DIR/app/beaglebone-getting-started.app/Contents/Resources/app.nw
-zip $DIR/app/beaglebone-getting-started.app.zip -r $DIR/app/beaglebone-getting-started.app
+rm -f $DIR/app/MacOSX/beaglebone-getting-started.app.zip
+cp $ZIP $DIR/app/MacOSX/beaglebone-getting-started.app/Contents/Resources/app.nw
 
 # Make Linux 32-bit app
-cat $DIR/app/node-webkit-latest-linux-ia32/nw $ZIP > $DIR/app/beaglebone-getting-started.ia32
-chmod +x $DIR/app/beaglebone-getting-started.ia32
+cat $DIR/app/Linux/nw $ZIP > $DIR/app/Linux/beaglebone-getting-started
+chmod +x $DIR/app/Linux/beaglebone-getting-started
 
 # Make Windows .exe
-cat $DIR/app/node-webkit-latest-win-ia32/nw.exe $ZIP > $DIR/app/beaglebone-getting-started.exe
+cat $DIR/app/Windows/nw.exe $ZIP > $DIR/app/Windows/beaglebone-getting-started.exe
 
 # Clean-up
 rm -f $ZIP
