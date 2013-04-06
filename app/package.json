@@ -1,0 +1,32 @@
+{
+ "name": "beaglebone-getting-started"
+ , "version": "0.0.1"
+ , "main": "START.htm"
+ , "description": "BeagleBone Getting Started App"
+ , "keywords": [ "beaglebone", "linux", "node-webkit" ]
+ , "window": {
+  "toolbar": true
+  , "icon": "Docs/beagle.png"
+  , "width": 1024
+  , "height": 600
+ }
+ , "webkit": {
+  "plugin": true
+ }
+ , "maintainers": [
+  {
+   "name": "Jason Kridner"
+   , "email": "jkridner@beagleboard.org"
+   , "web": "http://beagleboard.org/about"
+  }
+ ]
+ , "repositories": [
+  {
+   "type": "git"
+   , "url": "http://github.com/jadonk/beaglebone-getting-started.git"
+   , "path": ""
+  }
+ ]
+ , "dependencies": {
+ }
+}
