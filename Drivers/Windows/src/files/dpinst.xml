@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <dpinst>
+  <!-- English (United States) -->
   <language code="0x0409">
     <dpinstTitle>BeagleBone Driver Installer</dpinstTitle>
     <welcomeTitle>Welcome to the BeagleBone Driver Installer!</welcomeTitle>
@@ -8,11 +9,58 @@
     <finishTitle>Drivers installation complete</finishTitle>
     <finishText>Drivers are now installed and you may continue on to connecting via Hyperterminal and via your web browser.</finishText>
   </language>
+  <!-- Chinese(People's Republic) -->
+  <language code="0x0804"></language>
+  <!-- Arabic (Saudi Arabia) -->
+  <language code="0x0401"></language>
+  <!-- Chinese(Taiwan) -->
+  <language code="0x0404"></language>
+  <!-- Czech (Czech Republic) -->
+  <language code="0x0405"></language>
+  <!-- Danish (Denmark) -->
+  <language code="0x0406"></language>
+  <!-- German (Germany) -->
+  <language code="0x0407"></language>
+  <!-- Greek (Greece) -->
+  <language code="0x0408"></language>
+  <!-- Spanish (Spain) -->
+  <language code="0x0C0A"></language>
+  <!-- Finnish (Finland) -->  
+  <language code="0x040B"></language>
+  <!-- French (France) -->
+  <language code="0x040C"></language>
+  <!-- Hebrew (Israel) -->
+  <language code="0x040D"></language>
+  <!-- Hungarian (Hungary) -->
+  <language code="0x040E"></language>
+  <!-- Italian (Italy) -->
+  <language code="0x0410"></language>
+  <!-- Japanese(Japan) -->
+  <language code="0x0411"></language>
+  <!-- Korean (Korea) -->
+  <language code="0x0412"></language>
+  <!-- Norwegian (Norway) -->
+  <language code="0x0414"></language>
+  <!-- Dutch (Netherlands) -->
+  <language code="0x0413"></language>
+  <!-- Polish (Poland) -->
+  <language code="0x0415"></language>
+  <!-- Portuguese (Brazil) -->
+  <language code="0x0416"></language>
+  <!-- Portuguese (Portugal) -->
+  <language code="0x0816"></language>
+  <!-- Russian (Russia) -->
+  <language code="0x0419"></language>
+  <!-- Swedish (Sweden) -->
+  <language code="0x041D"></language>
+  <!-- Turkish (Turkey) -->
+  <language code="0x041F"></language>
   <icon>beagle.ico</icon>
   <watermarkPath>in-hand.bmp</watermarkPath>
   <search>
     <subDirectory>FTDI</subDirectory>
     <subDirectory>RNDIS</subDirectory>
+    <subDirectory>CDCACM</subDirectory>
   </search>
   <legacyMode>on</legacyMode>
 </dpinst>

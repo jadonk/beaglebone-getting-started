@@ -1,0 +1,37 @@
+div.login form input#openid
+ {
+  border-style: solid;
+  border-width: 1px;
+  background: #FFFFFF url(openid-prompt-bg.gif) no-repeat;
+  padding: 1px 1px 1px 18px;
+  color: #000;
+ }
+
+div.login * button:hover
+ {
+  cursor: pointer;
+  text-decoration: underline;
+  color:#de7224;
+ }
+
+div.login * button
+ {
+  font-weight:bold;
+  text-decoration: none;
+  border-style: none;
+  background-color: transparent;
+  color: #ffffff;
+  padding: 0px;
+ }
+
+div#footernav p
+ {
+  margin: 0px;
+ }
+
+div#footernav *, div.login *
+ {
+  display: inline;
+  text-align: left;
+ }
+

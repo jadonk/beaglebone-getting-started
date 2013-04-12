@@ -1,3 +1,0 @@
-This file should be replaced dyamically by your file system.  You might be
-viewing this from http://beagleboard.org, in which case, nothing interesting
-here.  Move along.
