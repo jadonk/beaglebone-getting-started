@@ -1,10 +1,10 @@
 #!/bin/sh
 set -x
 set -e
-SRC=/Volumes/FTDIUSBSerialDriver_v2_2_16
+SRC=/Volumes/FTDIUSBSerialDriver_v2_2_18
 HERE=$PWD
 TEMPDIR="/tmp/$(basename $0).$$.tmp"
-TEMPDIR2=/tmp/FTDIUSBSerialDriver_v2_2_16
+TEMPDIR2=/tmp/FTDIUSBSerialDriver_v2_2_18
 
 do_copy()
 {
@@ -89,18 +89,18 @@ do_dmg ()
     hdiutil create $HERE/FTDI_Ser.dmg -srcfolder $TEMPDIR2 -ov
 }
 
-do_copy FTDIUSBSerialDriver_10_4_10_5_10_6.mpkg
+do_copy FTDIUSBSerialDriver_10_4_10_5_10_6_10_7.mpkg
 
-do_extract FTDIUSBSerialDriver_10_4_10_5_10_6.mpkg ftdiusbserialdriver.pkg
+do_extract FTDIUSBSerialDriver_10_4_10_5_10_6_10_7.mpkg ftdiusbserialdriver.pkg
 do_patch
-do_package FTDIUSBSerialDriver_10_4_10_5_10_6.mpkg ftdiusbserialdriver.pkg
+do_package FTDIUSBSerialDriver_10_4_10_5_10_6_10_7.mpkg ftdiusbserialdriver.pkg
 
-do_extract FTDIUSBSerialDriver_10_4_10_5_10_6.mpkg ftdiusbserialdriver-1.pkg
+do_extract FTDIUSBSerialDriver_10_4_10_5_10_6_10_7.mpkg ftdiusbserialdriver-1.pkg
 do_patch
-do_package FTDIUSBSerialDriver_10_4_10_5_10_6.mpkg ftdiusbserialdriver-1.pkg
+do_package FTDIUSBSerialDriver_10_4_10_5_10_6_10_7.mpkg ftdiusbserialdriver-1.pkg
 
 do_dmg 
 
 rm -r $TEMPDIR || true
 rm -r $TEMPDIR2 || true
-rm -r FTDIUSBSerialDriver_10_4_10_5_10_6.mpkg || true
+rm -r FTDIUSBSerialDriver_10_4_10_5_10_6_10_7.mpkg || true
