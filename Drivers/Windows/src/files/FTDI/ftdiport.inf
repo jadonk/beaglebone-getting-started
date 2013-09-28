@@ -33,7 +33,7 @@ Class=Ports
 ClassGUID={4d36e978-e325-11ce-bfc1-08002be10318}
 Provider=%FTDI%
 CatalogFile=ftdiport.cat
-DriverVer=03/18/2011,2.08.14
+DriverVer=03/18/2013,2.08.14
 
 [SourceDisksNames]
 1=%DriversDisk%,,,
