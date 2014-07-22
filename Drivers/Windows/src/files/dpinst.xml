@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <dpinst>
+  <enableNotListedLanguages/>
   <!-- English (United States) -->
   <language code="0x0409">
     <dpinstTitle>BeagleBone Driver Installer</dpinstTitle>
@@ -55,6 +56,8 @@
   <language code="0x041D"></language>
   <!-- Turkish (Turkey) -->
   <language code="0x041F"></language>
+  <!-- English (UK) -->
+  <language code="0x0809"></language>
   <icon>beagle.ico</icon>
   <watermarkPath>in-hand.bmp</watermarkPath>
   <search>
