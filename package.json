@@ -1,0 +1,8 @@
+{
+  "name": "beagleboard-getting-started-builder",
+  "description": "Beagle Board Getting Started builder",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-node-webkit-builder": "~1.0.2"
+  }
+}

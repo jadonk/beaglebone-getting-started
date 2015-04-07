@@ -1,36 +1,37 @@
 {
- "name": "beaglebone-getting-started"
- , "version": "0.0.1"
- , "main": "index.html"
- //, "node-main": "app.js"
- , "description": "BeagleBone Getting Started App"
- , "keywords": [ "beaglebone", "linux", "node-webkit" ]
- , "window": {
-  "toolbar": true
-  , "icon": "Docs/beagle.png"
-  , "width": 1024
-  , "height": 600
- }
- , "webkit": {
+ "name": "beaglebone-getting-started",
+ "version": "0.0.2",
+ "main": "index.html",
+ "description": "BeagleBone Getting Started App",
+ "keywords": ["beaglebone", "linux", "nw.js"],
+ "window": {
+  "title": "BeagleBone Getting Started App",
+  "icon": "Docs/beagle.png",
+  "toolbar": true,
+  "width": 1024,
+  "height": 600,
+  "position": "center"
+ },
+ "webkit": {
   "plugin": true
- }
- , "maintainers": [
+ },
+ "maintainers": [
   {
-   "name": "Jason Kridner"
-   , "email": "jkridner@beagleboard.org"
-   , "web": "http://blog.hangerhead.com"
+   "name": "Ariane Paola Gomes",
+   "email": "arianepaola@users.noreply.github.com",
+   "web": "https://github.com/arianepaola"
   }
- ]
- , "repositories": [
+ ],
+ "repositories": [
   {
-   "type": "git"
-   , "url": "http://github.com/jadonk/beaglebone-getting-started.git"
-   , "path": ""
+   "type": "git",
+   "url": "http://github.com/arianepaola/beaglebone-getting-started.git",
+   "path": ""
   }
- ]
- , "dependencies": {
-  "socket.io": "0.9.11"
-  , "jsdom": "0.2.10"
-  , "mdns": "0.0.7"
+ ],
+ "dependencies": {
+  "socket.io": "0.9.11",
+  "jsdom": "0.2.10",
+  "mdns": "0.0.7"
  }
 }
