@@ -1,15 +1,16 @@
 {
  "name": "beaglebone-getting-started"
- , "version": "0.0.1"
+ , "version": "0.0.2"
  , "main": "index.html"
- //, "node-main": "app.js"
  , "description": "BeagleBone Getting Started App"
- , "keywords": [ "beaglebone", "linux", "node-webkit" ]
+ , "keywords": [ "beaglebone", "linux", "nw.js" ]
  , "window": {
-  "toolbar": true
+  "title": "BeagleBone Getting Started App"
+  ,"toolbar": true
   , "icon": "Docs/beagle.png"
   , "width": 1024
   , "height": 600
+  , "position": "center"
  }
  , "webkit": {
   "plugin": true
