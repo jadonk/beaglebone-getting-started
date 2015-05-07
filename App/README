@@ -1,4 +1,0 @@
-node-webkit comes from https://github.com/rogerwang/node-webkit/commit/20eec65cb7788c9e969d5ad8e41f03b8ad66b9ea
-For build scripts, see https://github.com/jadonk/beaglebone-gettig-started/tree/webkit-build-scripts
-
-This is provided as a convenience to Windows users who don't have a great browser installed.

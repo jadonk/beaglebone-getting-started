@@ -1,0 +1,37 @@
+{
+ "name": "beaglebone-getting-started"
+ , "version": "0.0.2"
+ , "main": "index.html"
+ , "description": "BeagleBone Getting Started App"
+ , "keywords": [ "beaglebone", "linux", "nw.js" ]
+ , "window": {
+  "title": "BeagleBone Getting Started App"
+  ,"toolbar": true
+  , "icon": "Docs/beagle.png"
+  , "width": 1024
+  , "height": 600
+  , "position": "center"
+ }
+ , "webkit": {
+  "plugin": true
+ }
+ , "maintainers": [
+  {
+   "name": "Jason Kridner"
+   , "email": "jkridner@beagleboard.org"
+   , "web": "http://blog.hangerhead.com"
+  }
+ ]
+ , "repositories": [
+  {
+   "type": "git"
+   , "url": "http://github.com/jadonk/beaglebone-getting-started.git"
+   , "path": ""
+  }
+ ]
+ , "dependencies": {
+  "socket.io": "0.9.11"
+  , "jsdom": "0.2.10"
+  , "mdns": "0.0.7"
+ }
+}

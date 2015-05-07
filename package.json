@@ -1,0 +1,11 @@
+{
+  "name": "beaglebone-getting-started-builder",
+  "description": "BeagleBone Getting Started builder",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-node-webkit-builder": "~1.0.2"
+  },
+  "scripts": {
+    "test": "grunt test"
+  }
+}
