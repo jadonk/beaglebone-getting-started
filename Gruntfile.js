@@ -5,10 +5,10 @@ module.exports = function(grunt) {
             options: {
                 version: '0.12.0',
                 buildDir: './build',
-                macIcns: './app/beaglebone-getting-started.app/Contents/Resources/nw.icns',
+                macIcns: './App/beaglebone-getting-started.icns',
                 platforms: ['win', 'osx', 'linux'] // builds both 32 and 64 bit versions
             },
-            src: ['./app/**', './Docs/**', './README.htm']
+            src: ['./App/**', './Docs/**', './README.htm']
         }
     });
 
