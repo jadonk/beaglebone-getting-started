@@ -11,7 +11,7 @@ before_deploy:
   - git add build
   - git commit -m "Generated commit from Travis-CI for build $TRAVIS_BUILD_NUMBER"
   - git tag $GIT_TAG -a -m "Generated tag from Travis-CI for build $TRAVIS_BUILD_NUMBER"
-  - git push -q https://$GITHUBDEPLOY@github.com/moto-timo/BBBlfs --tags
+  - git push -q https://$GITHUBDEPLOY@github.com/beagleboard/beaglebone-getting-started --tags
   - ls -R
 deploy:
   provider: releases
