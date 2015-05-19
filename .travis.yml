@@ -5,18 +5,14 @@ before_install: npm install -g grunt-cli
 install: npm install
 before_script: grunt build
 before_deploy:
-  - git config --global user.email "builds@travis-ci.org"
-  - git config --global user.name "Travis CI"
-  - export GIT_TAG=$TRAVIS_BRANCH-0.1.$TRAVIS_BUILD_NUMBER
-  - git add build
-  - git commit -m "Generated commit from Travis-CI for build $TRAVIS_BUILD_NUMBER"
-  - git tag $GIT_TAG -a -m "Generated tag from Travis-CI for build $TRAVIS_BUILD_NUMBER"
-  - git push -q https://$GITHUBDEPLOY@github.com/beagleboard/beaglebone-getting-started --tags
   - ls -R
+  - cd build/beaglebone-getting-started/osx32
+  - zip ../bgs-osx32.zip *
+  - cd ../../..
 deploy:
   provider: releases
   api_key: $GITHUBDEPLOY
-  file: "build/beaglebone-getting-started/osx32"
+  file: "build/beaglebone-getting-started/bgs-osx32.zip"
   skip_cleanup: true
   on:
     tags: true
