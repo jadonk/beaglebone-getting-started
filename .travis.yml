@@ -4,3 +4,10 @@ node_js:
 before_install: npm install -g grunt-cli
 install: npm install
 before_script: grunt build
+deploy:
+  provider: releases
+  api_key: $github_deploy
+  file: build/beaglebone-getting-started/osx32
+  skip_cleanup: true
+  on:
+    tags: true
