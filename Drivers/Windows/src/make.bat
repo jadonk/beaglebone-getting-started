@@ -4,11 +4,11 @@ set ZIP_PATH="c:\Program Files\7-Zip"
 %WDK_PATH%\inf2cat /v /driver:%~dp0\files\FTDI /os:XP_X86,Vista_X86,Vista_X64,7_X86,7_X64,8_X86,8_X64,10_X86,10_X64
 %WDK_PATH%\inf2cat /v /driver:%~dp0\files\RNDIS /os:XP_X86,Vista_X86,Vista_X64,7_X86,7_X64,8_X86,8_X64,10_X86,10_X64
 %WDK_PATH%\inf2cat /v /driver:%~dp0\files\CDCACM /os:XP_X86,Vista_X86,Vista_X64,7_X86,7_X64,8_X86,8_X64,10_X86,10_X64
-%SDK_PATH%\signtool sign /v /n "BeagleBoard.org Foundation" /ac "mscvr-cross-gdroot.crt" "files\FTDI\*.cat"
-%SDK_PATH%\signtool sign /v /n "BeagleBoard.org Foundation" /ac "mscvr-cross-gdroot.crt" "files\RNDIS\*.cat"
-%SDK_PATH%\signtool sign /v /n "BeagleBoard.org Foundation" /ac "mscvr-cross-gdroot.crt" "files\CDCACM\*.cat"
-%SDK_PATH%\signtool sign /v /n "BeagleBoard.org Foundation" /ac "mscvr-cross-gdroot.crt" /a dpinst\dpinst.exe 
-%SDK_PATH%\signtool sign /v /n "BeagleBoard.org Foundation" /ac "mscvr-cross-gdroot.crt" /a dpinst64\dpinst.exe 
+%SDK_PATH%\signtool sign /v /n "BeagleBoard.org Foundation" "files\FTDI\*.cat"
+%SDK_PATH%\signtool sign /v /n "BeagleBoard.org Foundation" "files\RNDIS\*.cat"
+%SDK_PATH%\signtool sign /v /n "BeagleBoard.org Foundation" "files\CDCACM\*.cat"
+%SDK_PATH%\signtool sign /v /n "BeagleBoard.org Foundation" /a dpinst\dpinst.exe 
+%SDK_PATH%\signtool sign /v /n "BeagleBoard.org Foundation" /a dpinst64\dpinst.exe 
 del BONE_DRV.7z
 del BONE_D64.7z
 cd files
