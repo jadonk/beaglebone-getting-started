@@ -15,7 +15,7 @@ DriverVer           = 04/27/2012,6.0.6000.16384
 CatalogFile         = linux-rndis.cat
 
 [Manufacturer]
-%Linux%             = LinuxDevices,NTx86,NTamd64,NTia64
+%Microsoft%         = LinuxDevices,NTx86,NTamd64,NTia64
 
 ; Decoration for x86 architecture
 [LinuxDevices.NTx86]
