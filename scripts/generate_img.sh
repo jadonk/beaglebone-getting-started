@@ -218,7 +218,7 @@ populate_partition () {
 		mkdir -p ${TEMPDIR}/disk
 	fi
 
-	mount_partition_format="ext4"
+	mount_partition_format="vfat"
 	partprobe ${media}
 	if ! mount -t ${mount_partition_format} ${media_prefix}${media_partition} ${TEMPDIR}/disk; then
 
