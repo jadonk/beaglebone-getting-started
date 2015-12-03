@@ -53,7 +53,6 @@ detect_software () {
 	check_for_command mkfs.vfat dosfstools
 	check_for_command partprobe parted
 	check_for_command kpartx kpartx
-	check_for_command bmaptool bmap-tools
 
 	if [ "${NEEDS_COMMAND}" ] ; then
 		echo ""
@@ -87,6 +86,7 @@ drive_error_ro () {
 sfdisk_partition_layout () {
 	sfdisk_options="--force --in-order --Linux --unit M"
 	sfdisk_boot_startmb="1"
+	sfdisk_boot_fstype="0xE"
 
 	test_sfdisk=$(LC_ALL=C sfdisk --help | grep -m 1 -e "--in-order" || true)
 	if [ "x${test_sfdisk}" = "x" ] ; then
@@ -96,7 +96,7 @@ sfdisk_partition_layout () {
 	fi
 
 	LC_ALL=C sfdisk ${sfdisk_options} "${media}" <<-__EOF__
-		${sfdisk_boot_startmb},,,-
+		${sfdisk_boot_startmb},,${sfdisk_boot_fstype},-
 	__EOF__
 
 	sync
@@ -131,8 +131,8 @@ format_partition () {
 
 format_boot_partition () {
 	mkfs_partition="${media_prefix}${media_partition}"
-	mkfs="mkfs.ext2"
-	mkfs_label="-L BEAGLEBONE"
+	mkfs="mkfs.vfat -F 16"
+	mkfs_label="-n BEAGLEBONE"
 	format_partition
 }
 
