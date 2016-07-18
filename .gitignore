@@ -1,3 +1,5 @@
 .DS_Store
 *.img
 *.img.xz
+*.iso
+*.iso.xz
