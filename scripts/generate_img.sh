@@ -27,7 +27,7 @@ TEMPDIR=$(mktemp -d)
 ###
 imagename="beaglebone-getting-started-$(git log -1 --date=short --pretty=format:%cd)"
 image_size_mb="40"
-image_format="fat"
+image_format="iso"
 ###
 
 check_root () {
@@ -55,6 +55,8 @@ detect_software () {
 		check_for_command mkfs.vfat dosfstools
 		check_for_command partprobe parted
 		check_for_command kpartx kpartx
+	elif [ "x${image_format}" = "xiso" ] ; then
+		check_for_command xorriso xorriso
 	fi
 
 	if [ "${NEEDS_COMMAND}" ] ; then
@@ -261,20 +263,30 @@ populate_partition () {
 	echo "-----------------------------"
 }
 
-media="${DIR}/${imagename}.img"
-check_root
-if [ -f "${media}" ] ; then
-	rm -rf "${media}" || true
-fi
-dd if=/dev/zero of="${media}" bs=1024 count=0 seek=$((1024 * ${image_size_mb}))
-
-check_root
 detect_software
 if [ "x${image_format}" = "xfat" ] ; then
+	media="${DIR}/${imagename}.img"
+	check_root
+	if [ -f "${media}" ] ; then
+		rm -rf "${media}" || true
+	fi
+	dd if=/dev/zero of="${media}" bs=1024 count=0 seek=$((1024 * ${image_size_mb}))
+
+	check_root
 	create_partitions
 	populate_partition
 elif [ "x${image_format}" = "xiso" ] ; then
-	echo "TODO"
+	rm -f ${imagename}.iso
+	xorrisofs -r -J -o ${imagename}.iso \
+		./App \
+		./Drivers \
+		./Docs \
+		./scripts \
+		autorun.inf \
+		LICENSE.txt \
+		README.htm \
+		README.md \
+		START.htm
 fi
 
 if [ -f ${imagename}.img ] ; then
@@ -284,6 +296,17 @@ if [ -f ${imagename}.img ] ; then
 	echo "-----------------------------"
 	xz -z -8 -v ${imagename}.img
 	echo "img: ${imagename}.img.xz"
+	echo "-----------------------------"
+
+fi
+
+if [ -f ${imagename}.iso ] ; then
+	echo "-----------------------------"
+	chown -R 1000:1000 ${imagename}.iso
+	echo "iso: ${imagename}.iso"
+	echo "-----------------------------"
+	xz -z -8 -v ${imagename}.iso
+	echo "iso: ${imagename}.iso.xz"
 	echo "-----------------------------"
 
 fi
