@@ -27,6 +27,7 @@ TEMPDIR=$(mktemp -d)
 ###
 imagename="beaglebone-getting-started-$(git log -1 --date=short --pretty=format:%cd)"
 image_size_mb="40"
+image_format="fat"
 ###
 
 check_root () {
@@ -50,9 +51,11 @@ check_for_command () {
 detect_software () {
 	unset NEEDS_COMMAND
 
-	check_for_command mkfs.vfat dosfstools
-	check_for_command partprobe parted
-	check_for_command kpartx kpartx
+	if [ "x${image_format}" = "xfat" ] ; then
+		check_for_command mkfs.vfat dosfstools
+		check_for_command partprobe parted
+		check_for_command kpartx kpartx
+	fi
 
 	if [ "${NEEDS_COMMAND}" ] ; then
 		echo ""
@@ -267,8 +270,12 @@ dd if=/dev/zero of="${media}" bs=1024 count=0 seek=$((1024 * ${image_size_mb}))
 
 check_root
 detect_software
-create_partitions
-populate_partition
+if [ "x${image_format}" = "xfat" ] ; then
+	create_partitions
+	populate_partition
+elif [ "x${image_format}" = "xiso" ] ; then
+	echo "TODO"
+fi
 
 if [ -f ${imagename}.img ] ; then
 	echo "-----------------------------"
