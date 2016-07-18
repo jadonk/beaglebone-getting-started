@@ -277,11 +277,11 @@ if [ "x${image_format}" = "xfat" ] ; then
 	populate_partition
 elif [ "x${image_format}" = "xiso" ] ; then
 	rm -f ${imagename}.iso
-	xorrisofs -r -J -o ${imagename}.iso \
-		./App \
-		./Drivers \
-		./Docs \
-		./scripts \
+	xorrisofs -r -J -o ${imagename}.iso -graft-points \
+		App=./App \
+		Drivers=./Drivers \
+		Docs=./Docs \
+		scripts=./scripts \
 		autorun.inf \
 		LICENSE.txt \
 		README.htm \
@@ -305,7 +305,7 @@ if [ -f ${imagename}.iso ] ; then
 	chown -R 1000:1000 ${imagename}.iso
 	echo "iso: ${imagename}.iso"
 	echo "-----------------------------"
-	xz -z -8 -v ${imagename}.iso
+	#xz -z -8 -v ${imagename}.iso
 	echo "iso: ${imagename}.iso.xz"
 	echo "-----------------------------"
 
