@@ -1,16 +1,11 @@
 {
  "name": "beaglebone-getting-started"
- , "version": "0.0.2"
- , "main": "index.html"
+ , "version": "0.0.3"
+ , "main": "main.js"
  , "description": "BeagleBone Getting Started App"
- , "keywords": [ "beaglebone", "linux", "nw.js" ]
- , "window": {
-  "title": "BeagleBone Getting Started App"
-  ,"toolbar": true
-  , "icon": "Docs/beagle.png"
-  , "width": 1024
-  , "height": 600
-  , "position": "center"
+ , "keywords": [ "beaglebone", "linux", "electron" ]
+ , "scripts": {
+    "start": "electron ."
  }
  , "webkit": {
   "plugin": true
@@ -19,7 +14,7 @@
   {
    "name": "Jason Kridner"
    , "email": "jkridner@beagleboard.org"
-   , "web": "http://blog.hangerhead.com"
+   , "web": "http://jkridner.wordpress.com"
   }
  ]
  , "repositories": [
@@ -33,5 +28,6 @@
   "socket.io": "0.9.11"
   , "jsdom": "0.2.10"
   , "mdns": "0.0.7"
+  , "electron": "1.4.15"
  }
 }
