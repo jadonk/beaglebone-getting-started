@@ -149,7 +149,7 @@ function testForCompletedSteps() {
        <li id="fmStep1"><a href="#step1"><strong>Step 1:</strong><br />
 Power and boot</a></li> 
        <li id="fmStep2"><a href="#step2"><strong>Step 2:</strong><br />
-Install drivers</a></li>         
+Enable a network connection</a></li>         
        <li id="fmStep3"><a href="#step3"><strong>Step 3:</strong><br />
 Browse to web server on Beagle</a></li>
     </ul>
@@ -219,9 +219,45 @@ Browse to web server on Beagle</a></li>
    
     </div>
 </br>
-    <h3 id="step2"><img class="steps" src="Docs/images/btn_step2.gif" /><strong>Install drivers</strong></h3>
-    <p>Install the drivers for your operating system to give you network-over-USB access to your Beagle.  Additional drivers give
-you serial access to your board.</p>
+    <h3 id="step2"><img class="steps" src="Docs/images/btn_step2.gif" /><strong>Enable a network connection</strong></h3>
+    <p>If connected via USB, a network adapter should show up on your computer. Your Beagle should be running a DHCP server that will provide your computer with an IP address of either 192.168.7.1 or 192.168.6.1, depending on the type of USB network adapter supported by your computer's operating system. Your Beagle will reserve 192.168.7.2 or 192.168.6.2 for itself.</p>
+    <p>If your Beagle includes WiFi, an access point called "BeagleBone-XXXX" where "XXXX" varies between boards. The access point password defaults to "BeagleBone". Your Beagle should be running a DHCP server that will provide your computer with an IP address in the 192.168.8.x range and reserve 192.168.8.1 for itself.</p>
+    <p>If your Beagle is connected to your local area network (LAN) via either Ethernet or WiFi, it will utilize <a href="https://en.wikipedia.org/wiki/Multicast_DNS">mDNS</a> to broadcast itself to your computer. If your computer supports mDNS, you should see your Beagle as beaglebone.local. <em>Non-BeagleBone boards will utilize alternate names. Multiple BeagleBone boards on the same network will add a suffix such as beaglebone-2.local.</p>
+    <p>The below table summarizes the typical addresses and should dynamically update to indicate an active connection.</p>
+    <table border="0">
+     <tr>
+      <th>IP Address</th>
+      <th>Connection Type</th>
+      <th>Operating System(s)</th>
+      <th>Status</th>
+     </tr>
+     <tr>
+      <td>192.168.7.2</td>
+      <td>USB</td>
+      <td>Windows</td>
+      <td><div id="net_status_7_2">Inactive</div></td>
+     </tr>
+     <tr>
+      <td>192.168.6.2</td>
+      <td>USB</td>
+      <td>Mac OS X, Linux</td>
+      <td><div id="net_status_6_2">Inactive</div></td>
+     </tr>
+     <tr>
+      <td>192.168.8.1</td>
+      <td>WiFi</td>
+      <td>all</td>
+      <td><div id="net_status_8_1">Inactive</div></td>
+     </tr>
+     <tr>
+      <td>beaglebone.local</td>
+      <td>all</td>
+      <td>mDNS enabled</td>
+      <td><div id="net_status_mdns">Inactive</div></td>
+     </tr>
+    </table>
+    <p>With the latest images, <em>it should no longer be necessary to install drivers</em> for your operating system to give you network-over-USB access to your Beagle. In case you are running an older image, an older operating system or need additional drivers for
+serial access to older boards, links to the old drivers are below.</p>
     <table border="0">
      <tr>
       <th>Operating System</th>
