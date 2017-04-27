@@ -147,7 +147,7 @@ function testForCompletedSteps() {
     <div id="floatMenu">  
      <ul>   
        <li id="fmStep1"><a href="#step1"><strong>Step 1:</strong><br />
-Power and boot your Beagle</a></li> 
+Power and boot</a></li> 
        <li id="fmStep2"><a href="#step2"><strong>Step 2:</strong><br />
 Install drivers</a></li>         
        <li id="fmStep3"><a href="#step3"><strong>Step 3:</strong><br />
@@ -188,7 +188,7 @@ Browse to web server on Beagle</a></li>
     software image</a> to use the instructions below.</h3>
 
     <h3 id="step1"><img class="steps" src="Docs/images/btn_step1.gif" />
-    <strong>Power and boot Beagle</strong></h3>
+    <strong>Power and boot</strong></h3>
 
     <div>
      <p>Most Beagles include a provided USB cable, providing a convenient way
@@ -199,7 +199,8 @@ Browse to web server on Beagle</a></li>
      that require 12V, you can utilize a 5V adapter connected to the barrel
      jack. If your Beagle was provided with an SD or microSD card, make sure
      it is inserted ahead of providing power. Most Beagles include programmed
-     on-board flash.
+     on-board flash and therefore do not require an SD or microSD card to
+     be inserted.
      </p>
      <p>You'll see the power LED lit steadily. Within a minute or so, you should see the other LEDs blinking in their default configurations.</p>
      <ul>
@@ -207,6 +208,7 @@ Browse to web server on Beagle</a></li>
       <li>USR1 is typically configured at boot to light during microSD card accesses</li>
       <li>USR2 is typically configured at boot to light during CPU activity</li>
       <li>USR3 is typically configured at boot to light during eMMC accesses</li>
+      <li>WIFI is typically configured at boot to light with WiFi network association (<em>BeagleBone Blue only</em>)</li>
      </ul>
      <img align="center" width="85%" src="Docs/images/BlackUSR.png" />
    
