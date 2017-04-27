@@ -194,23 +194,23 @@ Browse to web server on Beagle</a></li>
      <p>Most Beagles include a USB cable, providing a convenient way
      to provide both power to your Beagle and connectivity to your computer.
      If you provide your own, ensure it is of good quality. You'll connect
-     the <a href="https://en.wikipedia.org/wiki/USB">"type-B" plug</a> of
+     the <a href="https://en.wikipedia.org/wiki/USB" class="external">"type-B" plug</a> of
      the USB cable to your Beagle and the "type-A" plug to your computer.
      <em>Note that BeagleBoard-X15 must
      always be powered instead by a 12V adapter with a barrel jack.</em></p>
      <p>Alternatively, for Beagles other than BeagleBoard-X15 and BeagleBone Blue
      that require 12V, you can utilize a 5V adapter connected to the barrel
      jack.</p>
-     <p>If your Beagle was provided with an SD or microSD card, make sure
+     <p>If your Beagle was provided with an <a href="https://en.wikipedia.org/wiki/Secure_Digital" class="external">SD (microSD) card</a>, make sure
      it is inserted ahead of providing power. Most Beagles include programmed
-     on-board flash and therefore do not require an SD or microSD card to
+     on-board flash and therefore do not require an SD card to
      be inserted.
      </p>
      <p></p>
      <p>You'll see the power (PWR or ON) LED lit steadily. Within a minute or so, you should see the other LEDs blinking in their default configurations.</p>
      <ul>
       <li>USR0 is typically configured at boot to blink in a heartbeat pattern</li>
-      <li>USR1 is typically configured at boot to light during microSD card accesses</li>
+      <li>USR1 is typically configured at boot to light during SD (microSD) card accesses</li>
       <li>USR2 is typically configured at boot to light during CPU activity</li>
       <li>USR3 is typically configured at boot to light during eMMC accesses</li>
       <li>WIFI is typically configured at boot to light with WiFi network association (<em>BeagleBone Blue only</em>)</li>
@@ -222,7 +222,7 @@ Browse to web server on Beagle</a></li>
     <h3 id="step2"><img class="steps" src="Docs/images/btn_step2.gif" /><strong>Enable a network connection</strong></h3>
     <p>If connected via USB, a network adapter should show up on your computer. Your Beagle should be running a DHCP server that will provide your computer with an IP address of either 192.168.7.1 or 192.168.6.1, depending on the type of USB network adapter supported by your computer's operating system. Your Beagle will reserve 192.168.7.2 or 192.168.6.2 for itself.</p>
     <p>If your Beagle includes WiFi, an access point called "BeagleBone-XXXX" where "XXXX" varies between boards. The access point password defaults to "BeagleBone". Your Beagle should be running a DHCP server that will provide your computer with an IP address in the 192.168.8.x range and reserve 192.168.8.1 for itself.</p>
-    <p>If your Beagle is connected to your local area network (LAN) via either Ethernet or WiFi, it will utilize <a href="https://en.wikipedia.org/wiki/Multicast_DNS">mDNS</a> to broadcast itself to your computer. If your computer supports mDNS, you should see your Beagle as beaglebone.local. <em>Non-BeagleBone boards will utilize alternate names. Multiple BeagleBone boards on the same network will add a suffix such as beaglebone-2.local.</em></p>
+    <p>If your Beagle is connected to your local area network (LAN) via either Ethernet or WiFi, it will utilize <a href="https://en.wikipedia.org/wiki/Multicast_DNS" class="external">mDNS</a> to broadcast itself to your computer. If your computer supports mDNS, you should see your Beagle as beaglebone.local. <em>Non-BeagleBone boards will utilize alternate names. Multiple BeagleBone boards on the same network will add a suffix such as beaglebone-2.local.</em></p>
     <p>The below table summarizes the typical addresses and should dynamically update to indicate an active connection.</p>
     <table border="0">
      <tr>
@@ -340,7 +340,7 @@ serial access to older boards, links to the old drivers are below.</p>
     <p>Some general help on programming SD cards can be found on the <a target="_blank" href="http://help.ubuntu.com/community/Installation/FromImgFiles">Ubuntu Image Writer page</a>. 
 
     <h3>Step #3: Connect SD card to your computer</h3>
-    <p>Use the provided microSD card to SD adapter or a USB adapter to connect the SD card to your computer.</p>
+    <p>Use your computer's SD slot or a USB adapter to connect the SD card to your computer.</p>
 
     <h3>Step #4: Write the image to your SD card</h3>
     <p>Use Etcher to write the image to your SD card. Etcher will transparently decompress the image on-the-fly before writing it to the SD card.</p>
