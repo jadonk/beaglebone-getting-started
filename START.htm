@@ -117,14 +117,14 @@ $(document).ready(function(){
 function testForCompletedSteps() {
  if(!testedOnce) {
   testedOnce = true;
-  if(ga && (typeof ga == "function")) {
+  if(typeof ga == "function") {
    ga('send', 'event', 'bonescript', 'started', 'getting-started');
   }
  }
  if(!step1done && window.location.toString().match(/^file.*BEAGLEBONE\/START.htm$/)) {
   step1done = true;
   $('#fmStep1').addClass('fmGreen');
-  if(ga && (typeof ga == "function")) {
+  if(typeof ga == "function") {
    ga('send', 'event', 'bonescript', 'plugged-in', 'getting-started');
   }
  }
@@ -133,7 +133,7 @@ function testForCompletedSteps() {
    step1done = true;
    $('#fmStep1').addClass('fmGreen');
    $('#fmStep2').addClass('fmGreen');
-   if(ga && (typeof ga == "function")) {
+   if(typeof ga == "function") {
     ga('send', 'event', 'bonescript', 'connected', 'getting-started');
    }
   } else {
@@ -442,43 +442,5 @@ hardware documentation and design materials.
 <!-- Footer - END -->
 </div>
 <!-- DIV that centers page - END -->
-  
-
-  <script type="text/javascript">
-    $('#prompt_form').html(''
-     + '  <form method="post" action="">'
-     + '   <input type="text" id="openid" name="openid_url"></input>'
-     + '   <button type="submit">Login</button>'
-     + '  </form>'
-     + $('#prompt_form').html()
-    );
-  </script>
-  <script type="text/javascript">
-   $(document).ready(
-    function() {
-     var indexID = 0;
-     $('.wants-g-plusone').each(function() {
-      $(this).attr('id', 'gp' + indexID);
-      var gp = document.createElement('script');
-      gp.type = 'text/javascript';
-      gp.async = true;
-      var args = {"size":"small"};
-      var href = $(this).attr('data-href');
-      if(href) args.href = href;
-      gp.text = 'setTimeout(function() {' +
-       'gapi.plusone.render(gp' + 
-       indexID +
-       ', ' +
-       JSON.stringify(args) +
-       ');}, ' +
-       (indexID * 800) +
-       ');';
-      $('#footer').append(gp);
-      indexID++;
-     });
-    }
-   );
-  </script>
-<div id="fb-root"></div>
 </body>
 </html>
