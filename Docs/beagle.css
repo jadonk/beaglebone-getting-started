@@ -33,7 +33,7 @@ a img {
 	border: none;
 }
 a.external {
-    background: url(Docs/images/icon_offsite.gif) center right no-repeat;
+    background: url(images/icon_offsite.gif) center right no-repeat;
     padding-right: 13px;
 }
 
