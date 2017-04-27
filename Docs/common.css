@@ -6,7 +6,7 @@ body {
 	background:#7886D1;
 	color: #333;
 	background: #fcf7ed; url();
-	font-family:Arial, Helvetica, Verdana, sans-serif; color:#525252; font-size: 75%; 
+	font-family:Arial, Helvetica, Verdana, sans-serif; color:#525252; font-size: 71%; 
 	}
 a:link {color:#de7224; text-decoration:none;}
 a:visited {color:#de7224; text-decoration:none;}
@@ -36,7 +36,7 @@ p.breadcrumb {margin-top:0; padding-top:0; font-size:1em;}
 p.breadcrumb a:link, p.breadcrumb a:visited, p.breadcrumb a:hover {color:#f56203; text-decoration:none;}
 p.breadcrumb a:hover {text-decoration:underline;}
 td {
-font-size:1.2em;
+font-size:.9em;
 padding:10px;
 border:0px;
 background-color:#f1f1f1;
@@ -46,8 +46,8 @@ border:none;
 color:#fff;
 background-color:#de7224;}
 	
-table#projects {width:800px; padding-top:50px; padding-left:20px; }
-table.tblstandard {width:800px; padding-top:50px; padding-left:20px; }
+table#projects {width:875px; padding-top:0px; padding-left:0px; width: 897px;}
+table.tblstandard {width:875px; padding-top:50px; padding-left:20px; }
 table h3, table h4 {margin:0;}
 table h4 {font-size:1em;}
 dt span, h2 span {text-align:right; float:right; color:#3F8BFE;}

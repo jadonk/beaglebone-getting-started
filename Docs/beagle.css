@@ -17,17 +17,29 @@ ul, ol, dl {
 	margin: 0;
 }
 
+
 h1, h2, h3, h4, h5, h6, p {
 	margin-top: 0;	
 	padding-right: 15px;
 	padding-left: 15px; 
-}*/
+	}*/
+	
+	h2, h3 {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
 a img { 
 	border: none;
 }
+a.external {
+    background: url(/static/images/icon_offsite.gif) center right no-repeat;
+    padding-right: 13px;
+}
+
 ul.square {
 	list-style-type:square;
-	color: #de7224;
+	color: #525252;
 	padding-left:10px;
 	margin:10px;
 	}
@@ -35,7 +47,7 @@ ul.square {
 /* Element/tag selectors end */
 
 .top {
-	background-color: #de7224;
+	background-color: white;
 	height: 75px;
 	text-align: center;
 }
@@ -47,7 +59,7 @@ ul.square {
 	margin: 0 auto; 
 }
 .social{
-	width:200px;
+	width:240px;
 	float:right;
 	padding-top:15px;
 }
@@ -243,14 +255,12 @@ a:hover   {color:#de7224; text-decoration:underline;}
     right:50%;  
     margin-right:265px;  
     width:240px;  
-} 
-   
+}  
 #floatMenu ul {  
     margin-bottom:20px; 
 	list-style:none;
 	font-family:Arial, Helvetica, sans-serif  
-}
-
+}  
 #floatMenu ul li a {  
     display:block;
 	color:#de7224; 
@@ -283,22 +293,21 @@ a:hover   {color:#de7224; text-decoration:underline;}
     padding-right:18px;
 }
 
+
 #floatMenu ul li a:hover {  
     background-color:#de7224;
 	color:#fff;
 	border-left:15px solid #b04b0c; 
 }  
-#floatMenu ul li a:hover {  
-    background-color:#de7224; 
-	color:#fff;
-	border-left:15px solid #b04b0c;   
-}  
 
 #floatMenu ul li.fmGreen a:hover {  
+    color:#fff;
     background-color:#549660; 
-	color:#fff;
-	border-left:15px solid #305a2d;   
+    border-left:15px solid #305a2d;   
 }
+
+img.steps { vertical-align: middle; }
+img.start { vertical-align: middle; padding-right:3px; }
 
 /* Accordion menu*/
 .ui-accordion .ui-accordion-header { display: block; cursor: pointer; position: relative; margin-top: 2px; padding: .5em .5em .5em .7em; zoom: 1; }
@@ -361,8 +370,10 @@ a:hover   {color:#de7224; text-decoration:underline;}
 	float:left;
 	width:590px;
 	margin-left:25px;
-	padding:10px;	
-	padding-bottom: 10px;
+	padding-left:10px;
+	padding-top:10px;
+	padding-right:0px;
+	padding-bottom:0px;	
 	 border-radius: 5px 5px 5px 5px;
   -moz-border-radius: 5px 5px 5px 5px;
   -webkit-border-radius: 5px 5px 5px 5px;
@@ -375,20 +386,40 @@ a:hover   {color:#de7224; text-decoration:underline;}
 #hp-c4 {
 	float:left;	
 	width:280px;
-	margin-left:25px;	
+	margin-top:15px;
+	margin-left:25px;
+	margin-bottom:25px;	
 }
 #hp-c5 {
-	padding-top:31px;
 	float:left;	
 	width:280px;
-	margin-left:25px;	
+	margin-top:62px;
+	margin-left:25px;
+	margin-bottom:25px;	
 }
 #hp-c6 {
-	padding-top:15px;
 	float:left;	
 	width:280px;
-	margin-left:25px;	
+	margin-top:47px;
+	margin-left:25px;
+	margin-bottom:25px;	
 }
+table#features {
+	width:250px;
+}
+#homepage-gettingStarted
+{
+               border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;
+               float: right;
+               margin-top: 65px;
+               margin-right: 35px;
+               padding: 10px;
+               width: 240px;
+               background-color:#de7224;
+               text-align:center;
+}
+
 	
 /* end homepage content divs*/
 
@@ -428,16 +459,105 @@ ul.left-menu a:hover{
 	float: left;
 	padding-left:30px;
 }
-.t3_content_child {
-	width:650px;
-}
 
 #t2-c1 {
-
-	padding: 10px 0;
-	width: 600px;
-	float: left;
+float:left;
+	width:575px;
+	margin-left:0px;
+	margin-bottom:20px;
+	padding-left:10px;
+	padding-top:10px;	
+	padding-bottom:0px;
+	border-radius: 5px 5px 5px 5px;
+   -moz-border-radius: 5px 5px 5px 5px;
+   -webkit-border-radius: 5px 5px 5px 5px;
+    border:1px solid #b4a279;
 }
+#t2-c1-content {
+	float:right;
+	width:295px;
+	
+	
+}
+#t2-c1a {
+float:left;
+	width:567px;
+	margin-right:25px;
+	margin-bottom:20px;
+	padding:0px;	
+	padding-bottom: 10px;
+}
+#t2-c2 {
+	float:left;
+	padding:10px;
+	width:270px;
+	margin-left:10px;
+}
+#t2-c4 {
+	float:left;	
+	width:260px;
+	padding:10px;	
+	margin-bottom: 20px;
+	border-radius: 5px 5px 5px 5px;
+   -moz-border-radius: 5px 5px 5px 5px;
+   -webkit-border-radius: 5px 5px 5px 5px;
+    border:1px solid #b4a279;
+	
+}
+#t2-c5 {
+	float:left;	
+	width:260px;
+	margin-left:25px;
+	margin-bottom: 20px;
+	padding:10px;	
+	padding-bottom: 10px;
+	border-radius: 5px 5px 5px 5px;
+   -moz-border-radius: 5px 5px 5px 5px;
+   -webkit-border-radius: 5px 5px 5px 5px;
+    border:1px solid #b4a279;
+	
+}
+#t2-c6 {
+	float:left;	
+	width:260px;
+	margin-left:25px;
+	margin-bottom: 20px;
+	padding:10px;	
+	padding-bottom: 10px;
+	border-radius: 5px 5px 5px 5px;
+   -moz-border-radius: 5px 5px 5px 5px;
+   -webkit-border-radius: 5px 5px 5px 5px;
+    border:1px solid #b4a279;
+
+}
+#t2-video-1 {
+	float:left;
+	width:420px;
+	margin-right:53px;
+}
+#t2-video-2 {
+	float:left;
+	width:420px;
+}
+/*temp 
+#t2-c7 {
+	float:left;	
+	width:875px;
+	margin-bottom: 20px;
+	padding:10px;	
+	border-radius: 5px 5px 5px 5px;
+   -moz-border-radius: 5px 5px 5px 5px;
+   -webkit-border-radius: 5px 5px 5px 5px;
+    border:1px solid #b4a279;
+
+}
+
+#t2-c7-content {
+	float:right;
+	width:600px;
+}
+*/
+
 
 .browser-connect {
 	width: 600px;
@@ -464,8 +584,504 @@ ul.left-menu a:hover{
 	float:right;
 	width:500px;
 }
+
+/*Juan added */
+/*temp 
+#t2-c5a {
+    
+    border-radius: 5px 5px 5px 5px;
+    float: left;   
+    width: 200px;
+               margin-left:5px;
+}
+ 
+#t2-c5b {
+    
+    border-radius: 5px 5px 5px 5px;
+    float: left;   
+    width: 180px;
+               margin-left:5px;
+}
+ 
+#t2-c5c {
+    /*border: 1px solid #B4A279;*//*temp 
+    border-radius: 5px 5px 5px 5px;
+    float: left;   
+    width: 200px;
+               margin-left:5px;
+}
+
+*/
+/* ########      PRODUCT DETAILS page table holders begin   #######      */
+/* ################################################################# */
+/* SUPPORT
+/* ################################################################# */
+ 
+#sup-forum
+{
+               border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 25px;
+               padding: 10px;
+               width: 260px;
+}
+ 
+#sup-irc
+{
+               border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 25px;
+               padding: 10px;
+               width: 260px;
+                                                background-color:#de7224;
+                                                text-align:center;
+}
+#sup-irc h2
+{
+               color:#fff;
+               font-weight:bold;
+}
+ 
+#sup-faq
+{
+               border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 25px;
+               padding: 10px;
+               width: 260px;
+                                                background-color:#de7224;
+                                                text-align:center;
+}
+ 
+#sup-faq h2
+{
+               color:#fff;
+               font-weight:bold;
+}
+ 
+#sup-flash
+{
+               border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 0;
+               padding: 10px;
+               width: 567px;
+               height:195px;
+               min-height:195px;
+}
+ 
+#sup-guide 
+{
+               border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 0;
+               padding: 10px;
+               width: 567px;
+               height:195px;
+               min-height:195px;
+}
+ 
+#sup-exDoc
+{
+               /*border: 1px solid #B4A279;*/
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 25px;
+               padding: 0 10px 10px 10px;
+               width: 260px;
+}
+ 
+#sup-softSup
+{
+               border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 0;
+               padding: 10px;
+               width: 870px;
+               height:auto;
+               min-height:195px;
+}
+ 
+#sup-hardSup
+{
+               border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 0;
+               padding: 10px;
+               width: 870px;
+               height:auto;
+               min-height:195px;
+}
+#sup-forum h2
+{
+               color:#fff;
+               font-weight:bold;
+}
+#t2-c4-prod-details {
+    border: 1px solid #B4A279;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 260px;
+               height:auto;
+               min-height:345px;
+}
+#t2-c5-prod-details {
+    border: 1px solid #B4A279;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    padding: 10px;
+    width: 260px;
+               height:auto;
+               min-height:345px;
+}
+#t2-c6-prod-details {
+    border: 1px solid #B4A279;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    padding: 10px;
+    width: 260px;
+               height:auto;
+               min-height:345px;
+}
+/* ########      PRODUCT DETAILS page table holders ends   #######      */
+#t2-c7
+{
+               border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               padding: 10px 0 0 10px;
+               width: 885px;
+}
+ 
+#t2-c7-content
+{
+               float: right;
+               width: 600px;
+}
+ 
+#t2-c5a
+{
+              
+               float: left;   
+               width: 280px;
+               
+}
+ 
+#t2-c5b
+{
+               padding-left:20px;
+               float: left;   
+               width: 280px;
+               
+}
+ 
+#t2-c5c
+{
+               
+			   float: left;   
+               width: 280px;
+               
+			            
+}
+ 
+ 
+#t2-c5d
+{
+
+               float: left;   
+               width: 590px;
+               
+}
+ 
+#CTA
+{
+               background-color:#de7224;
+               width:225px;
+               height:72px;
+               display:block;
+               margin-top:20px;
+               background:url(images/CTA-tilt.jpg) no-repeat;
+               padding: 8px 0 0 45px;
+               float:right;
+}
+/* ################################################################# */
+/* HARDWARE SUPPORT
+/* ################################################################# */
+#hard-sup
+{
+               border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 0;
+               padding: 10px;
+               width: 567px;
+               height:auto;
+               min-height:120px;
+}
+#hard-sup-inter
+{
+               /*border: 1px solid #B4A279;*/
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 25px;
+               padding: 0 10px 10px 10px;
+               width: 260px;
+               height:auto;
+               min-height:120px;
+} 
+ 
+#hard-sup-level-doc  
+{
+               /*border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;*/
+               float: left;
+               margin-bottom: 10px;
+               margin-left: 0;
+               padding: 10px;
+               width: 870px;
+               height:auto;
+               min-height:150px;
+}
+ 
+#hard-sup-level-doc-prod-a
+{
+               border: 1px solid #f1f1f1;
+			   background-color:#f1f1f1;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               padding: 10px;
+               width: 180px;
+               height:auto;
+               min-height:150px;
+}
+ 
+#hard-sup-level-doc-prod-b
+{
+               border: 1px solid #f1f1f1;
+			   background-color:#f1f1f1;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 15px;
+               padding: 10px;
+               width: 180px;
+               height:auto;
+               min-height:150px;
+}
+ 
+#hard-sup-level-doc-prod-c
+{
+               border: 1px solid #f1f1f1;
+			   background-color:#f1f1f1;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 15px;
+               padding: 10px;
+               width: 180px;
+               height:auto;
+               min-height:150px;
+}
+ 
+#hard-sup-level-doc-prod-d
+{
+               border: 1px solid #f1f1f1;
+			   background-color:#f1f1f1;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 15px;
+               padding: 10px;
+               width: 180px;
+               height:auto;
+               min-height:150px;
+}
+ 
+#hard-sup-capes
+{
+               border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 0;
+               padding: 10px;
+               width: 567px;
+               height:auto;
+               min-height:120px;
+}
+ 
+#hard-sup-repair
+{
+               border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 20px;
+               padding: 10px;
+               width: 260px;
+               height:auto;
+               min-height:120px;
+}
+ 
+
+#hard-sup-materials
+{
+               border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 0;
+               padding: 10px;
+              width: 870px;
+               height:auto;
+               min-height:5px;
+}
+ 
+ 
+ 
+#hard-sup-materials-a
+{
+               /*border: 1px solid #f1f1f1;
+               background-color:#f1f1f1;*/
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 10px;
+               padding: 10px;
+               width: 250px;
+               height:auto;
+               min-height:5px;
+}
+ 
+#hard-sup-materials-b
+{
+               /*border: 1px solid #f1f1f1;
+               background-color:#f1f1f1;*/
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 10px;
+               margin-left: 25px;
+               padding: 10px;
+               width: 250px;
+               height:auto;
+               min-height:5px;
+}
+ 
+#hard-sup-materials-c
+{
+               /*border: 1px solid #f1f1f1;
+               background-color:#f1f1f1;*/              
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 10px;
+               margin-left: 25px;
+               padding: 10px;
+               width: 250px;
+               height:auto;
+               min-height:5px;
+}
+
+/* ################################################################# */
+/* SOFTWARE SUPPORT
+/* ################################################################# */
+ 
+#soft-sup-bonescript
+{
+               border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 0;
+               padding: 10px;
+               width: 567px;
+               height:auto;
+               min-height:100px;
+}
+ 
+#soft-sup-gettingStarted
+{
+               border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 20px;
+               padding: 10px;
+               width: 260px;
+               background-color:#de7224;
+               text-align:center;
+}
+ 
+#soft-sup-gettingStarted h2
+{
+               color:#fff;
+               font-weight:bold;
+}
+ 
+#soft-sup-download
+{
+               /*border: 1px solid #B4A279;*/
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 25px;
+               padding: 0 10px 10px 10px;
+               width: 260px;
+}
+ 
+#soft-sup-SoftwareSupport
+{
+               border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 0;
+               padding: 10px;
+               width: 567px;
+               height:auto;
+               min-height:300px;
+}
+ 
+#soft-sup-links
+{
+               border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 20px;
+               padding: 10px;
+               width: 260px;
+               height:auto;
+               min-height:150px;
+}
+
+/*Juan added end*/
 	
 /* main content divs end*/
+/*temp
 .footer {
 	clear:left;
 	margin: 0 auto;
@@ -483,7 +1099,22 @@ ul.left-menu a:hover{
   	background: -o-linear-gradient(top, #515151 0%, #222222 100%);
   	background: -ms-linear-gradient(top, #515151 0%, #222222 100%);
   	background: linear-gradient(to bottom, #515151 0%, #222222 100%);
-  	border-top: 5px solid #de7224;  	  
+  	border-top: 5px solid #de7224; 
+	max-height:225px; 	  
+}
+*/
+
+.footer
+{
+               background:url(images/footer-img.jpg) repeat-x;   
+               clear: left;   
+               font-size: 12px;
+               height: 200px;
+               max-height:200px;
+               margin: 0 auto;
+               padding: 10px 0;
+               text-align: left;
+               width: 950px;
 }
 #footer-links {
 	width: 950px;
@@ -573,3 +1204,410 @@ div#cc {
 	float:left;
 	font-size:11px;
 }
+/* ################################################################# */
+/* COMMUNITY MAILING LIST
+/* ################################################################# */
+ 
+#comm-mail-list-groups
+{
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 0;
+               padding: 10px;
+               width: auto;
+               min-width:870px;
+               height:auto;
+               min-height:300px;
+}h
+
+
+ 
+#comm-mail-list-subscription
+{
+               /*border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;*/
+               float: left;
+               margin-bottom: 10px;
+               margin-left: 0;
+               padding: 10px;
+               width: 870px;
+               height:auto;
+               min-height:150px;
+}
+ 
+#comm-mail-list-subscription-a
+{
+               border: 1px solid #f1f1f1;
+                                                background-color:#f1f1f1;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               padding: 10px;
+               width: 180px;
+               height:auto;
+               min-height:150px;
+}
+ 
+#comm-mail-list-subscription-b
+{
+               border: 1px solid #f1f1f1;
+                                                background-color:#f1f1f1;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 15px;
+               padding: 10px;
+               width: 180px;
+               height:auto;
+               min-height:150px;
+}
+ 
+#comm-mail-list-subscription-c
+{
+               border: 1px solid #f1f1f1;
+                                                background-color:#f1f1f1;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 15px;
+               padding: 10px;
+               width: 180px;
+               height:auto;
+               min-height:150px;
+}
+ 
+#comm-mail-list-subscription-d
+{
+               border: 1px solid #f1f1f1;
+                                                background-color:#f1f1f1;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 15px;
+               padding: 10px;
+               width: 180px;
+               height:auto;
+               min-height:150px;
+}
+#sup-forum
+{
+               border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 25px;
+               padding: 10px;
+               width: 260px;
+               background-color:#de7224;
+               color:#fff;
+               text-align:center;
+}
+
+/* ################################################################# */
+/* BONESCRIPT LIBRARY
+/* ################################################################# */
+
+pre#code {
+ position: relative;
+ width: 500px;
+ padding-left: 0;
+ border-radius: 4px;
+ border-bottom-right-radius: 0px;
+ border-bottom-left-radius: 0px;
+ margin-bottom: 0px;
+ margin-left: 30px;
+ margin-right: 0px;
+ align: left;
+}
+#console-output {
+ margin-top: 0px;
+ margin-left: 30px;
+ width: 496px;
+ border: 1px solid #cccccc;
+ resize: vertical;
+}
+
+#BoneScript-wrapper  
+{
+               float: left;
+               margin-bottom: 10px;
+               margin-left: 0;
+               width: 870px;
+               height:auto;
+}
+#BoneScript-col1
+{
+               float: left;
+               width: 200px;
+			   margin-bottom: 20px;              
+               height:auto;
+               min-height:150px;
+			   margin-left:70px;
+}
+ 
+#BoneScript-col2
+{
+               float: left;
+               width: 200px;
+			   margin-bottom: 20px;
+               margin-left: 40px;
+               height:auto;
+               min-height:150px;
+}
+#BoneScript-col3
+{
+               float: left;
+               width: 200px;
+			   margin-bottom: 20px;
+               margin-left: 40px;
+               height:auto;
+               min-height:150px;
+}
+ 
+#bonescript-content
+{
+               border: 1px solid #f1f1f1;
+			   background-color:#f1f1f1;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+			   list-style:none;
+			   line-height:20px;
+               padding: 20px;
+			   margin-bottom:40px;
+               width: 165px;
+               height:auto;
+               
+}
+
+
+/*#############################################
+##               PROJECTS
+###############################################*/
+#proj-regis
+{
+               border:1px solid #B4A279;
+               border-radius:5px 5px 5px 5px;
+               float:left;
+               margin-bottom:20px;
+               margin-left:25px;
+               padding:10px;
+               width:260px;
+               background-color:#de7224;
+               text-align:center;
+               color:#fff;
+               font-weight:bold;
+}
+#proj-search
+{
+               border: 1px solid #B4A279;
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 0;
+               padding: 10px;
+               width: 870px;
+               height:auto;
+               min-height:195px;
+}
+
+#showAll, .selAll {
+    color: #DE7224;
+    text-decoration: none;
+}
+
+#showAll:hover, .selAll:hover {
+    color: #DE7224;
+    text-decoration: underline;
+}
+
+table#projects {
+    padding-left: 0;
+    padding-top: 0;
+    width: 897px;
+}
+
+.dataTables_info {
+	padding-top: 5px;
+	font-weight: bold;
+}
+
+#filterToggle {
+	padding-right: 4px;
+}
+
+/*
+ * Sorting
+ */
+.sorting { background: url('/static/graphics/sort_both.png') no-repeat center right; background-color:#de7224; }
+.sorting_asc { background: url('/static/graphics/sort_asc.png') no-repeat center right; background-color:#de7224; }
+.sorting_desc { background: url('/static/graphics/sort_desc.png') no-repeat center right; background-color:#de7224; }
+
+.sorting_asc_disabled { background: url('/static/graphics/sort_asc_disabled.png') no-repeat center right; background-color:#de7224; }
+.sorting_desc_disabled { background: url('/static/graphics/sort_desc_disabled.png') no-repeat center right; background-color:#de7224; }
+ 
+table.dataTable thead th:active,
+table.dataTable thead td:active {
+	outline: none;
+}
+
+
+/*
+ * Pagination
+ */
+.dataTables_paginate {
+	float: right;
+	text-align: right;
+}
+
+/* Two button pagination - previous / next */
+.paginate_disabled_previous,
+.paginate_enabled_previous,
+.paginate_disabled_next,
+.paginate_enabled_next {
+	height: 19px;
+	float: left;
+	cursor: pointer;
+	*cursor: hand;
+	color: #111 !important;
+}
+.paginate_disabled_previous:hover,
+.paginate_enabled_previous:hover,
+.paginate_disabled_next:hover,
+.paginate_enabled_next:hover {
+	text-decoration: none !important;
+}
+.paginate_disabled_previous:active,
+.paginate_enabled_previous:active,
+.paginate_disabled_next:active,
+.paginate_enabled_next:active {
+	outline: none;
+}
+
+.paginate_disabled_previous,
+.paginate_disabled_next {
+	color: #666 !important;
+}
+.paginate_disabled_previous,
+.paginate_enabled_previous {
+	padding-left: 23px;
+}
+.paginate_disabled_next,
+.paginate_enabled_next {
+	padding-right: 23px;
+	margin-left: 10px;
+}
+
+.paginate_enabled_previous { background: url('../images/back_enabled.png') no-repeat top left; }
+.paginate_enabled_previous:hover { background: url('../images/back_enabled_hover.png') no-repeat top left; }
+.paginate_disabled_previous { background: url('../images/back_disabled.png') no-repeat top left; }
+
+.paginate_enabled_next { background: url('../images/forward_enabled.png') no-repeat top right; }
+.paginate_enabled_next:hover { background: url('../images/forward_enabled_hover.png') no-repeat top right; }
+.paginate_disabled_next { background: url('../images/forward_disabled.png') no-repeat top right; }
+
+/* Full number pagination */
+.paging_full_numbers {
+	font-size: 11px;
+	height: 22px;
+	line-height: 22px;
+}
+.paging_full_numbers a:active {
+	outline: none
+}
+.paging_full_numbers a:hover {
+	text-decoration: none;
+}
+
+.paging_full_numbers a.paginate_button,
+.paging_full_numbers a.paginate_active {
+	////border: 1px solid #aaa;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding: 2px 5px;
+	margin: 0 3px;
+	cursor: pointer;
+	*cursor: hand;
+	color: #333 !important;
+}
+
+.paging_full_numbers a.paginate_button {
+	background-color: #ddd;
+}
+
+.paging_full_numbers a.paginate_button:hover {
+	background-color: #ccc;
+	text-decoration: none !important;
+}
+
+.paging_full_numbers a.paginate_active {
+	background-color: #de7224;
+}
+
+
+/*#########################################################
+#CAPES PRODUCTS
+#
+#########################################################*/
+ 
+#t2-c7-capes-display-prod
+{
+               border: 1px solid #f1f1f1;
+                                                /*background-color:#f1f1f1;*/
+               border-radius: 5px 5px 5px 5px;
+               float: left;
+               margin-bottom: 20px;
+               margin-left: 15px;
+               padding: 10px;
+               width: 180px;
+               height:auto;
+               min-height:150px;
+}
+
+
+/* MailChimp Form Embed Code - Classic - 08/17/2011 */
+#mc_embed_signup form {display:block; position:relative; text-align:left; padding:10px 0 10px 3%}
+#mc_embed_signup h2 {font-weight:bold; padding:0; margin:15px 0; font-size:1.4em;}
+#mc_embed_signup input {border:1px solid #999; -webkit-appearance:none;}
+#mc_embed_signup input[type=checkbox]{-webkit-appearance:checkbox;}
+#mc_embed_signup input[type=radio]{-webkit-appearance:radio;}
+#mc_embed_signup input:focus {border-color:#333;}
+#mc_embed_signup .button {clear:both; background-color: #aaa; border: 0 none; border-radius:4px; color: #FFFFFF; cursor: pointer; display: inline-block; font-size:15px; font-weight: bold; height: 32px; line-height: 32px; margin: 0 5px 10px 0; padding: 0 22px; text-align: center; text-decoration: none; vertical-align: top; white-space: nowrap; width: auto;}
+#mc_embed_signup .button:hover {background-color:#777;}
+#mc_embed_signup .small-meta {font-size: 11px;}
+#mc_embed_signup .nowrap {white-space:nowrap;}
+
+#mc_embed_signup .mc-field-group {clear:left; position:relative; width:96%; padding-bottom:3%; min-height:50px;}
+#mc_embed_signup .size1of2 {clear:none; float:left; display:inline-block; width:46%; margin-right:4%;}
+* html #mc_embed_signup .size1of2 {margin-right:2%; /* Fix for IE6 double margins. */}
+#mc_embed_signup .mc-field-group label {display:block; margin-bottom:3px;}
+#mc_embed_signup .mc-field-group input {display:block; width:100%; padding:8px 0; text-indent:2%;}
+#mc_embed_signup .mc-field-group select {display:inline-block; width:99%; padding:5px 0; margin-bottom:2px;}
+
+#mc_embed_signup .datefield, #mc_embed_signup .phonefield-us{padding:5px 0;}
+#mc_embed_signup .datefield input, #mc_embed_signup .phonefield-us input{display:inline; width:60px; margin:0 2px; letter-spacing:1px; text-align:center; padding:5px 0 2px 0;}
+#mc_embed_signup .phonefield-us .phonearea input, #mc_embed_signup .phonefield-us .phonedetail1 input{width:40px;}
+#mc_embed_signup .datefield .monthfield input, #mc_embed_signup .datefield .dayfield input{width:30px;}
+#mc_embed_signup .datefield label, #mc_embed_signup .phonefield-us label{display:none;}
+
+#mc_embed_signup .indicates-required {text-align:right; font-size:11px; margin-right:4%;}
+#mc_embed_signup .asterisk {color:#c60; font-size:200%;}
+#mc_embed_signup .mc-field-group .asterisk {position:absolute; top:25px; right:10px;}        
+#mc_embed_signup .clear {clear:both;}
+
+#mc_embed_signup .mc-field-group.input-group ul {margin:0; padding:5px 0; list-style:none;}
+#mc_embed_signup .mc-field-group.input-group ul li {display:block; padding:3px 0; margin:0;}
+#mc_embed_signup .mc-field-group.input-group label {display:inline;}
+#mc_embed_signup .mc-field-group.input-group input {display:inline; width:auto; border:none;}
+
+#mc_embed_signup div#mce-responses {float:left; top:-1.4em; padding:0em .5em 0em .5em; overflow:hidden; width:90%;margin: 0 5%; clear: both;}
+#mc_embed_signup div.response {margin:1em 0; padding:1em .5em .5em 0; font-weight:bold; float:left; top:-1.5em; z-index:1; width:80%;}
+#mc_embed_signup #mce-error-response {display:none;}
+#mc_embed_signup #mce-success-response {color:#529214; display:none;}
+#mc_embed_signup label.error {display:block; float:none; width:auto; margin-left:1.05em; text-align:left; padding:.5em 0;}
+
+#mc-embedded-subscribe {clear:both; width:auto; display:block; margin:1em 0 1em 5%;}
+#mc_embed_signup #num-subscribers {font-size:1.1em;}
+#mc_embed_signup #num-subscribers span {padding:.5em; border:1px solid #ccc; margin-right:.5em; font-weight:bold;}
+#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+
