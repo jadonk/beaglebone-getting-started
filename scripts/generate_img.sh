@@ -27,7 +27,7 @@ TEMPDIR=$(mktemp -d)
 ###
 imagename="beaglebone-getting-started-$(git log -1 --date=short --pretty=format:%cd)"
 image_size_mb="40"
-image_format="iso"
+image_format="fat"
 ###
 
 check_root () {
