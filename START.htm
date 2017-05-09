@@ -109,6 +109,10 @@
   <script type="text/javascript" src="Docs/bonescript.js"></script>
   <script>
 var step1done = false;
+var connected6 = false;
+var connected7 = false;
+var connected8 = false;
+var connectedLocal = false;
 var testedOnce = false;
 $(document).ready(function(){  
  testForCompletedSteps();
@@ -128,16 +132,24 @@ function testForCompletedSteps() {
    ga('send', 'event', 'bonescript', 'plugged-in', 'getting-started');
   }
  }
+ if(!connected6) tryConnection('192.168.6.2');
+ if(!connected7) tryConnection('192.168.7.2');
+ if(!connected8) tryConnection('192.168.8.1');
+ if(!connectedLocal) tryConnection('beaglebone.local');
+ // what if there's already a connection?
+}
+function tryConnection(address) {
  setTargetAddress('192.168.7.2', function () {
+  testConnection('192.1
   if(typeof _bonescript != 'undefined') {
    step1done = true;
    $('#fmStep1').addClass('fmGreen');
    $('#fmStep2').addClass('fmGreen');
    if(typeof ga == "function") {
-    ga('send', 'event', 'bonescript', 'connected', 'getting-started');
+    ga('send', 'event', 'bonescript', 'connected7', 'getting-started');
    }
   } else {
-   setTimeout(testForCompletedSteps, 2000);
+   failedConnect('192.168.7.2');
   }
  });
 }
@@ -235,25 +247,25 @@ Browse to web server on Beagle</a></li>
       <td>192.168.7.2</td>
       <td>USB</td>
       <td>Windows</td>
-      <td><div id="net_status_7_2">Inactive</div></td>
+      <td><iframe sandbox="allow-same-origin allow-scripts" src="Docs/testconn.htm?host=192.168.7.2">Inactive</iframe></td>
      </tr>
      <tr>
       <td>192.168.6.2</td>
       <td>USB</td>
       <td>Mac OS X, Linux</td>
-      <td><div id="net_status_6_2">Inactive</div></td>
+      <td><iframe sandbox="allow-same-origin allow-scripts" src="Docs/testconn.htm?host=192.168.6.2">Inactive</iframe></td>
      </tr>
      <tr>
       <td>192.168.8.1</td>
       <td>WiFi</td>
       <td>all</td>
-      <td><div id="net_status_8_1">Inactive</div></td>
+      <td><iframe sandbox="allow-same-origin allow-scripts" src="Docs/testconn.htm?host=192.168.8.1">Inactive</iframe></td>
      </tr>
      <tr>
       <td>beaglebone.local</td>
       <td>all</td>
       <td>mDNS enabled</td>
-      <td><div id="net_status_mdns">Inactive</div></td>
+      <td><iframe sandbox="allow-same-origin allow-scripts" src="Docs/testconn.htm?host=beaglebone.local">Inactive</iframe></td>
      </tr>
     </table>
     <p>With the latest images, <em>it should no longer be necessary to install drivers</em> for your operating system to give you network-over-USB access to your Beagle. In case you are running an older image, an older operating system or need additional drivers for

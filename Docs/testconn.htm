@@ -1,0 +1,19 @@
+<html>
+<head>
+<script>
+function get(name){
+   if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+      return decodeURIComponent(name[1]);
+}
+
+function onconnect() {
+  console.log("Connected to " + host);
+}
+
+var host = get('host');
+setTargetAddress(host, onconnect);
+
+</script>
+</head>
+<div id="status">Inactive</div>
+
