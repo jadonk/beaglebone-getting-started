@@ -1,9 +1,11 @@
 <html>
 <head>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="bonescript.js"></script>
 <script>
-function get(name){
-   if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
-      return decodeURIComponent(name[1]);
+function get(name) {
+ if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+ return decodeURIComponent(name[1]);
 }
 
 function onconnect() {
