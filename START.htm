@@ -132,6 +132,8 @@ function testForCompletedSteps() {
 
 function foundBone(host) {
  console.log("Found BeagleBone at " + host);
+ $('a.bonelink').each(function(i){ $(this).attr('href',host); });
+ $('a#bonelinktext').html("http://" + host);
  step1done = true;
  $('#fmStep1').addClass('fmGreen');
  $('#fmStep2').addClass('fmGreen');
@@ -311,12 +313,12 @@ serial access to older boards, links to the old drivers are below.</p>
     <h3 id="step3"><img class="steps" src="Docs/images/btn_step3.gif" /><strong>Browse to your Beagle</strong></h3>
     <p>Using either <a class="external" target="_blank" href="https://www.google.com/chrome">Chrome</a> or <a target="_blank" href="http://www.mozilla.org/firefox">Firefox</a> (Internet Explorer will <b>NOT</b> work), browse to the web server running on your board. It will load a presentation showing you the capabilities of the board. Use the arrow keys on your keyboard to navigate the presentation.</p>
     <ul class="arrow">
-     <li>Click here to launch: <a class="external" href="http://192.168.7.2" target="_blank">http://192.168.7.2</a><br />
+     <li>Click here to launch: <a id="bonelinktext" class="bonelink external" href="http://192.168.7.2" target="_blank">http://192.168.7.2</a><br />
         <small>Older software images require you to EJECT the BEAGLE_BONE drive to start the 
         network.  With the latest software image, that step is no longer required.</small>
      </li>
     </ul>
-    <a class="external" href="http://192.168.7.2"><img src="Docs/images/bone101.png" width="600px" /></a>
+    <a class="bonelink external" href="http://192.168.7.2"><img src="Docs/images/bone101.png" width="600px" /></a>
 
     <h2 id="troubleshooting">Troubleshooting</h2>
     <p><em>Do not use Internet Explorer.</em></p>
