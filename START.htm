@@ -109,10 +109,6 @@
   <script type="text/javascript" src="Docs/bonescript.js"></script>
   <script>
 var step1done = false;
-var connected6 = false;
-var connected7 = false;
-var connected8 = false;
-var connectedLocal = false;
 var testedOnce = false;
 $(document).ready(function(){  
  testForCompletedSteps();
@@ -132,26 +128,16 @@ function testForCompletedSteps() {
    ga('send', 'event', 'bonescript', 'plugged-in', 'getting-started');
   }
  }
- if(!connected6) tryConnection('192.168.6.2');
- if(!connected7) tryConnection('192.168.7.2');
- if(!connected8) tryConnection('192.168.8.1');
- if(!connectedLocal) tryConnection('beaglebone.local');
- // what if there's already a connection?
 }
-function tryConnection(address) {
- return;
- setTargetAddress('192.168.7.2', function () {
-  if(typeof _bonescript != 'undefined') {
-   step1done = true;
-   $('#fmStep1').addClass('fmGreen');
-   $('#fmStep2').addClass('fmGreen');
-   if(typeof ga == "function") {
-    ga('send', 'event', 'bonescript', 'connected7', 'getting-started');
-   }
-  } else {
-   failedConnect('192.168.7.2');
-  }
- });
+
+function foundBone(host) {
+ console.log("Found BeagleBone at " + host);
+ step1done = true;
+ $('#fmStep1').addClass('fmGreen');
+ $('#fmStep2').addClass('fmGreen');
+ if(typeof ga == "function") {
+  ga('send', 'event', 'bonescript', 'connected7', 'getting-started');
+ }
 }
   </script>
  </head>

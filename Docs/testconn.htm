@@ -12,7 +12,8 @@ function get(name) {
 
 function onconnect() {
   console.log("Connected to " + host);
-  $("div#status").html("<em>Active</em>");
+  $("div#status").html('<a href="http://' + host + '" class="external"><em>Active</em></a>");
+  if(typeof parent.foundBone == "function") parent.foundBone(host);
 }
 
 var host = get('host');
