@@ -10,6 +10,7 @@ function get(name) {
 
 function onconnect() {
   console.log("Connected to " + host);
+  $("div#status").html("<em>Active</em>");
 }
 
 var host = get('host');
