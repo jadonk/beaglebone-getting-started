@@ -132,7 +132,7 @@ function testForCompletedSteps() {
 
 function foundBone(host) {
  console.log("Found BeagleBone at " + host);
- $('a.bonelink').each(function(i){ $(this).attr('href',host); });
+ $('a.bonelink').each(function(i){ $(this).attr('href',"http://"+host); });
  $('a#bonelinktext').html("http://" + host);
  step1done = true;
  $('#fmStep1').addClass('fmGreen');
