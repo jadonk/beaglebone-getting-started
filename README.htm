@@ -134,6 +134,13 @@ function foundBone(host) {
  console.log("Found BeagleBone at " + host);
  $('a.bonelink').each(function(i){ $(this).attr('href',"http://"+host); });
  $('a#bonelinktext').html("http://" + host);
+ $('ul#quickLinks').html(
+  "<li><a href=http://" + host + "/>Web server</a></li>" +
+  "<li><a href=http://" + host + ":3000/>Cloud9 IDE</a></li>" +
+  "<li><a href=ssh://" + host + "/>SSH server</a></li>" +
+  "<li><a href=http://" + host + ":1880/>Node-RED</a></li>"
+ );
+ $('ul#quickLinks').show();
  step1done = true;
  $('#fmStep1').addClass('fmGreen');
  $('#fmStep2').addClass('fmGreen');
@@ -145,6 +152,8 @@ function foundBone(host) {
  </head>
  <body>
     <div id="floatMenu">  
+     <ul id="quickLinks" style="display:none;">
+     </ul>
      <ul>   
        <li id="fmStep1"><a href="#step1"><strong>Step 1:</strong><br />
 Power and boot</a></li> 
