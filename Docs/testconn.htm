@@ -19,7 +19,7 @@ function onconnect() {
 var host = get('host');
 
 if(host == "beaglebone.local") {
-  if(typeof chrome && typeof chrome.mdns && typeof chrome.mdns.forceDiscovery == "function") {
+  if(chrome && chrome.mdns && typeof chrome.mdns.forceDiscovery == "function") {
     chrome.mdns.onServiceList.addListener(onServiceList);
     chrome.mdns.forceDiscovery();
   }
@@ -31,6 +31,7 @@ function onServiceList(services) {
     console.log("Found service " + s.serviceName + " at " + s.ipAddress);
     if(s.serviceName == "beaglebone.local") {
       host = s.ipAddress;
+      setTargetAddress(host, onconnect);
     }
   }
 }
