@@ -137,7 +137,7 @@ function foundBone(host) {
  $('ul#quickLinks').html(
   '<li><a href="http://' + host + '/" class="external">Web server</a></li>' +
   '<li><a href="http://' + host + ':3000/" class="external">Cloud9 IDE</a></li>' +
-  '<li><a href="ssh://' + host + '/" class="external">SSH server</a></li>' +
+  '<li><a href="ssh://debian@' + host + '/" class="external">SSH server</a></li>' +
   '<li><a href="http://' + host + ':1880/" class="external">Node-RED</a></li>'
  );
  $('ul#quickLinks').show();
