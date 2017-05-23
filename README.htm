@@ -233,7 +233,7 @@ Browse to web server on Beagle</a></li>
     <p>If connected via USB, a network adapter should show up on your computer. Your Beagle should be running a DHCP server that will provide your computer with an IP address of either 192.168.7.1 or 192.168.6.1, depending on the type of USB network adapter supported by your computer's operating system. Your Beagle will reserve 192.168.7.2 or 192.168.6.2 for itself.</p>
     <p>If your Beagle includes WiFi, an access point called "BeagleBone-XXXX" where "XXXX" varies between boards. The access point password defaults to "BeagleBone". Your Beagle should be running a DHCP server that will provide your computer with an IP address in the 192.168.8.x range and reserve 192.168.8.1 for itself.</p>
     <p>If your Beagle is connected to your local area network (LAN) via either Ethernet or WiFi, it will utilize <a href="https://en.wikipedia.org/wiki/Multicast_DNS" class="external">mDNS</a> to broadcast itself to your computer. If your computer supports mDNS, you should see your Beagle as beaglebone.local. <em>Non-BeagleBone boards will utilize alternate names. Multiple BeagleBone boards on the same network will add a suffix such as beaglebone-2.local.</em></p>
-    <p>The below table summarizes the typical addresses and should dynamically update to indicate an active connection.</p>
+    <p>The below table summarizes the typical addresses and should dynamically update to indicate an active connection. <em>Note that you must load <a href="http://beagleboard.org/getting-started">this page</a> without HTTPS security for the automatic detection to work.</em></p>
     <table border="0">
      <tr>
       <th>IP Address</th>
@@ -406,9 +406,12 @@ BeagleBoneBlack wiki page</a> documents all of the known hardware issues, as wel
 hardware documentation and design materials.
     </p>
     <p>Time to read that manual and check out the design materials:
+     <a class="external" href="https://github.com/beagleboard/beagleboard">BeagleBoard</a>,
+     <a class="external" href="https://github.com/beagleboard/beagleboard-xm">BeagleBoard-xM</a>,
+     <a class="external" href="https://github.com/beagleboard/beagleboard-x15">BeagleBoard-X15</a>,
      <a class="external" href="https://github.com/beagleboard/beaglebone">BeagleBone</a>,
      <a class="external" href="https://github.com/beagleboard/beaglebone-black">BeagleBone Black</a>,
-     <a class="external" href="https://github.com/beagleboard/beaglebone-black-wireless">BeagleBone Black</a>, and
+     <a class="external" href="https://github.com/beagleboard/beaglebone-black-wireless">BeagleBone Black Wireless</a>, and
      <a class="external" href="https://github.com/beagleboard/beaglebone-blue">BeagleBone Blue</a>.</p>
     <p>Other links to design materials for various releases can be found at
      <a class="external" href="https://beagleboard.org/hardware/design">beagleboard.org/hardware/design</a>.</p>
