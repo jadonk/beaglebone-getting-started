@@ -367,8 +367,16 @@ serial access to older boards, links to the old drivers are below.</p>
 
     <h3>Step #6: Boot your board off of the SD card</h3>
     <p>Insert SD card into your (powered-down) board, hold down the USER/BOOT/SD button (if your board has one) and apply power.<em>Note: this button will change the ROM boot mode of the processor on you board to prevent it from loading code from the on-board flash. If the software on you board was fairly recent and functional, pressing this button is completely optional.</em></p>
-    <p>If using a Beagle without on-board flash, you are done.</p>
-    <p>If using BeagleBone Black or another Beagle with on-board flash and desire to write the image to your on-board flash, you'll need to follow the instructions at <a href="http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#Flashing_eMMC">http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#Flashing_eMMC</a>. When the flashing is complete, all 4 USRx LEDs will be steady on or off. The latest Debian flasher images automatically power down the board upon completion.  <em>This can take up to 45 minutes.</em>  Power-down your board, remove the SD card and apply power again to finish.</p>
+    <p>If using a Beagle without on-board eMMC flash, you are done.</p>
+
+    <h3>Step #7: Program your on-board blash (BeagleBone Black and boards with eMMC flash only)</h3>
+    <p>If using BeagleBone Black or another Beagle with on-board eMMC flash and you want to write the image to your on-board eMMC, you'll need to follow the instructions at <a href="http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#Flashing_eMMC">http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#Flashing_eMMC</a>
+ and use an eMMC flasher image or turn one of the above downloaded images into one. The process for converting an image into an eMMC flasher image is summarized below.</p>
+    <p>When booted, edit the /boot/uEnv.txt file on the Linux partition on the microSD card and remove the '#' on the line with 'cmdline=init=/opt/scripts/tools/eMMC/init-eMMC-flasher-v3.sh'. Enabling this will cause booting the microSD card to flash the eMMC. eMMC flasher images are no longer immediately recommended to avoid people accidentally overwriting their eMMC flash.</p>
+    <p>Shutdown cleanly and repeat Step #6.</p>
+    <p>You'll now need to wait while the programming occurs.  When the flashing is complete, all 4 USRx LEDs will be lit solid.</p>
+    <p><b>Note</b>: <em>This can take up to 30 minutes.</em></p>
+    <p>Power-down your board, remove the SD card and apply power again to be complete.</p>
 
     <h2 id="distros">Other currently available software images</h2>
     <p>Some of the starting images below involve multiple steps to produce an SD card image or otherwise change some of the steps above, so be sure to read all the instructions on their pages. Choose the starting point you want, download or produce the SD card image and follow the steps above.</p>
