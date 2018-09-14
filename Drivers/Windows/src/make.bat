@@ -1,3 +1,4 @@
+echo on
 set SDK_PATH="c:\Program Files\Microsoft SDKs\Windows\v7.1\Bin"
 set WDK_PATH="c:\Program Files (x86)\Windows Kits\10\bin\x86\"
 set ZIP_PATH="c:\Program Files\7-Zip"
