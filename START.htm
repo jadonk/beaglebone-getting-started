@@ -121,7 +121,8 @@
      <div id="contentbuffer">
      <p class="breadcrumb"><a href="https://beagleboard.org/">BeagleBoard.org</a> &rsaquo; <a href="https://beagleboard.org/getting-started/">getting-started</a></p>
      <div id="page">
- <a href="https://github.com/beagleboard/beaglebone-getting-started"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+<font size="+1">
+<a href="https://github.com/beagleboard/beaglebone-getting-started"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
   <script type="text/javascript" src="static/beagle-ui.js"></script>
   <script type="text/javascript" src="static/bonescript.js"></script>
   <script>
@@ -152,8 +153,7 @@ function foundBone(host) {
  $('a.bonelink').each(function(i){ $(this).attr('href',"http://"+host); });
  $('a#bonelinktext').html("http://" + host);
  $('ul#quickLinks').html(
-  '<li><a href="http://' + host + '/" class="external">Web server</a></li>' +
-  '<li><a href="http://' + host + ':3000/" class="external">Cloud9 IDE</a></li>' +
+  '<li><a href="http://' + host + '/" class="external">Cloud9 IDE</a></li>' +
   '<li><a href="ssh://debian@' + host + '/" class="external">SSH server</a></li>' +
   '<li><a href="http://' + host + ':1880/" class="external">Node-RED</a></li>'
  );
@@ -172,7 +172,8 @@ function foundBone(host) {
      <ul id="quickLinks" style="display:none;">
      </ul>
      <ul>  
-       <li><a href="#update"><strong>Step 0:</strong>Update image</a></li>
+       <li><a href="#update"><strong>Step 0:</strong><br />
+Update image</a></li>
        <li id="fmStep1"><a href="#step1"><strong>Step 1:</strong><br />
 Power and boot</a></li>
        <li id="fmStep2"><a href="#step2"><strong>Step 2:</strong><br />
@@ -191,9 +192,10 @@ Browse to web server on Beagle</a></li>
  
 </a></p>
     <h1>Getting Started</h1>
-    <p>Beagles are tiny computers with the capability of modern systems,
-    without the bulk, expense, or noise.
+    <p>Beagles are tiny computers ideal for learning and prototyping with electronics.
     Read the step-by-step getting started tutorial below to begin developing with your Beagle in minutes.</p>
+    
+<!--
     <p>For user supplied tips on getting started, visit the eLinux (or other) community wiki pages:</p>
     <ul>
         <li><a class="external" href="http://github.com/beagleboard/pocketbeagle/wiki">PocketBeagle</a></li>
@@ -209,27 +211,32 @@ Browse to web server on Beagle</a></li>
         <li><a class="external" href="http://elinux.org/SanCloud_BeagleBoneEnhanced">SanCloud BeagleBone Enhanced</a></li>
         <li><a class="external" href="http://wiki.neuromeka.net/index.php?title=Category:Getting_started_with_BB-Air">Neuromeka BeagleBone Air</a></li>
     </ul>
-   
+-->
 
     <h1 id="update">Update board with latest software</h1>
+    <p>This step may or may not be necessary, depending on how old a software image you already
+        have, but executing this, the longest, step will ensure the rest will go as smooth as possible.
+    </p>
     <h3>Step #0.A: Download the latest software image</h3>
     <p>Download the lastest Debian image from <a href="https://beagleboard.org/latest-images">beagleboard.org/latest-images</a>. The "IoT" images provide more free disk space if you don't need to use a graphical user interface (GUI).</p>
     <p><small><b>Note:</b> Due to sizing necessities, this download may take 30 minutes or more.</small></p>
     <p>The Debian distribution is provied for the boards. The file you download will have an .img.xz extension. This is a compressed sector-by-sector image of the SD card.</p>
-    <img src="static/images/download-latestimage.png" width="50%" />
+    <img src="static/images/download-latestimage.png" style="display:block;margin-left:auto;margin-right:auto;" width="75%" />
  
     <h3>Step #0.B: Install SD card programming utility</h3>
-    <p>Download and install <a target="_blank" href="https://etcher.io/">Etcher</a>.</p>
-    <img src="static/images/download-etcher.png" width="50%" /><br />
-    <img src="static/images/install-etcher.png" width="50%" /><br />
+    <p>Download and install <a target="_blank" href="https://www.balena.io/etcher/">balenaEtcher</a>.</p>
+    <img src="static/images/download-etcher.png" style="display:block;margin-left:auto;margin-right:auto;" width="75%" /><br />
+    <img src="static/images/install-etcher.png" style="display:block;margin-left:auto;margin-right:auto;" width="75%" /><br />
+<!--
     <p>Some general help on programming SD cards can be found on the <a target="_blank" href="http://help.ubuntu.com/community/Installation/FromImgFiles">Ubuntu Image Writer page</a>.
- 
+-->
+
     <h3>Step #0.C: Connect SD card to your computer</h3>
     <p>Use your computer's SD slot or a USB adapter to connect the SD card to your computer.</p>
  
     <h3>Step #0.D: Write the image to your SD card</h3>
     <p>Use Etcher to write the image to your SD card. Etcher will transparently decompress the image on-the-fly before writing it to the SD card.</p>
-    <img src="static/images/write-latestimage.png" width="50%" />
+    <img src="static/images/write-latestimage.png" style="display:block;margin-left:auto;margin-right:auto;" width="75%" />
  
     <h3>Step #0.E: Eject the SD card</h3>
     <p>Eject the newly programmed SD card.</p>
@@ -242,7 +249,7 @@ Browse to web server on Beagle</a></li>
  
 <h1>Start your Beagle</h1>
     <h3><em>If any step fails, it is recommended to update to the <a href="#update">latest
-    software image</a> to use the instructions above.</em></h3>
+    software image</a> using the instructions above.</em></h3>
  
     <a id="step1">
     <h3><img class="steps" src="static/images/btn_step1.gif" />
@@ -251,30 +258,37 @@ Browse to web server on Beagle</a></li>
     <div>
      <p>Most Beagles include a USB cable, providing a convenient way
      to provide both power to your Beagle and connectivity to your computer.
-     If you provide your own, ensure it is of good quality. You'll connect
+     If you provide your own, ensure it is of good quality.
+<!--
+     You'll connect
      the <a href="https://en.wikipedia.org/wiki/USB" class="external">"type-B" plug</a> of
      the USB cable to your Beagle and the "type-A" plug to your computer.
+-->
+     <p>Alternatively, your Beagle may have a barrel jack. The voltage should be 5V
+         except for BeagleBoard-X15 and BeagleBone Blue which use 12V.
+     </p>
      <em>Note that BeagleBoard-X15 must
-     always be powered instead by a 12V adapter with a barrel jack.</em></p>
-     <p>Alternatively, for Beagles other than BeagleBoard-X15 and BeagleBone Blue
-     that require 12V, you can utilize a 5V adapter connected to the barrel
-     jack.</p>
-     <p>If your Beagle was provided with an <a href="https://en.wikipedia.org/wiki/Secure_Digital" class="external">SD (microSD) card</a>, make sure
+     always be powered by a 12V adapter with a barrel jack.</em></p>
+     <p>If you are using your Beagle with an <a href="https://en.wikipedia.org/wiki/Secure_Digital" class="external">SD (microSD) card</a>, make sure
      it is inserted ahead of providing power. Most Beagles include programmed
      on-board flash and therefore do not require an SD card to
      be inserted.
      </p>
      <p></p>
-     <p>You'll see the power (PWR or ON) LED lit steadily. Within a minute or so, you should see the other LEDs blinking in their default configurations.</p>
+     <p>You'll see the power (PWR or ON) LED lit steadily. Within a minute or so, you should see the other LEDs blinking in their default configurations.
+         Consult the Quick Start Guide (QSG) or System Reference Manual (SRM) for your board to locate these LEDs.
+     </p>
      <ul>
       <li>USR0 is typically configured at boot to blink in a heartbeat pattern</li>
       <li>USR1 is typically configured at boot to light during SD (microSD) card accesses</li>
       <li>USR2 is typically configured at boot to light during CPU activity</li>
       <li>USR3 is typically configured at boot to light during eMMC accesses</li>
-      <li>WIFI is typically configured at boot to light with WiFi network association (<em>BeagleBone Blue only</em>)</li>
+      <li>USR4/WIFI is typically configured at boot to light with WiFi (client) network association (<em>BeagleBone Blue and BeagleBone AI only</em>)</li>
      </ul>
+     
+<!--
      <img align="center" width="85%" src="static/images/BlackUSR.png" />
-   
+-->   
     </div>
 </br>
     <a id="step2">
@@ -462,12 +476,14 @@ serial access to older boards, links to the old drivers are below.</p>
    <!-- Content Area - END -->
 </div>
 <div style="clear:both;"></div>
+</font>
+
 </div>
 <div id="list">
 
 </div>
 <br/>
-<div id="createtime">Last updated by default on Mon May 13 2019 18:56:56 GMT-0000 (UTC).</div>
+<div id="createtime">Last updated by default on Fri Aug 02 2019 12:13:01 GMT-0000 (UTC).</div>
 
      <div style="display:none;">1720249</div>
 </div></div>
