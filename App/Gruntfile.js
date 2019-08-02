@@ -1,3 +1,5 @@
+// Move me back up a directory when we are ready to build an app
+
 module.exports = function(grunt) {
 
     grunt.initConfig({
