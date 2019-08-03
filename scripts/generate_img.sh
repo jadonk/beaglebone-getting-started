@@ -190,8 +190,8 @@ file_copy () {
 	if [ -d ./Drivers ] ; then
 		cp -rv ./Drivers ${TEMPDIR}/disk/
 	fi
-	if [ -d ./Docs ] ; then
-		cp -rv ./Docs ${TEMPDIR}/disk/
+	if [ -d ./static ] ; then
+		cp -rv ./static ${TEMPDIR}/disk/
 	fi
 	if [ -d ./scripts ] ; then
 		cp -rv ./scripts ${TEMPDIR}/disk/
@@ -280,7 +280,7 @@ elif [ "x${image_format}" = "xiso" ] ; then
 	xorrisofs -r -J -o ${imagename}.iso -graft-points \
 		App=./App \
 		Drivers=./Drivers \
-		Docs=./Docs \
+		static=./static \
 		scripts=./scripts \
 		autorun.inf \
 		LICENSE.txt \
