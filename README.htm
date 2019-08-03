@@ -147,15 +147,15 @@ function testForCompletedSteps() {
   }
  }
 }
- 
+
 function foundBone(host) {
  console.log("Found BeagleBone at " + host);
  $('a.bonelink').each(function(i){ $(this).attr('href',"http://"+host); });
  $('a#bonelinktext').html("http://" + host);
  $('ul#quickLinks').html(
-  '<li><a href="http://' + host + '/" class="external">Cloud9 IDE</a></li>' +
-  '<li><a href="ssh://debian@' + host + '/" class="external">SSH server</a></li>' +
-  '<li><a href="http://' + host + ':1880/" class="external">Node-RED</a></li>'
+  '<li class="fmGreen"><a href="http://' + host + '/" class="external">Cloud9 IDE</a></li>' +
+  '<li class="fmGreen"><a href="ssh://debian@' + host + '/" class="external">SSH server</a></li>' +
+  '<li class="fmGreen"><a href="http://' + host + ':1880/" class="external">Node-RED</a></li>'
  );
  $('ul#quickLinks').show();
  step1done = true;
@@ -164,7 +164,16 @@ function foundBone(host) {
  if(typeof ga == "function") {
   ga('send', 'event', 'bonescript', 'connected7', 'getting-started');
  }
-}
+};
+
+function messageFromIframe(event) {
+  console.log(JSON.stringify(event.data));
+  foundBone(event.data.host);
+};
+window.addEventListener('message', messageFromIframe, true);
+//var bblocal_frame = document.getElementById('bblocal');
+//bblocal_frame.addEventListener('message', messageFromIframe);
+
   </script>
  </head>
  <body>
@@ -296,7 +305,8 @@ Browse to web server on Beagle</a></li>
     <p>If connected via USB, a network adapter should show up on your computer. Your Beagle should be running a DHCP server that will provide your computer with an IP address of either 192.168.7.1 or 192.168.6.1, depending on the type of USB network adapter supported by your computer's operating system. Your Beagle will reserve 192.168.7.2 or 192.168.6.2 for itself.</p>
     <p>If your Beagle includes WiFi, an access point called "BeagleBone-XXXX" where "XXXX" varies between boards. The access point password defaults to "BeagleBone". Your Beagle should be running a DHCP server that will provide your computer with an IP address in the 192.168.8.x range and reserve 192.168.8.1 for itself.</p>
     <p>If your Beagle is connected to your local area network (LAN) via either Ethernet or WiFi, it will utilize <a href="https://en.wikipedia.org/wiki/Multicast_DNS" class="external">mDNS</a> to broadcast itself to your computer. If your computer supports mDNS, you should see your Beagle as beaglebone.local. <em>Non-BeagleBone boards will utilize alternate names. Multiple BeagleBone boards on the same network will add a suffix such as beaglebone-2.local.</em></p>
-    <p>The below table summarizes the typical addresses and should dynamically update to indicate an active connection. <em>Note that you must load <a href="http://beagleboard.org/getting-started">this page</a> without HTTPS security for the automatic detection to work.</em></p>
+    <p>The below table summarizes the typical addresses and should dynamically update to indicate an active connection.</>
+    <p><small><b>Note:</b>&nbsp;You must "load unsafe scripts" or load <a href="http://beagleboard.org/getting-started">this page</a> without HTTPS security for the automatic detection to work.</small></p>
     <table border="0">
      <tr>
       <th>IP Address</th>
@@ -308,33 +318,49 @@ Browse to web server on Beagle</a></li>
       <td>192.168.7.2</td>
       <td>USB</td>
       <td>Windows</td>
-      <td><iframe style="height:15px;width:90px;" frameborder="0" sandbox="allow-same-origin allow-scripts" src="https://beagleboard.org/testconn.htm?host=192.168.7.2">Inactive</iframe></td>
+      <td><iframe style="height:15px;width:90px;" frameborder="0" src="static/testconn.htm?host=192.168.7.2">Inactive</iframe></td>
      </tr>
      <tr>
       <td>192.168.6.2</td>
       <td>USB</td>
       <td>Mac OS X, Linux</td>
-      <td><iframe style="height:15px;width:90px;" frameborder="0" sandbox="allow-same-origin allow-scripts" src="https://beagleboard.org/testconn.htm?host=192.168.6.2">Inactive</iframe></td>
+      <td><iframe style="height:15px;width:90px;" frameborder="0" src="static/testconn.htm?host=192.168.6.2">Inactive</iframe></td>
      </tr>
      <tr>
       <td>192.168.8.1</td>
       <td>WiFi</td>
       <td>all</td>
-      <td><iframe style="height:15px;width:90px;" frameborder="0" sandbox="allow-same-origin allow-scripts" src="https://beagleboard.org/testconn.htm?host=192.168.8.1">Inactive</iframe></td>
+      <td><iframe style="height:15px;width:90px;" frameborder="0" src="static/testconn.htm?host=192.168.8.1">Inactive</iframe></td>
      </tr>
      <tr>
       <td>beaglebone.local</td>
       <td>all</td>
       <td>mDNS enabled</td>
-      <td><iframe style="height:15px;width:90px;" frameborder="0" sandbox="allow-same-origin allow-scripts" src="https://beagleboard.org/testconn.htm?host=beaglebone.local">Inactive</iframe></td>
+      <td><iframe style="height:15px;width:90px;" frameborder="0" src="static/testconn.htm?host=beaglebone.local&frame=bblocal">Inactive</iframe></td>
      </tr>
      <tr>
       <td>beaglebone-2.local</td>
       <td>all</td>
       <td>mDNS enabled</td>
-      <td><iframe style="height:15px;width:90px;" frameborder="0" sandbox="allow-same-origin allow-scripts" src="https://beagleboard.org/testconn.htm?host=beaglebone-2.local">Inactive</iframe></td>
+      <td><iframe style="height:15px;width:90px;" frameborder="0" src="static/testconn.htm?host=beaglebone-2.local">Inactive</iframe></td>
      </tr>
     </table>
+
+    <a id="step3">
+    <h3><img class="steps" src="static/images/btn_step3.gif" /><strong>Browse to your Beagle</strong></h3></a>
+    <p>Using either <a class="external" target="_blank" href="https://www.google.com/chrome">Chrome</a> or <a target="_blank" href="http://www.mozilla.org/firefox" class="external">Firefox</a> (Internet Explorer will <b>NOT</b> work), browse to the web server running on your board. It will load a presentation showing you the capabilities of the board. Use the arrow keys on your keyboard to navigate the presentation.</p>
+    <ul class="arrow">
+     <li>Click here to launch: <a id="bonelinktext" class="bonelink external" href="http://192.168.7.2">http://192.168.7.2</a><br />
+        <small>Older software images require you to EJECT the BEAGLE_BONE drive to start the
+        network.  With the latest software image, that step is no longer required.</small>
+     </li>
+    </ul>
+    <a class="bonelink" href="http://192.168.7.2"><img src="static/images/bone101.png" width="600px" /></a>
+ 
+    <h2 id="troubleshooting">Troubleshooting</h2>
+    <p><em>Do not use Internet Explorer.</em></p>
+    <p>Virtual machines are not recommended when using the direct USB connection. It is recommended you use only network connections to your board if you are using a virtual machine.</p>
+    <p>When using 'ssh' with the provided image, the username is 'debian' and the password is 'temppwd'.</p>
     <p>With the latest images, <em>it should no longer be necessary to install drivers</em> for your operating system to give you network-over-USB access to your Beagle. In case you are running an older image, an older operating system or need additional drivers for
 serial access to older boards, links to the old drivers are below.</p>
     <table border="0">
@@ -388,23 +414,7 @@ serial access to older boards, links to the old drivers are below.</p>
      <a target="_blank" class="external" href="https://www.linux-usb.org/gadget/">www.linux-usb.org/gadget/</a> and
      <a target="_blank" class="external" href="https://joshuawise.com/horndis">joshuawise.com/horndis</a>.
     </p>
- 
-    <a id="step3">
-    <h3><img class="steps" src="static/images/btn_step3.gif" /><strong>Browse to your Beagle</strong></h3></a>
-    <p>Using either <a class="external" target="_blank" href="https://www.google.com/chrome">Chrome</a> or <a target="_blank" href="http://www.mozilla.org/firefox" class="external">Firefox</a> (Internet Explorer will <b>NOT</b> work), browse to the web server running on your board. It will load a presentation showing you the capabilities of the board. Use the arrow keys on your keyboard to navigate the presentation.</p>
-    <ul class="arrow">
-     <li>Click here to launch: <a id="bonelinktext" class="bonelink external" href="http://192.168.7.2">http://192.168.7.2</a><br />
-        <small>Older software images require you to EJECT the BEAGLE_BONE drive to start the
-        network.  With the latest software image, that step is no longer required.</small>
-     </li>
-    </ul>
-    <a class="bonelink" href="http://192.168.7.2"><img src="static/images/bone101.png" width="600px" /></a>
- 
-    <h2 id="troubleshooting">Troubleshooting</h2>
-    <p><em>Do not use Internet Explorer.</em></p>
-    <p>Virtual machines are not recommended when using the direct USB connection. It is recommended you use only network connections to your board if you are using a virtual machine.</p>
-    <p>When using 'ssh' with the provided image, the username is 'debian' and the password is 'temppwd'.</p>
-    <p>Visit <a href="https://beagleboard.org/support">beagleboard.org/support</a> for additional debugging tips.</p>
+     <p>Visit <a href="https://beagleboard.org/support">beagleboard.org/support</a> for additional debugging tips.</p>
  
    <h2 id="distros">Other currently available software images</h2>
     <p>Some of the starting images below involve multiple steps to produce an SD card image or otherwise change some of the steps above, so be sure to read all the instructions on their pages. Choose the starting point you want, download or produce the SD card image and follow the steps above.</p>
@@ -483,7 +493,7 @@ serial access to older boards, links to the old drivers are below.</p>
 
 </div>
 <br/>
-<div id="createtime">Last updated by default on Fri Aug 02 2019 12:13:01 GMT-0000 (UTC).</div>
+<div id="createtime">Last updated by default on Sat Aug 03 2019 18:45:40 GMT-0000 (UTC).</div>
 
      <div style="display:none;">1720249</div>
 </div></div>

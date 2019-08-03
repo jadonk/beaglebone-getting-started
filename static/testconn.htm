@@ -1,5 +1,6 @@
 <html>
 <head>
+<base target="_parent" />
 <style type="text/css" media="screen">@import "common.css";</style>
 <style type="text/css" media="screen">@import "beagle.css";</style>
 <script type="text/javascript" src="jquery.js"></script>
@@ -10,14 +11,18 @@ function get(name) {
  return decodeURIComponent(name[1]);
 }
 
+var host = get('host');
+var frameId = get('frame');
+
 function onconnect() {
-  console.log("Connected to " + host);
-  $("div#status").html('<a href="http://' + host + '" class="external" target="_parent"><em>Active</em></a>');
-  if(typeof parent.foundBone == "function") parent.foundBone(host);
+ console.log("Connected to " + host);
+ $("div#status").html('<a href="http://' + host + '" class="external" target="_top"><em>Active</em></a>');
+ window.parent.postMessage({"host": host}, '*'); 
+ //if(typeof parent.foundBone == "function") parent.foundBone(host);
 }
 
-var host = get('host');
 setTargetAddress(host, onconnect);
+setTargetAddress(host+":8000", onconnect);
 
 </script>
 </head>
@@ -25,3 +30,5 @@ setTargetAddress(host, onconnect);
 <div id="status">Inactive</div>
 </body>
 </html>
+
+
