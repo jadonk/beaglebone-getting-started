@@ -1,6 +1,6 @@
 [Autorun]
 shellexecute=START.htm
-icon=Docs\beagle.ico
+icon=static\beagle.ico
 label=BeagleBone Getting Started
 action=Open BeagleBone Getting Started Guide
 
