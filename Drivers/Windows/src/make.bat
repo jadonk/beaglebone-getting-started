@@ -13,14 +13,14 @@ set ZIP_PATH="c:\Program Files\7-Zip"
 del BONE_DRV.7z
 del BONE_D64.7z
 cd files
-%ZIP_PATH%\7z a ..\BONE_DRV.7z *
+%ZIP_PATH%\7z a ..\BONE_DRV.7z * -m0=LZMA
 cd ..
 copy BONE_DRV.7z BONE_D64.7z
 cd dpinst
-%ZIP_PATH%\7z a ..\BONE_DRV.7z dpinst.exe
+%ZIP_PATH%\7z a ..\BONE_DRV.7z dpinst.exe -m0=LZMA
 cd ..
 cd dpinst64
-%ZIP_PATH%\7z a ..\BONE_D64.7z dpinst.exe
+%ZIP_PATH%\7z a ..\BONE_D64.7z dpinst.exe -m0=LZMA
 cd ..
 copy /b 7zSD.sfx + config.txt + BONE_DRV.7z ..\BONE_DRV.exe
 copy /b 7zSD.sfx + config.txt + BONE_D64.7z ..\BONE_D64.exe
