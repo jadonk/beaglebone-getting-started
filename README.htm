@@ -11,7 +11,7 @@
   <style type="text/css" media="screen">@import "static/common.css";</style>
   <style type="text/css" media="screen">@import "static/login.css";</style>
   <style type="text/css" media="screen">@import "static/beagle.css";</style>
-  <script type="text/javascript" src="static/jquery-1.8.3.js"></script>
+  <script type="text/javascript" src="static/jquery-1.8.3.min.js"></script>
   <script type="text/javascript" src="static/jquery.ui.core.js"></script>
   <script type="text/javascript" src="static/jquery.ui.widget.js"></script>
   <script type="text/javascript" src="static/beagleboard.js"></script>
@@ -48,7 +48,10 @@
          <li class='has-sub'><a href='https://beagleboard.org/pocket'><span>&#9654; PocketBeagle &#9664;</span></a></li>
          <li class='has-sub'><a href='https://beagleboard.org/blue'><span>&#9654; BeagleBone Blue  &#9664;</span></a></li>
          <li class='has-sub'><a href='https://beagleboard.org/black'><span>&#9654; BeagleBone Black &#9664;</span></a></li>
+         <li class='has-sub'><a href='https://beagleboard.org/black-industrial'><span>&#9654; BeagleBone Black Industrial &#9664;</span></a></li>
+         <li class='has-sub'><a href='https://beagleboard.org/Kits/Grove'><span>&#9654; PocketBeagle Grove Kit &#9664;</span></a></li>
          <li class='has-sub'><a href='https://beagleboard.org/ai'><span>&#9654; BeagleBone AI &#9664;</span></a></li>
+         <li class='has-sub'><a href='https://beagleboard.org/ai-64'><span>&#9654; BeagleBone AI-64 &#9664;</span></a></li>
          <li class='has-sub'><a href='https://beagleboard.org/black-wireless'><span>&#9654; BeagleBone Black Wireless &#9664;</span></a></li>
          <li class='has-sub'><a href='https://beagleboard.org/green'><span>SeeedStudio BeagleBone Green</span></a></li>
          <li class='has-sub'><a href='https://beagleboard.org/green-wireless'><span>SeeedStudio BeagleBone Green Wireless</span></a></li>
@@ -64,6 +67,9 @@
    <li class='has-sub'><a href='https://beagleboard.org/support'><span>Learn &#8659;</span></a>   
    <ul>
          <li class='has-sub'><a href='https://beagleboard.org/Support/bone101'><span>Introduction</span></a></li>
+         <li class='has-sub'><a href='https://github.com/beagleboard/cloud9-examples' target="_blank"><span>Tutorials &#10138;</span></a></li>
+         <li class='has-sub'><a href='https://beagleboard.org/librobotcontrol'><span>librobotcontrol</span></a></li>
+         <li class='has-sub'><a href='https://beagleboard.org/prucookbook'><span>PRU Cookbook</span></a></li>
          <li class='has-sub'><a href='https://beagleboard.org/books' target="_blank"><span>Books &#10138;</span></a></li>
          <li class='has-sub'><a href='http://elinux.org/BeagleBoard' target="_blank"><span>Wiki &#10138;</span></a></li>
          <li class='has-sub'><a href='https://beagleboard.org/Support/Hardware+Support'><span>Hardware Support</span></a></li>
@@ -86,7 +92,7 @@
    <li class='has-sub'><a href='https://beagleboard.org/Community'><span>Collaborate &#8659;</span></a>
    <ul>
          <li class='has-sub'><a href='https://beagleboard.org/chat'><span>Live Chat</span></a></li>
-         <li class='has-sub'><a href='https://beagleboard.org/discuss'><span>Forums</span></a></li>
+         <li class='has-sub'><a href='https://forum.beagleboard.org'><span>Forums</span></a></li>
          <li class='has-sub'><a href='https://beagleboard.org/p/projects/new'><span>Register Project</span></a></li>
          <li class='has-sub'><a href='https://beagleboard.org/newsletter'><span>Subscribe to Newsletter</span></a></li>
          <li class='has-sub'><a href='https://github.com/beagleboard' target="_blank"><span>Github &#10138;</span></a></li>
@@ -121,7 +127,6 @@
      <div id="contentbuffer">
      <p class="breadcrumb"><a href="https://beagleboard.org/">BeagleBoard.org</a> &rsaquo; <a href="https://beagleboard.org/getting-started/">getting-started</a></p>
      <div id="page">
-<font size="+1">
 <a href="https://github.com/beagleboard/beaglebone-getting-started"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
   <script type="text/javascript" src="static/beagle-ui.js"></script>
   <script type="text/javascript" src="static/bonescript.js"></script>
@@ -253,8 +258,14 @@ Browse to web server on Beagle</a></li>
     <h3>Step #0.F: Boot your board off of the SD card</h3>
     <p>Insert SD card into your (powered-down) board, hold down the USER/BOOT button (if using Black) and apply power, either by the USB cable or 5V adapter.</p>
     <p>If using an original BeagleBone or PocketBeagle, you are done.</p>
-    <p>If using BeagleBone Black and desire to write the image to your on-board eMMC, you'll need to follow the instructions at <a href="http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#Flashing_eMMC">http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#Flashing_eMMC</a>. When the flashing is complete, all 4 USRx LEDs will be steady on or off. The latest Debian flasher images automatically power down the board upon completion.  <em>This can take up to 45 minutes.</em>  Power-down your board, remove the SD card and apply power again to finish.</p>
- 
+    <p>If using BeagleBone Black, BeagleBone Blue, BeagleBone AI or other board 
+    with on-board eMMC flash and you desire to write the image to your on-board 
+    eMMC, you'll need to follow the instructions at
+    <a href="http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#Flashing_eMMC">http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#Flashing_eMMC</a>. 
+    When the flashing is complete, all 4 USRx LEDs will be steady on or off. The latest Debian 
+    flasher images automatically power down the board upon completion.  <em>This 
+    can take up to 45 minutes.</em>  Power-down your board, <em>remove the SD card</em>
+    and apply power again to finish.</p>
  
 <h1>Start your Beagle</h1>
     <h3><em>If any step fails, it is recommended to update to the <a href="#update">latest
@@ -457,6 +468,7 @@ serial access to older boards, links to the old drivers are below.</p>
      <a class="external" href="https://github.com/beagleboard/beaglebone-blue">BeagleBone Blue</a>,
      <a class="external" href="https://github.com/beagleboard/pocketbeagle">PocketBeagle</a>, and
      <a class="external" href="https://github.com/beagleboard/beaglebone-ai">BeagleBone AI</a>.</p>
+     <a class="external" href="https://github.com/beagleboard/beaglebone-ai-64">BeagleBone AI-64</a>.</p>
     <p>Other links to design materials for various releases can be found at
      <a class="external" href="https://beagleboard.org/hardware/design">beagleboard.org/hardware/design</a>.</p>
    
@@ -488,7 +500,6 @@ serial access to older boards, links to the old drivers are below.</p>
    <!-- Content Area - END -->
 </div>
 <div style="clear:both;"></div>
-</font>
 
 </div>
 <div id="list">
