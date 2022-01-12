@@ -184,9 +184,6 @@ create_partitions () {
 
 file_copy () {
 	echo "Copying Files"
-	if [ -d ./App ] ; then
-		cp -rv ./App ${TEMPDIR}/disk/
-	fi
 	if [ -d ./Drivers ] ; then
 		cp -rv ./Drivers ${TEMPDIR}/disk/
 	fi
@@ -209,8 +206,8 @@ file_copy () {
 	if [ -f README.md ] ; then
 		cp -v README.md ${TEMPDIR}/disk/
 	fi
-	if [ -f START.htm ] ; then
-		cp -v START.htm ${TEMPDIR}/disk/
+	if [ -f START.HTM ] ; then
+		cp -v START.HTM ${TEMPDIR}/disk/
 	fi
 	echo "-----------------------------"
 }
