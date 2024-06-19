@@ -25,7 +25,7 @@
   }
  ]
  , "dependencies": {
-  "socket.io": "0.9.11"
+  "socket.io": "2.5.0"
   , "jsdom": "0.2.10"
   , "mdns": "0.0.7"
   , "electron": ">=1.8.2-beta5"
